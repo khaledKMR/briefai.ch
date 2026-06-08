@@ -18,42 +18,37 @@
             background: #f8f9fa;
         }
 
-        nav {
-            background: linear-gradient(135deg, #1A2240 0%, #2D3E5F 100%);
-            color: white;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin-left: 2rem;
-        }
-
-        nav a:hover {
-            opacity: 0.7;
-        }
-
         .container {
             max-width: 900px;
             margin: 0 auto;
-            padding: 4rem 2rem;
+            padding: 3rem 2rem;
             background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .back-link {
+            color: #D63031;
+            text-decoration: none;
+            margin-bottom: 2rem;
+            display: inline-block;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
         }
 
         h1 {
             color: #1A2240;
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
             font-size: 2.5rem;
+        }
+
+        .meta {
+            color: #666;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #D63031;
         }
 
         h2 {
@@ -65,9 +60,15 @@
             padding-bottom: 0.5rem;
         }
 
+        h3 {
+            color: #2D3E5F;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
         p {
             margin-bottom: 1rem;
-            color: #555;
+            line-height: 1.8;
         }
 
         ul {
@@ -77,143 +78,100 @@
 
         li {
             margin-bottom: 0.5rem;
-            color: #555;
         }
 
-        .highlight {
-            background: #fff5f5;
-            padding: 1.5rem;
-            border-left: 4px solid #D63031;
-            margin: 2rem 0;
-            border-radius: 4px;
-        }
-
-        footer {
-            background: #1A2240;
-            color: white;
-            padding: 2rem;
-            text-align: center;
-            margin-top: 3rem;
-        }
-
-        .back-link {
-            display: inline-block;
-            margin-bottom: 2rem;
-            color: #D63031;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .back-link:hover {
-            text-decoration: underline;
+        strong {
+            color: #1A2240;
         }
     </style>
 </head>
 <body>
-    <nav>
-        <div class="logo">📄 BriefAI</div>
-        <div>
-            <a href="index.html">Zurück zur Startseite</a>
-        </div>
-    </nav>
-
     <div class="container">
         <a href="index.html" class="back-link">← Zurück</a>
 
         <h1>Datenschutzerklärung (Privacy Policy)</h1>
-        <p><strong>Gültig ab: 8. Juni 2025</strong></p>
-
-        <h2>1. Verantwortlicher</h2>
-        <p>
-            <strong>BriefAI</strong><br>
-            Betreiber: Khaled Mrah<br>
-            Email: khaled7mrah@gmail.com<br>
-            Land: Schweiz
-        </p>
-
-        <h2>2. Datenerhebung und -verarbeitung</h2>
-        <p>
-            BriefAI ist eine App zur Analyse von offiziellen Dokumenten. Wir verpflichten uns, deine Privatsphäre zu schützen.
-        </p>
-
-        <h3 style="color: #1A2240; margin-top: 1.5rem; font-size: 1.2rem;">Was wir sammeln:</h3>
-        <ul>
-            <li><strong>Deine Briefe/Dokumente:</strong> Diese werden NUR zur Analyse verwendet</li>
-            <li><strong>Automatische Anonymisierung:</strong> AHV-Nummern, IBAN, Telefonnummern werden AUTOMATISCH anonymisiert, bevor sie an Claude AI gesendet werden</li>
-            <li><strong>Keine Speicherung:</strong> Deine Dokumente werden NICHT auf unseren Servern gespeichert</li>
-            <li><strong>Sprache:</strong> Deine Sprachenwahl wird lokal auf deinem Handy gespeichert</li>
-        </ul>
-
-        <div class="highlight">
-            <strong>⚠️ Wichtig:</strong> Bitte teile niemals sensible Daten (AHV, IBAN, Passwörter) in Dokumenten, die du nicht anonymisieren lassen kannst. BriefAI entfernt diese automatisch, aber es ist besser, vorsichtig zu sein.
+        
+        <div class="meta">
+            <p><strong>Gültig ab:</strong> 8. Juni 2026</p>
         </div>
 
-        <h2>3. Claude AI Integration</h2>
-        <p>
-            BriefAI nutzt die <strong>Claude AI API</strong> von Anthropic zur Dokumentenanalyse.
-        </p>
+        <h2>1. Verantwortlicher</h2>
+        <p><strong>BriefAI</strong></p>
+        <p>Land: Schweiz</p>
+
+        <h2>2. Datenerhebung und -verarbeitung</h2>
+        <p>BriefAI <strong>speichert keine Daten</strong> auf Servern. Alle Verarbeitungen finden lokal auf deinem Gerät statt.</p>
+
+        <h3>2.1 Briefinhalte</h3>
+        <p>Wenn du einen Brief analysierst:</p>
         <ul>
-            <li>Deine anonymisierten Daten werden an Claude AI gesendet</li>
-            <li>Claude verarbeitet nur anonymisierte Daten (keine persönlichen Nummern)</li>
-            <li>Claude speichert diese Daten NICHT dauerhaft</li>
-            <li>Für Details siehe: <a href="https://www.anthropic.com/privacy" target="_blank">Anthropic Datenschutz</a></li>
+            <li>Der Brief wird auf deinem Handy <strong>automatisch anonymisiert</strong> (AHV-Nummern, IBAN, Telefonnummern)</li>
+            <li>Der anonymisierte Text wird an Claude AI gesendet</li>
+            <li>Claude analysiert ihn und sendet die Antwort zurück</li>
+            <li><strong>Deine Daten werden nicht gespeichert oder protokolliert</strong></li>
         </ul>
 
-        <h2>4. Deine Rechte</h2>
+        <h3>2.2 Claude AI Integration</h3>
+        <p>BriefAI nutzt Claude AI (Anthropic) für die Briefanalyse.</p>
         <ul>
-            <li>✅ Du kannst jederzeit die App löschen und alle lokalen Daten entfernen</li>
-            <li>✅ Du kannst jede Analyse ablehnen</li>
-            <li>✅ Du hast das Recht auf Datenlöschung (kontaktiere uns)</li>
-            <li>✅ Du kannst deine Spracheinstellungen jederzeit ändern</li>
+            <li>Daten werden über HTTPS verschlüsselt übertragen</li>
+            <li>Claude speichert keine Daten langfristig</li>
+            <li>Siehe <a href="https://www.anthropic.com/privacy" target="_blank">Anthropic Datenschutz</a></li>
         </ul>
 
-        <h2>5. Cookies & Tracking</h2>
-        <p>
-            <strong>BriefAI sammelt KEINE:</strong>
-        </p>
+        <h3>2.3 Keine Cookies oder Tracking</h3>
+        <p>BriefAI:</p>
         <ul>
-            <li>❌ Cookies</li>
-            <li>❌ Tracking-Daten</li>
-            <li>❌ Analytik</li>
-            <li>❌ Standortdaten</li>
-            <li>❌ Geräteinformationen</li>
+            <li>Setzt <strong>keine Cookies</strong></li>
+            <li>Nutzt <strong>kein Tracking</strong> (kein Google Analytics, etc.)</li>
+            <li>Sammelt <strong>keine Nutzungsanalysen</strong></li>
         </ul>
+
+        <h2>3. Anonymisierung</h2>
+        <p>Bevor dein Brief an Claude AI gesendet wird, werden diese Daten automatisch maskiert:</p>
+        <ul>
+            <li><strong>AHV-Nummern:</strong> XXX.XXXX.XXXX</li>
+            <li><strong>IBAN:</strong> XXXX...XXXX</li>
+            <li><strong>Telefonnummern:</strong> XXX XXX XX XX</li>
+        </ul>
+        <p>Dies schützt deine persönlichen Daten vor Analyse.</p>
+
+        <h2>4. Speicherung</h2>
+        <p>BriefAI speichert:</p>
+        <ul>
+            <li>✅ Deine FREE/PRO Zähler (lokal auf deinem Handy)</li>
+            <li>❌ NICHT deine Briefe</li>
+            <li>❌ NICHT deine Analysen</li>
+            <li>❌ NICHT deine E-Mails</li>
+        </ul>
+
+        <h2>5. Deine Rechte</h2>
+        <p>Du hast das Recht auf:</p>
+        <ul>
+            <li>Auskunft über deine Daten</li>
+            <li>Berichtigung falscher Daten</li>
+            <li>Löschung deiner Daten</li>
+            <li>Einschränkung der Verarbeitung</li>
+        </ul>
+        <p><strong>Kontakt für Datenschutzfragen:</strong> Öffne BriefAI und nutze "Kontakt" im Menü</p>
 
         <h2>6. Sicherheit</h2>
+        <p>BriefAI nutzt:</p>
         <ul>
-            <li>Alle Datenübertragungen sind verschlüsselt (HTTPS/TLS)</li>
-            <li>Anonymisierung erfolgt lokal auf deinem Gerät BEVOR Daten gesendet werden</li>
-            <li>Wir speichern deine Briefe NICHT auf Servern</li>
+            <li>HTTPS-Verschlüsselung für alle Datenübertragungen</li>
+            <li>Anonymisierung vor der Datenverarbeitung</li>
+            <li>Keine Langzeitspeicherung</li>
         </ul>
 
-        <h2>7. Kostenlose vs. PRO Version</h2>
-        <ul>
-            <li><strong>Kostenlos (FREE):</strong> 3 Analysen/Monat</li>
-            <li><strong>PRO:</strong> CHF 4.90/Monat oder CHF 29/Jahr → Unbegrenzte Analysen</li>
-            <li>Zahlungen werden über Google Play abgewickelt (Anthropic-Datenschutz gilt)</li>
-        </ul>
+        <h2>7. Änderungen dieser Richtlinie</h2>
+        <p>Wir können diese Datenschutzerklärung jederzeit aktualisieren. Die aktuelle Version ist immer auf dieser Seite verfügbar.</p>
 
         <h2>8. Kontakt</h2>
-        <p>
-            Fragen zum Datenschutz? Schreib uns:
-        </p>
-        <p>
-            <strong>Email:</strong> khaled7mrah@gmail.com<br>
-            <strong>Betreff:</strong> "Datenschutz BriefAI"
-        </p>
+        <p>Fragen zum Datenschutz? Nutze die Kontaktfunktion in der BriefAI App.</p>
 
-        <h2>9. Änderungen</h2>
-        <p>
-            Diese Datenschutzerklärung kann jederzeit angepasst werden. Die aktuellste Version ist immer auf briefai.ch verfügbar.
-        </p>
-
-        <p style="margin-top: 3rem; color: #999; font-size: 0.9rem;">
-            Letzte Aktualisierung: 8. Juni 2025
+        <p style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #ddd; color: #666; font-size: 0.9rem;">
+            Diese Datenschutzerklärung gilt nach Schweizer Recht (FADP - Bundesgesetz über den Datenschutz).
         </p>
     </div>
-
-    <footer>
-        <p>&copy; 2025 BriefAI. Datenschutz ist uns wichtig.</p>
-    </footer>
 </body>
 </html>
