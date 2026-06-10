@@ -31,6 +31,7 @@
         h3 { color: #2D3E5F; margin-top: 1.5rem; margin-bottom: 0.5rem; }
         p { margin-bottom: 1rem; line-height: 1.8; }
         ul { margin-left: 2rem; margin-bottom: 1rem; }
+        ol { margin-left: 2rem; margin-bottom: 1rem; }
         li { margin-bottom: 0.5rem; }
         strong { color: #1A2240; }
         .warning-box {
@@ -40,6 +41,11 @@
         .info-box {
             background: #e8f5e9; border-left: 4px solid #27ae60;
             padding: 1rem 1.5rem; margin: 1rem 0; border-radius: 4px;
+        }
+        .criteria-box {
+            background: #e8f0fe; border-left: 4px solid #1A2240;
+            padding: 1rem 1.5rem; margin: 1rem 0; border-radius: 4px;
+            font-style: italic;
         }
     </style>
 </head>
@@ -59,40 +65,46 @@
     <p><strong>Khaled Mrah</strong><br>
     Schaffhausen, Schweiz<br>
     E-Mail: khaled7mrah@gmail.com</p>
-    <p>Diese Datenschutzerklärung gilt für die Android-App <strong>BriefAI</strong> 
+    <p>Diese Datenschutzerklärung gilt für die Android-App <strong>BriefAI</strong>
     (Package: com.briefai.app) und die Website briefai.ch.</p>
 
     <h2>2. Grundsatz</h2>
-    <p>BriefAI verarbeitet so wenig Daten wie möglich. 
-    Es gibt keine Konten, keine Registrierung und keine Nutzungsprofile. 
+    <p>BriefAI verarbeitet so wenig Daten wie möglich.
+    Es gibt keine Konten, keine Registrierung und keine Nutzungsprofile.
     Briefinhalte werden vor jeder Übertragung automatisch anonymisiert.</p>
+
+    <div class="criteria-box">
+        <p>Die Texterkennung erfolgt lokal auf dem Gerät. Zur Analyse werden
+        ausschliesslich die für die Anfrage erforderlichen Daten verschlüsselt
+        an den KI-Dienst Anthropic übertragen. Eine lokale Anonymisierung
+        sensibler Daten erfolgt vor der Übermittlung, soweit technisch möglich.</p>
+    </div>
 
     <h2>3. Datenfluss — was genau passiert</h2>
 
     <h3>3.1 Briefanalyse (Text manuell eingegeben)</h3>
-    <ol style="margin-left: 2rem; margin-bottom: 1rem;">
+    <ol>
         <li>Du gibst den Brieftext in die App ein</li>
         <li>Die App ersetzt automatisch sensible Daten (AHV, IBAN, Telefon) durch Platzhalter</li>
         <li>Der anonymisierte Text wird an unseren Proxy-Server übertragen</li>
-        <li>Der Proxy leitet die Anfrage an die Anthropic API (USA) weiter</li>
+        <li>Der Proxy leitet die Anfrage verschlüsselt an die Anthropic API (USA) weiter</li>
         <li>Die Analyse wird zurückgegeben und auf deinem Gerät angezeigt</li>
         <li><strong>Kein Original-Brieftext verlässt dein Gerät</strong></li>
     </ol>
 
     <h3>3.2 Briefanalyse via Kamera (OCR)</h3>
-    <ol style="margin-left: 2rem; margin-bottom: 1rem;">
+    <ol>
         <li>Du fotografierst einen Brief</li>
-        <li>Die Texterkennung (OCR) läuft <strong>vollständig lokal</strong> auf deinem Gerät 
+        <li>Die Texterkennung (OCR) läuft <strong>vollständig lokal</strong> auf deinem Gerät
         (Google ML Kit — kein Internet erforderlich)</li>
         <li>Das Foto selbst wird <strong>nicht ins Internet übertragen</strong></li>
         <li>Der erkannte Text durchläuft dieselbe Anonymisierung wie in 3.1</li>
-        <li>Fotos werden temporär im App-Cache gespeichert und beim nächsten 
-        Start der Kamera-Funktion gelöscht</li>
+        <li>Fotos werden nach der Texterkennung sofort vom Gerät gelöscht</li>
     </ol>
 
     <div class="info-box">
-        <strong>Zusammenfassung:</strong> Bilder verlassen dein Gerät nie. 
-        Nur anonymisierter Text wird übertragen.
+        <strong>Zusammenfassung:</strong> Bilder verlassen dein Gerät nie.
+        Nur anonymisierter Text wird verschlüsselt übertragen.
     </div>
 
     <h2>4. Anonymisierung</h2>
@@ -103,15 +115,15 @@
         <li><strong>Schweizer Telefonnummern</strong> (079 123 45 67) → XXX XXX XX XX</li>
         <li><strong>Internationale Nummern</strong> (+41 79..., 0041 79...) → XXX XXX XX XX</li>
     </ul>
-    <p>Die Anonymisierung findet ausschliesslich lokal auf deinem Gerät statt, 
+    <p>Die Anonymisierung findet ausschliesslich lokal auf deinem Gerät statt,
     bevor Daten das Gerät verlassen.</p>
 
     <h2>5. Übertragung an Dritte — Anthropic</h2>
 
     <div class="warning-box">
         <strong>Wichtiger Hinweis zur Datenübertragung in die USA:</strong><br>
-        BriefAI nutzt die KI-API von Anthropic PBC (USA) zur Briefanalyse. 
-        Daten werden in die USA übertragen. Anthropic hat Standardvertragsklauseln (SCCs) 
+        BriefAI nutzt die KI-API von Anthropic PBC (USA) zur Briefanalyse.
+        Daten werden in die USA übertragen. Anthropic hat Standardvertragsklauseln (SCCs)
         gemäss DSGVO Art. 46 implementiert.
     </div>
 
@@ -131,25 +143,26 @@
     </ul>
 
     <h3>5.3 Auftragsverarbeitung</h3>
-    <p>Anthropic PBC ist Auftragsverarbeiter gemäss DSGVO Art. 28. 
-    Die Datenverarbeitung durch Anthropic erfolgt gemäss deren 
-    <a href="https://www.anthropic.com/privacy" target="_blank">Datenschutzrichtlinie</a> 
+    <p>Anthropic PBC ist Auftragsverarbeiter gemäss DSGVO Art. 28.
+    Die Datenverarbeitung durch Anthropic erfolgt gemäss deren
+    <a href="https://www.anthropic.com/privacy" target="_blank">Datenschutzrichtlinie</a>
     und den gültigen Standardvertragsklauseln.</p>
 
     <h3>5.4 Proxy-Server (Cloudflare Workers)</h3>
-    <p>Anfragen werden über einen Cloudflare Worker (briefai-proxy.khaled7mrah.workers.dev) 
-    geleitet. Dies schützt den API-Schlüssel und verhindert, dass er in der App gespeichert wird. 
-    Cloudflare speichert keine Inhalte der Anfragen. 
+    <p>Anfragen werden über einen Cloudflare Worker
+    (briefai-proxy.khaled7mrah.workers.dev) geleitet. Dies schützt den API-Schlüssel
+    und verhindert, dass er in der App gespeichert wird.
+    Cloudflare speichert keine Inhalte der Anfragen.
     Siehe <a href="https://www.cloudflare.com/privacypolicy/" target="_blank">Cloudflare Datenschutz</a>.</p>
 
     <h2>6. Lokale Speicherung auf deinem Gerät</h2>
     <ul>
-        <li><strong>Einwilligung:</strong> Wird lokal gespeichert (SharedPreferences) — 
+        <li><strong>Einwilligung:</strong> Wird lokal gespeichert (SharedPreferences) —
         ob du der Datenschutzerklärung zugestimmt hast</li>
-        <li><strong>Freikontingent:</strong> Anzahl verbleibender kostenloser Analysen 
+        <li><strong>Freikontingent:</strong> Anzahl verbleibender kostenloser Analysen
         (lokal, kein Server)</li>
         <li><strong>PRO-Status:</strong> Lokal gespeichert</li>
-        <li><strong>Fotos:</strong> Temporär im App-Cache, werden nach OCR gelöscht</li>
+        <li><strong>Fotos:</strong> Temporär, werden nach OCR sofort gelöscht</li>
         <li><strong>Briefinhalte:</strong> Werden nicht gespeichert</li>
         <li><strong>Analysen:</strong> Werden nicht gespeichert</li>
     </ul>
@@ -165,16 +178,16 @@
 
     <h2>8. Berechtigungen der App</h2>
     <ul>
-        <li><strong>INTERNET:</strong> Für die Übertragung des anonymisierten Textes 
-        an die Analyse-API</li>
-        <li><strong>CAMERA:</strong> Für das Fotografieren von Briefen. 
+        <li><strong>INTERNET:</strong> Für die verschlüsselte Übertragung des
+        anonymisierten Textes an die Analyse-API</li>
+        <li><strong>CAMERA:</strong> Für das Fotografieren von Briefen.
         Wird nur bei aktiver Nutzung der Kamera-Funktion verwendet.</li>
     </ul>
 
     <h2>9. Rechtsgrundlage</h2>
-    <p>Die Verarbeitung erfolgt auf Grundlage deiner ausdrücklichen Einwilligung 
-    gemäss DSGVO Art. 6 Abs. 1 lit. a, die du beim ersten App-Start erteilst. 
-    Du kannst deine Einwilligung jederzeit in den App-Einstellungen widerrufen. 
+    <p>Die Verarbeitung erfolgt auf Grundlage deiner ausdrücklichen Einwilligung
+    gemäss DSGVO Art. 6 Abs. 1 lit. a, die du beim ersten App-Start erteilst.
+    Du kannst deine Einwilligung jederzeit in den App-Einstellungen widerrufen.
     Nach Widerruf ist eine Nutzung der Analyse-Funktion nicht mehr möglich.</p>
 
     <h2>10. Deine Rechte</h2>
@@ -189,25 +202,26 @@
         <li><strong>Widerruf der Einwilligung</strong> jederzeit möglich</li>
     </ul>
     <p><strong>Kontakt für Datenschutzanfragen:</strong> khaled7mrah@gmail.com</p>
-    <p>Du hast auch das Recht, eine Beschwerde beim 
-    <a href="https://www.edoeb.admin.ch" target="_blank">Eidgenössischen Datenschutz- 
+    <p>Du hast auch das Recht, eine Beschwerde beim
+    <a href="https://www.edoeb.admin.ch" target="_blank">Eidgenössischen Datenschutz-
     und Öffentlichkeitsbeauftragten (EDÖB)</a> einzureichen.</p>
 
     <h2>11. Datensicherheit</h2>
     <ul>
         <li>HTTPS/TLS-Verschlüsselung für alle Übertragungen</li>
         <li>API-Schlüssel nie im App-Code gespeichert (Cloudflare Worker)</li>
-        <li>Anonymisierung vor Datenübertragung</li>
+        <li>Anonymisierung vor jeder Datenübertragung</li>
         <li>Keine Langzeitspeicherung von Briefinhalten</li>
+        <li>Fotos werden nach Texterkennung sofort gelöscht</li>
     </ul>
 
     <h2>12. Änderungen</h2>
-    <p>Änderungen dieser Datenschutzerklärung werden auf dieser Seite veröffentlicht. 
+    <p>Änderungen dieser Datenschutzerklärung werden auf dieser Seite veröffentlicht.
     Bei wesentlichen Änderungen informieren wir dich beim nächsten App-Start.</p>
 
-    <p style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #ddd; 
+    <p style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #ddd;
     color: #666; font-size: 0.9rem;">
-        Diese Datenschutzerklärung gilt nach Schweizer Recht (nDSG) und 
+        Diese Datenschutzerklärung gilt nach Schweizer Recht (nDSG) und
         EU-Datenschutzrecht (DSGVO). Stand: 10. Juni 2026.
     </p>
 </div>
