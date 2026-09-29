@@ -89,7 +89,9 @@
         <li>Der anonymisierte Text wird an unseren Proxy-Server übertragen</li>
         <li>Der Proxy leitet die Anfrage verschlüsselt an die Anthropic API (USA) weiter</li>
         <li>Die Analyse wird zurückgegeben und auf deinem Gerät angezeigt</li>
-        <li><strong>Kein Original-Brieftext verlässt dein Gerät</strong></li>
+        <li><strong>Nur der anonymisierte Text verlässt dein Gerät</strong> — Name, Adresse
+        und der übrige Brieftext bleiben unverändert Teil der Anfrage, sofern sie im Brief
+        stehen</li>
     </ol>
 
     <h3>3.2 Briefanalyse via Kamera (OCR)</h3>
@@ -136,11 +138,18 @@
 
     <h3>5.2 Was NICHT an Anthropic übertragen wird</h3>
     <ul>
-        <li>Original-Brieftext mit echten AHV/IBAN/Telefon-Daten</li>
+        <li>Deine echten AHV-Nummern, IBANs und Telefonnummern (werden durch Platzhalter ersetzt)</li>
         <li>Fotos oder Bilder</li>
-        <li>Name, E-Mail oder andere Identifikationsdaten</li>
         <li>Standortdaten</li>
+        <li>Deine E-Mail-Adresse oder App-Kontodaten (BriefAI hat kein Konto und keine E-Mail-Abfrage)</li>
     </ul>
+
+    <div class="warning-box">
+        <strong>Wichtig — was NICHT anonymisiert wird:</strong> Name, Adresse und der übrige
+        Wortlaut des Briefs werden nicht maskiert. Steht dein Name oder deine Adresse im
+        Brieftext, ist er Teil der Anfrage an Anthropic. Die Anonymisierung beschränkt sich
+        bewusst auf AHV-Nummern, IBANs und Telefonnummern (siehe Abschnitt 4).
+    </div>
 
     <h3>5.3 Auftragsverarbeitung</h3>
     <p>Anthropic PBC ist Auftragsverarbeiter gemäss DSGVO Art. 28.
