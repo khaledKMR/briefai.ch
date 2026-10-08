@@ -56,7 +56,7 @@
     <h1>Datenschutzerklärung</h1>
 
     <div class="meta">
-        <p><strong>Gültig ab:</strong> 10. Juni 2026</p>
+        <p><strong>Gültig ab:</strong> 7. Oktober 2026</p>
         <p><strong>Verantwortlicher:</strong> Khaled Mrah, Schaffhausen, Schweiz</p>
         <p><strong>Kontakt Datenschutz:</strong> khaled.mrah@icloud.com</p>
     </div>
@@ -89,9 +89,10 @@
         <li>Der anonymisierte Text wird an unseren Proxy-Server übertragen</li>
         <li>Der Proxy leitet die Anfrage verschlüsselt an die Anthropic API (USA) weiter</li>
         <li>Die Analyse wird zurückgegeben und auf deinem Gerät angezeigt</li>
-        <li><strong>Nur der anonymisierte Text verlässt dein Gerät</strong> — Name, Adresse
+        <li><strong>Nur der anonymisierte Text verlässt dein Gerät</strong> — Personennamen
         und der übrige Brieftext bleiben unverändert Teil der Anfrage, sofern sie im Brief
-        stehen</li>
+        stehen. Erkannte E-Mail-Adressen und Strassenadressen werden vorher ersetzt
+        (siehe Abschnitt 4)</li>
     </ol>
 
     <h3>3.2 Briefanalyse via Kamera (OCR)</h3>
@@ -112,13 +113,18 @@
     <h2>4. Anonymisierung</h2>
     <p>Folgende Daten werden vor jeder Übertragung automatisch maskiert:</p>
     <ul>
-        <li><strong>AHV-Nummern</strong> (Format 123.4567.8901) → XXX.XXXX.XXXX</li>
+        <li><strong>AHV-Nummern</strong> (Format 756.1234.5678.97) → XXX.XXXX.XXXX.XX</li>
         <li><strong>IBAN</strong> (Format CH93 0076...) → XXXX XXXX XXXX</li>
         <li><strong>Schweizer Telefonnummern</strong> (079 123 45 67) → XXX XXX XX XX</li>
         <li><strong>Internationale Nummern</strong> (+41 79..., 0041 79...) → XXX XXX XX XX</li>
+        <li><strong>E-Mail-Adressen im Brieftext</strong> (z. B. max@beispiel.ch) → [E-MAIL]</li>
+        <li><strong>Strassenadressen im Brieftext</strong> (z. B. Musterstrasse 12, 8001 Zürich) → [ADRESSE]</li>
     </ul>
     <p>Die Anonymisierung findet ausschliesslich lokal auf deinem Gerät statt,
-    bevor Daten das Gerät verlassen.</p>
+    bevor Daten das Gerät verlassen. E-Mail-Adressen und Strassenadressen werden über
+    eine offline arbeitende Texterkennung (Google ML Kit) erkannt — zuverlässig, aber
+    ohne Garantie für jeden Einzelfall. Personennamen werden davon nicht erfasst,
+    siehe Abschnitt 5.2.</p>
 
     <h2>5. Übertragung an Dritte — Anthropic</h2>
 
@@ -131,7 +137,8 @@
 
     <h3>5.1 Was an Anthropic übertragen wird</h3>
     <ul>
-        <li>Anonymisierter Brieftext (ohne AHV, IBAN, Telefon)</li>
+        <li>Anonymisierter Brieftext (ohne AHV, IBAN, Telefon, erkannte E-Mail-Adressen
+        und Strassenadressen)</li>
         <li>Gewählte Sprache (de/fr/it/en/ar/tr/sq)</li>
         <li>Analyse-Anweisung (Prompt)</li>
     </ul>
@@ -139,16 +146,20 @@
     <h3>5.2 Was NICHT an Anthropic übertragen wird</h3>
     <ul>
         <li>Deine echten AHV-Nummern, IBANs und Telefonnummern (werden durch Platzhalter ersetzt)</li>
+        <li>E-Mail-Adressen und Strassenadressen, die BriefAI im Brieftext erkennt
+        (werden durch Platzhalter ersetzt)</li>
         <li>Fotos oder Bilder</li>
         <li>Standortdaten</li>
-        <li>Deine E-Mail-Adresse oder App-Kontodaten (BriefAI hat kein Konto und keine E-Mail-Abfrage)</li>
+        <li>Deine eigene E-Mail-Adresse oder App-Kontodaten (BriefAI hat kein Konto und
+        fragt deine E-Mail-Adresse nie ab)</li>
     </ul>
 
     <div class="warning-box">
-        <strong>Wichtig — was NICHT anonymisiert wird:</strong> Name, Adresse und der übrige
-        Wortlaut des Briefs werden nicht maskiert. Steht dein Name oder deine Adresse im
-        Brieftext, ist er Teil der Anfrage an Anthropic. Die Anonymisierung beschränkt sich
-        bewusst auf AHV-Nummern, IBANs und Telefonnummern (siehe Abschnitt 4).
+        <strong>Wichtig — was NICHT anonymisiert wird:</strong> Personennamen und der übrige
+        Wortlaut des Briefs werden nicht maskiert. Steht dein Name im Brieftext, ist er Teil
+        der Anfrage an Anthropic — BriefAI verspricht keine vollständige Anonymisierung.
+        E-Mail-Adressen und Strassenadressen werden, wenn sie erkannt werden, ersetzt
+        (siehe Abschnitt 4); AHV-Nummern, IBANs und Telefonnummern ebenso.
     </div>
 
     <h3>5.3 Auftragsverarbeitung</h3>
@@ -231,7 +242,7 @@
     <p style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #ddd;
     color: #666; font-size: 0.9rem;">
         Diese Datenschutzerklärung gilt nach Schweizer Recht (nDSG) und
-        EU-Datenschutzrecht (DSGVO). Stand: 10. Juni 2026.
+        EU-Datenschutzrecht (DSGVO). Stand: 7. Oktober 2026.
     </p>
 </div>
 </body>
