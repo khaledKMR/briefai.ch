@@ -4,34 +4,49 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/png" href="Briefai icon 512x512 .png">
-<title>BriefAI — Jeden Schweizer Brief verstehen</title>
-<meta name="description" content="BriefAI erklärt offizielle Schweizer Briefe von AHV, Krankenkasse, Steueramt und mehr in einfacher Sprache — in 7 Sprachen, lokal und sicher. 3 Analysen pro Monat gratis.">
+<title>BriefAI Schweiz – Behördenbriefe verstehen | AHV, Steuern, Krankenkasse</title>
+<meta name="description" content="BriefAI Schweiz erklärt Behördenbriefe von AHV, Krankenkasse und Steueramt einfach — in 7 Sprachen, lokal und sicher. 3 Analysen pro Monat gratis.">
 <link rel="canonical" href="https://briefai.ch/">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="BriefAI">
-<meta property="og:title" content="BriefAI — Jeden Schweizer Brief verstehen">
-<meta property="og:description" content="BriefAI erklärt offizielle Schweizer Briefe von AHV, Krankenkasse, Steueramt und mehr in einfacher Sprache — in 7 Sprachen, lokal und sicher.">
+<meta property="og:site_name" content="BriefAI Schweiz">
+<meta property="og:title" content="BriefAI Schweiz – Behördenbriefe verstehen | AHV, Steuern, Krankenkasse">
+<meta property="og:description" content="BriefAI Schweiz erklärt Behördenbriefe von AHV, Krankenkasse und Steueramt einfach — in 7 Sprachen, lokal und sicher.">
 <meta property="og:url" content="https://briefai.ch/">
-<meta property="og:image" content="https://briefai.ch/Briefai%20icon%20512x512%20.png">
+<meta property="og:image" content="https://briefai.ch/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="og:locale" content="de_CH">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="BriefAI — Jeden Schweizer Brief verstehen">
-<meta name="twitter:description" content="BriefAI erklärt offizielle Schweizer Briefe in einfacher Sprache — in 7 Sprachen, lokal und sicher.">
-<meta name="twitter:image" content="https://briefai.ch/Briefai%20icon%20512x512%20.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="BriefAI Schweiz – Behördenbriefe verstehen">
+<meta name="twitter:description" content="BriefAI Schweiz erklärt Behördenbriefe einfach — in 7 Sprachen, lokal und sicher.">
+<meta name="twitter:image" content="https://briefai.ch/og-image.png">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "MobileApplication",
-  "name": "BriefAI",
-  "operatingSystem": "ANDROID",
-  "applicationCategory": "UtilitiesApplication",
-  "url": "https://briefai.ch/",
-  "description": "BriefAI erklärt offizielle Schweizer Briefe in einfacher Sprache, in 7 Sprachen.",
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "CHF"
-  }
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://briefai.ch/#organization",
+      "name": "BriefAI Schweiz",
+      "url": "https://briefai.ch/",
+      "logo": "https://briefai.ch/Briefai%20icon%20512x512%20.png",
+      "email": "mailto:khaled.mrah@icloud.com"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "BriefAI",
+      "operatingSystem": "ANDROID",
+      "applicationCategory": "UtilitiesApplication",
+      "url": "https://briefai.ch/",
+      "description": "BriefAI erklärt offizielle Schweizer Briefe in einfacher Sprache, in 7 Sprachen.",
+      "publisher": { "@id": "https://briefai.ch/#organization" },
+      "offers": [
+        { "@type": "Offer", "name": "Kostenlos", "price": "0", "priceCurrency": "CHF" },
+        { "@type": "Offer", "name": "PRO Monat", "price": "4.90", "priceCurrency": "CHF" },
+        { "@type": "Offer", "name": "PRO Jahr", "price": "29", "priceCurrency": "CHF" }
+      ]
+    }
+  ]
 }
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -76,7 +91,9 @@ nav {
 @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
 .hero h1 { font-family: 'DM Serif Display', serif; font-size: clamp(3rem, 7vw, 6rem); line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 1.5rem; max-width: 800px; }
 .hero h1 em { font-style: italic; color: var(--red); }
-.hero-sub { font-size: clamp(1rem, 2vw, 1.2rem); color: var(--muted); max-width: 520px; line-height: 1.7; margin-bottom: 2.5rem; }
+.brand-tag { font-size: 0.85rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.75rem; }
+.hero-sub { font-size: clamp(1rem, 2vw, 1.2rem); color: var(--muted); max-width: 520px; line-height: 1.7; margin-bottom: 1.25rem; }
+.hero-langs { font-size: 0.85rem; color: var(--muted); max-width: 520px; margin-bottom: 2.5rem; }
 .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-bottom: 4rem; }
 .btn-main { background: var(--red); color: var(--white); padding: 0.9rem 2rem; border-radius: 10px; text-decoration: none; font-weight: 700; font-size: 1rem; display: inline-flex; align-items: center; gap: 0.5rem; transition: all 0.2s; }
 .btn-main:hover { background: var(--red2); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(214,48,49,0.35); }
@@ -165,6 +182,28 @@ nav {
 .btn-filled { background: var(--red); color: var(--white); }
 .btn-filled:hover { background: var(--red2); box-shadow: 0 6px 20px rgba(214,48,49,0.3); }
 
+.org-tile { max-width: 900px; margin: 2.5rem auto 0; background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px; padding: 1.75rem 2rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; }
+.org-tile h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.3rem; }
+.org-tile p { color: var(--muted); font-size: 0.9rem; }
+
+.waitlist-section { padding: 6rem 2rem; background: rgba(214,48,49,0.04); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); text-align: center; scroll-margin-top: 80px; }
+.waitlist-inner { max-width: 560px; margin: 0 auto; }
+.waitlist-inner .section-title { margin: 0 auto 1rem; }
+.waitlist-inner .section-sub { margin: 0 auto 2.5rem; }
+.hp-field { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+.wl-row { display: flex; gap: 0.75rem; flex-wrap: wrap; justify-content: center; margin-bottom: 1.25rem; }
+.wl-input { flex: 1 1 260px; max-width: 320px; background: rgba(255,255,255,0.06); border: 1px solid var(--border); border-radius: 10px; padding: 0.9rem 1.1rem; color: var(--white); font-size: 1rem; font-family: inherit; }
+.wl-input:focus { outline: none; border-color: rgba(214,48,49,0.5); }
+.wl-input::placeholder { color: var(--muted); }
+.wl-btn { border: none; cursor: pointer; white-space: nowrap; }
+.wl-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+.wl-consent { display: flex; align-items: flex-start; gap: 0.6rem; text-align: left; max-width: 480px; margin: 0 auto; font-size: 0.8rem; color: var(--muted); line-height: 1.5; cursor: pointer; }
+.wl-consent input { margin-top: 0.2rem; flex-shrink: 0; }
+.wl-consent a { color: var(--red); }
+.wl-message { margin-top: 1.25rem; font-size: 0.9rem; min-height: 1.3rem; }
+.wl-message.ok { color: #4ADE80; }
+.wl-message.err { color: #FF6B6B; }
+
 footer { border-top: 1px solid var(--border); padding: 3rem 2.5rem 2rem; }
 .footer-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
 .footer-brand p { color: var(--muted); font-size: 0.875rem; line-height: 1.7; margin-top: 0.75rem; max-width: 280px; }
@@ -179,10 +218,13 @@ footer { border-top: 1px solid var(--border); padding: 3rem 2.5rem 2rem; }
   .nav-links { display: none; }
   .hero { padding: 7rem 1.25rem 4rem; }
   .stats-bar { gap: 1.5rem; padding: 1.5rem 1rem; }
-  .section, .features-section, .privacy-section, .pricing-section, .langs-section { padding: 4rem 1.25rem; }
+  .section, .features-section, .privacy-section, .pricing-section, .langs-section, .waitlist-section { padding: 4rem 1.25rem; }
   .privacy-grid { grid-template-columns: 1fr; gap: 2.5rem; }
   .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
   .footer-bottom { flex-direction: column; text-align: center; }
+  .wl-row { flex-direction: column; align-items: stretch; }
+  .wl-input { max-width: none; }
+  .org-tile { flex-direction: column; align-items: flex-start; text-align: left; }
 }
 @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
 </style>
@@ -196,22 +238,29 @@ footer { border-top: 1px solid var(--border); padding: 3rem 2.5rem 2rem; }
     <li><a href="#features" data-de="Features" data-en="Features">Features</a></li>
     <li><a href="#privacy" data-de="Datenschutz" data-en="Privacy">Datenschutz</a></li>
     <li><a href="#pricing" data-de="Preise" data-en="Pricing">Preise</a></li>
+    <li><a href="ratgeber/" data-de="Ratgeber" data-en="Guides">Ratgeber</a></li>
   </ul>
   <div class="nav-right">
     <div class="lang-switcher">
       <button class="lang-btn active" onclick="setLang('de')">DE</button>
-      <button class="lang-btn" onclick="setLang('en')">EN</button>
+      <!-- EN-Umschalter bewusst ausgeblendet: es gibt noch keine echte,
+           indexierbare englische Seite (nur Text-Swap auf derselben URL).
+           Wieder einblenden, sobald /en/ als eigene Seite existiert. -->
+      <button class="lang-btn" onclick="setLang('en')" style="display:none">EN</button>
     </div>
-    <a href="https://play.google.com/store/apps/details?id=com.briefai.app" class="nav-cta" target="_blank" data-de="App herunterladen" data-en="Download App">App herunterladen</a>
+    <a href="#waitlist" class="nav-cta play-cta" data-de="Warteliste" data-en="Waitlist" data-de-launched="App herunterladen" data-en-launched="Download App" data-play-href="https://play.google.com/store/apps/details?id=com.briefai.app">Warteliste</a>
   </div>
 </nav>
 
+<main>
 <section class="hero">
-  <div class="hero-badge" data-de="Neu auf Google Play" data-en="Now on Google Play">Neu auf Google Play</div>
+  <div class="hero-badge status-badge" data-de="Bald auf Google Play" data-en="Coming soon to Google Play" data-de-launched="Neu auf Google Play" data-en-launched="Now on Google Play" data-de-pre="Bald auf Google Play" data-en-pre="Coming soon to Google Play">Bald auf Google Play</div>
+  <p class="brand-tag" data-de="BriefAI Schweiz" data-en="BriefAI Switzerland">BriefAI Schweiz</p>
   <h1 data-de="Jeden Schweizer<br>Brief <em>verstehen</em>" data-en="Understand every<br>Swiss <em>letter</em>">Jeden Schweizer<br>Brief <em>verstehen</em></h1>
   <p class="hero-sub" data-de="BriefAI analysiert offizielle Briefe von AHV, Krankenkasse, Steueramt und mehr — in 7 Sprachen, lokal und sicher." data-en="BriefAI analyzes official Swiss letters from AHV, health insurance, tax office and more — in 7 languages, locally and securely.">BriefAI analysiert offizielle Briefe von AHV, Krankenkasse, Steueramt und mehr — in 7 Sprachen, lokal und sicher.</p>
+  <p class="hero-langs" data-de='Deutsch · Français · Italiano · Shqip · English · <span dir="rtl" lang="ar">العربية</span> · Türkçe' data-en='Deutsch · Français · Italiano · Shqip · English · <span dir="rtl" lang="ar">العربية</span> · Türkçe'>Deutsch · Français · Italiano · Shqip · English · <span dir="rtl" lang="ar">العربية</span> · Türkçe</p>
   <div class="hero-actions">
-    <a href="https://play.google.com/store/apps/details?id=com.briefai.app" class="btn-main" target="_blank" data-de="📱 Kostenlos herunterladen" data-en="📱 Download for free">📱 Kostenlos herunterladen</a>
+    <a href="#waitlist" class="btn-main play-cta" data-de="🔔 Jetzt vormerken" data-en="🔔 Join the waitlist" data-de-launched="📱 Kostenlos herunterladen" data-en-launched="📱 Download for free" data-play-href="https://play.google.com/store/apps/details?id=com.briefai.app">🔔 Jetzt vormerken</a>
     <a href="#how" class="btn-ghost" data-de="Wie es funktioniert" data-en="How it works">Wie es funktioniert</a>
   </div>
   <div class="stats-bar">
@@ -336,7 +385,7 @@ footer { border-top: 1px solid var(--border); padding: 3rem 2.5rem 2rem; }
           <li data-de="Senioren-Modus" data-en="Senior mode">Senioren-Modus</li>
           <li data-de="Lokale Texterkennung" data-en="Local text recognition">Lokale Texterkennung</li>
         </ul>
-        <a href="https://play.google.com/store/apps/details?id=com.briefai.app" class="price-btn btn-outlined" target="_blank" data-de="Jetzt herunterladen" data-en="Download now">Jetzt herunterladen</a>
+        <a href="#waitlist" class="price-btn btn-outlined play-cta" data-de="Jetzt vormerken" data-en="Join waitlist" data-de-launched="Jetzt herunterladen" data-en-launched="Download now" data-play-href="https://play.google.com/store/apps/details?id=com.briefai.app">Jetzt vormerken</a>
       </div>
       <div class="price-card featured">
         <span class="price-tag tag-pro" data-de="PRO Monat" data-en="PRO Monthly">PRO Monat</span>
@@ -349,7 +398,7 @@ footer { border-top: 1px solid var(--border); padding: 3rem 2.5rem 2rem; }
           <li data-de="Alle Briefkategorien" data-en="All letter categories">Alle Briefkategorien</li>
           <li data-de="Jederzeit kündbar" data-en="Cancel anytime">Jederzeit kündbar</li>
         </ul>
-        <a href="https://play.google.com/store/apps/details?id=com.briefai.app" class="price-btn btn-filled" target="_blank" data-de="PRO werden" data-en="Go PRO">PRO werden</a>
+        <a href="#waitlist" class="price-btn btn-filled play-cta" data-de="Jetzt vormerken" data-en="Join waitlist" data-de-launched="PRO werden" data-en-launched="Go PRO" data-play-href="https://play.google.com/store/apps/details?id=com.briefai.app">Jetzt vormerken</a>
       </div>
       <div class="price-card">
         <span class="price-tag tag-year" data-de="PRO Jahr — 50% Rabatt" data-en="PRO Annual — 50% off">PRO Jahr — 50% Rabatt</span>
@@ -362,20 +411,51 @@ footer { border-top: 1px solid var(--border); padding: 3rem 2.5rem 2rem; }
           <li data-de="Alle Briefkategorien" data-en="All letter categories">Alle Briefkategorien</li>
           <li data-de="Bestes Preis-Leistungs-Verhältnis" data-en="Best value for money">Bestes Preis-Leistungs-Verhältnis</li>
         </ul>
-        <a href="https://play.google.com/store/apps/details?id=com.briefai.app" class="price-btn btn-outlined" target="_blank" data-de="Jahresabo wählen" data-en="Choose annual plan">Jahresabo wählen</a>
+        <a href="#waitlist" class="price-btn btn-outlined play-cta" data-de="Jetzt vormerken" data-en="Join waitlist" data-de-launched="Jahresabo wählen" data-en-launched="Choose annual plan" data-play-href="https://play.google.com/store/apps/details?id=com.briefai.app">Jetzt vormerken</a>
       </div>
+    </div>
+    <div class="org-tile">
+      <div>
+        <h3 data-de="Für Organisationen" data-en="For organizations">Für Organisationen</h3>
+        <p data-de="Lizenzen für Beratungsstellen, Integrationsfachstellen und Schulen." data-en="Licenses for counseling centers, integration offices and schools.">Lizenzen für Beratungsstellen, Integrationsfachstellen und Schulen.</p>
+      </div>
+      <a href="mailto:khaled.mrah@icloud.com?subject=BriefAI%20f%C3%BCr%20Organisationen" class="price-btn btn-outlined" style="width:auto;padding:0.85rem 1.75rem;flex-shrink:0;" data-de="Kontakt aufnehmen" data-en="Get in touch">Kontakt aufnehmen</a>
     </div>
   </div>
 </section>
+
+<section class="waitlist-section" id="waitlist">
+  <div class="waitlist-inner">
+    <div class="section-label" data-de="Warteliste" data-en="Waitlist">Warteliste</div>
+    <h2 class="section-title" data-de="Bald auf Google Play" data-en="Coming soon to Google Play">Bald auf Google Play</h2>
+    <p class="section-sub" data-de="Tragen Sie Ihre E-Mail ein. Wir benachrichtigen Sie, sobald BriefAI verfügbar ist." data-en="Enter your email. We'll notify you as soon as BriefAI is available.">Tragen Sie Ihre E-Mail ein. Wir benachrichtigen Sie, sobald BriefAI verfügbar ist.</p>
+    <form id="waitlist-form" novalidate>
+      <!-- Honeypot: fuer Menschen unsichtbar, Bots fuellen es trotzdem aus. -->
+      <input type="text" name="webseite" id="wl-hp" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <div class="wl-row">
+        <input type="email" id="wl-email" class="wl-input" required maxlength="254"
+               placeholder="ihre@email.ch" data-de-placeholder="ihre@email.ch" data-en-placeholder="your@email.com">
+        <button type="submit" id="wl-submit" class="btn-main wl-btn" data-de="Benachrichtigen" data-en="Notify me">Benachrichtigen</button>
+      </div>
+      <label class="wl-consent">
+        <input type="checkbox" id="wl-consent" required>
+        <span data-de='Ich bin einverstanden, dass BriefAI mich per E-Mail über den Launch informiert. Abmeldung jederzeit möglich. <a href="privacy.html#warteliste">Mehr dazu</a>.' data-en='I agree that BriefAI may email me about the launch. Unsubscribe anytime. <a href="privacy.html#warteliste">Learn more</a>.'>Ich bin einverstanden, dass BriefAI mich per E-Mail über den Launch informiert. Abmeldung jederzeit möglich. <a href="privacy.html#warteliste">Mehr dazu</a>.</span>
+      </label>
+    </form>
+    <p id="wl-message" class="wl-message" role="status" aria-live="polite"></p>
+  </div>
+</section>
+</main>
 
 <footer>
   <div class="footer-inner">
     <div class="footer-brand">
       <div class="nav-logo">📄 Brief<span style="color:var(--red)">AI</span></div>
-      <p data-de="Schweizer Briefe verstehen — für alle, die in der Schweiz leben. Sicher, lokal, in 7 Sprachen." data-en="Understanding Swiss letters — for everyone living in Switzerland. Secure, local, in 7 languages.">Schweizer Briefe verstehen — für alle, die in der Schweiz leben. Sicher, lokal, in 7 Sprachen.</p>
+      <p data-de="BriefAI Schweiz — Behördenbriefe verstehen, für alle, die in der Schweiz leben. Sicher, lokal, in 7 Sprachen." data-en="BriefAI Switzerland — understanding official letters, for everyone living in Switzerland. Secure, local, in 7 languages.">BriefAI Schweiz — Behördenbriefe verstehen, für alle, die in der Schweiz leben. Sicher, lokal, in 7 Sprachen.</p>
     </div>
     <div class="footer-col">
       <h5 data-de="Rechtliches" data-en="Legal">Rechtliches</h5>
+      <a href="impressum.html" data-de="Impressum" data-en="Legal Notice">Impressum</a>
       <a href="privacy.html" data-de="Datenschutz" data-en="Privacy Policy">Datenschutz</a>
       <a href="terms.html" data-de="Nutzungsbedingungen" data-en="Terms of Service">Nutzungsbedingungen</a>
       <a href="security.html" data-de="Sicherheit" data-en="Security">Sicherheit</a>
@@ -383,7 +463,7 @@ footer { border-top: 1px solid var(--border); padding: 3rem 2.5rem 2rem; }
     <div class="footer-col">
       <h5 data-de="Kontakt" data-en="Contact">Kontakt</h5>
       <a href="mailto:Khaled.mrah@icloud.com">Khaled.mrah@icloud.com</a>
-      <a href="https://play.google.com/store/apps/details?id=com.briefai.app" target="_blank">Google Play</a>
+      <a href="#waitlist" class="play-cta" data-de="Warteliste" data-en="Waitlist" data-de-launched="Google Play" data-en-launched="Google Play" data-play-href="https://play.google.com/store/apps/details?id=com.briefai.app">Warteliste</a>
     </div>
   </div>
   <div class="footer-bottom">
@@ -393,6 +473,129 @@ footer { border-top: 1px solid var(--border); padding: 3rem 2.5rem 2rem; }
 </footer>
 
 <script>
+// ============================================================
+// EIN Schalter fuer den Launch-Tag. Siehe docs/LAUNCH-SCHALTER.md
+// fuer die genaue Erklaerung. Auf true setzen, SOBALD BriefAI in
+// Production live ist — ALLE "play-cta"-Elemente (Nav, Hero, alle
+// drei Preis-Buttons, Footer) springen dann automatisch auf den
+// echten Play-Store-Link und ihren echten Text zurueck, der
+// Status-Badge zeigt "Neu auf Google Play" statt "Bald", und das
+// Formular wird durch den direkten Play-Store-Link ersetzt.
+// Nichts davon muss sonst irgendwo im Code geaendert werden.
+const LAUNCHED = false;
+
+const WAITLIST_ENDPOINT = "https://waitlist.briefai.ch/subscribe";
+
+function wendeLaunchStatusAn() {
+  // WICHTIG: Das HTML selbst steht standardmaessig schon auf "noch nicht
+  // live" (href="#waitlist", Text "Jetzt vormerken" / "Bald auf Google
+  // Play") — so bleibt die Seite auch OHNE JavaScript ehrlich (Punkt 7
+  // der Freigabe: Buttons duerfen den Status nie falsch darstellen).
+  // Diese Funktion macht deshalb nur etwas, wenn LAUNCHED auf true steht:
+  // dann springt sie auf die echten Play-Store-Angaben um.
+  if (!LAUNCHED) return;
+  document.querySelectorAll('.play-cta').forEach((el) => {
+    const playHref = el.getAttribute('data-play-href');
+    if (playHref) el.setAttribute('href', playHref);
+    el.setAttribute('target', '_blank');
+    ['de', 'en'].forEach((sprache) => {
+      const echt = el.getAttribute('data-' + sprache + '-launched');
+      if (echt) el.setAttribute('data-' + sprache, echt);
+    });
+  });
+  document.querySelectorAll('.status-badge').forEach((el) => {
+    ['de', 'en'].forEach((sprache) => {
+      const echt = el.getAttribute('data-' + sprache + '-launched');
+      if (echt) el.setAttribute('data-' + sprache, echt);
+    });
+  });
+  // Attribute sind jetzt aktualisiert — Anzeige mit der gerade aktiven
+  // Sprache neu rendern, sonst stehen die neuen Werte nur im DOM-Attribut,
+  // nicht im sichtbaren Text.
+  setLang(document.documentElement.lang || 'de');
+}
+
+function initWaitlistForm() {
+  const form = document.getElementById('waitlist-form');
+  if (!form) return;
+  if (LAUNCHED) {
+    // Nach dem Launch braucht es kein Formular mehr — die play-cta-Links
+    // fuehren dann direkt zu Google Play.
+    document.getElementById('waitlist')?.remove();
+    return;
+  }
+
+  const button = document.getElementById('wl-submit');
+  const message = document.getElementById('wl-message');
+  const emailInput = document.getElementById('wl-email');
+  const consentInput = document.getElementById('wl-consent');
+  const hpInput = document.getElementById('wl-hp');
+
+  form.addEventListener('submit', async (ev) => {
+    ev.preventDefault();
+    message.className = 'wl-message';
+    message.textContent = '';
+
+    const email = emailInput.value.trim();
+    const sprache = document.documentElement.lang || 'de';
+
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
+      message.className = 'wl-message err';
+      message.textContent = sprache === 'en'
+        ? 'Please enter a valid email address.'
+        : 'Bitte eine gültige E-Mail-Adresse angeben.';
+      emailInput.focus();
+      return;
+    }
+    if (!consentInput.checked) {
+      message.className = 'wl-message err';
+      message.textContent = sprache === 'en'
+        ? 'Please accept to continue.'
+        : 'Bitte die Einwilligung bestätigen.';
+      return;
+    }
+
+    button.disabled = true;
+    const urspruenglicherText = button.textContent;
+    button.textContent = sprache === 'en' ? 'Sending…' : 'Senden…';
+
+    try {
+      const antwort = await fetch(WAITLIST_ENDPOINT, {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({
+          email,
+          lang: sprache,
+          consent: consentInput.checked,
+          webseite: hpInput.value, // Honeypot — bleibt fuer Menschen immer leer
+        }),
+      });
+      const daten = await antwort.json().catch(() => ({}));
+
+      if (antwort.ok && daten.ok) {
+        message.className = 'wl-message ok';
+        message.textContent = sprache === 'en'
+          ? "Thanks! We'll email you when BriefAI launches."
+          : 'Danke! Wir melden uns, sobald BriefAI verfügbar ist.';
+        form.reset();
+      } else {
+        message.className = 'wl-message err';
+        message.textContent = daten.error || (sprache === 'en'
+          ? 'Something went wrong. Please try again later.'
+          : 'Etwas ist schiefgelaufen. Bitte später erneut versuchen.');
+      }
+    } catch {
+      message.className = 'wl-message err';
+      message.textContent = sprache === 'en'
+        ? 'The waitlist is currently not reachable. Please try again later.'
+        : 'Die Warteliste ist gerade nicht erreichbar. Bitte später erneut versuchen.';
+    } finally {
+      button.disabled = false;
+      button.textContent = urspruenglicherText;
+    }
+  });
+}
+
 function setLang(lang) {
   document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
   document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
@@ -400,7 +603,11 @@ function setLang(lang) {
     const text = el.getAttribute('data-' + lang);
     if (!text) return;
     if (el.tagName === 'A' || el.tagName === 'BUTTON') { el.textContent = text; return; }
-    if (el.innerHTML.includes('<em>') || el.innerHTML.includes('<span>') || el.innerHTML.includes('<br>')) {
+    // Jedes Tag erkennen, nicht nur die drei fest genannten — sonst zeigt
+    // ein Element mit z. B. <span dir="rtl"> oder <a href="..."> den
+    // rohen HTML-Text an, statt ihn zu rendern (gefunden beim Einbau der
+    // Sprachenzeile und der Einwilligungs-Checkbox, Phase 1, 23.11.2026).
+    if (/<[a-zA-Z]/.test(text)) {
       el.innerHTML = text;
     } else {
       el.textContent = text;
@@ -408,6 +615,9 @@ function setLang(lang) {
   });
   document.documentElement.lang = lang;
 }
+
+wendeLaunchStatusAn();
+initWaitlistForm();
 </script>
 </body>
 </html>

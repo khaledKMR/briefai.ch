@@ -1,0 +1,19 @@
+name = "briefai-waitlist"
+main = "src/worker.js"
+compatibility_date = "2026-11-01"
+
+# NICHT automatisch deployen. Dieser Worker ist Teil von Phase 1
+# (site-seo-launch) und wartet auf die ausdrueckliche Freigabe des
+# Gruenders, bevor er auf Cloudflare aktiviert wird (siehe PROZESS.md
+# in diesem Ordner).
+
+# Nach dem Anlegen des KV-Namespace (siehe PROZESS.md) die ID hier eintragen:
+# [[kv_namespaces]]
+# binding = "WAITLIST_KV"
+# id = "HIER_DIE_ECHTE_KV_NAMESPACE_ID_EINTRAGEN"
+
+# Route auf die eigene Subdomain, damit der bestehende App-Proxy
+# (briefai-proxy.khaled7mrah.workers.dev) unberuehrt bleibt:
+# routes = [
+#   { pattern = "waitlist.briefai.ch/*", zone_name = "briefai.ch" }
+# ]

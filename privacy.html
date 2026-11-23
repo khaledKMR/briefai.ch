@@ -56,7 +56,7 @@
     <h1>Datenschutzerklärung</h1>
 
     <div class="meta">
-        <p><strong>Gültig ab:</strong> 7. Oktober 2026</p>
+        <p><strong>Gültig ab:</strong> 23. November 2026</p>
         <p><strong>Verantwortlicher:</strong> Khaled Mrah, Schaffhausen, Schweiz</p>
         <p><strong>Kontakt Datenschutz:</strong> khaled.mrah@icloud.com</p>
     </div>
@@ -129,10 +129,12 @@
     <h2>5. Übertragung an Dritte — Anthropic</h2>
 
     <div class="warning-box">
-        <strong>Wichtiger Hinweis zur Datenübertragung in die USA:</strong><br>
-        BriefAI nutzt die KI-API von Anthropic PBC (USA) zur Briefanalyse.
-        Daten werden in die USA übertragen. Anthropic hat Standardvertragsklauseln (SCCs)
-        gemäss DSGVO Art. 46 implementiert.
+        <strong>Wichtiger Hinweis zur Datenübertragung:</strong><br>
+        BriefAI nutzt die API von Anthropic (Modell: Claude Haiku 4.5) zur Briefanalyse.
+        Vertragspartei ist Anthropic Ireland, Limited (Details siehe Abschnitt 5.3); Anthropics
+        Infrastruktur kann Daten auch ausserhalb der Schweiz und der EU/des EWR verarbeiten.
+        Für diesen Fall hat Anthropic Standardvertragsklauseln (SCCs) gemäss DSGVO Art. 46
+        implementiert.
     </div>
 
     <h3>5.1 Was an Anthropic übertragen wird</h3>
@@ -162,11 +164,35 @@
         (siehe Abschnitt 4); AHV-Nummern, IBANs und Telefonnummern ebenso.
     </div>
 
-    <h3>5.3 Auftragsverarbeitung</h3>
-    <p>Anthropic PBC ist Auftragsverarbeiter gemäss DSGVO Art. 28.
-    Die Datenverarbeitung durch Anthropic erfolgt gemäss deren
-    <a href="https://www.anthropic.com/privacy" target="_blank">Datenschutzrichtlinie</a>
-    und den gültigen Standardvertragsklauseln.</p>
+    <h3>5.3 Auftragsverarbeitung, Speicherdauer und Modelltraining</h3>
+    <p>Anthropic ist Auftragsverarbeiter gemäss DSGVO Art. 28. Vertragspartei ist gemäss
+    Anthropics <a href="https://www.anthropic.com/legal/commercial-terms" target="_blank">Commercial
+    Terms</a> (Stand 17. Juni 2025) für Kund:innen mit Sitz in der Schweiz, der EU/dem EWR oder
+    Grossbritannien <strong>Anthropic Ireland, Limited</strong> — nicht Anthropic, PBC (USA). Die
+    Datenverarbeitung erfolgt gemäss der Anthropic Data Processing Addendum (DPA), die Bestandteil
+    dieser Terms ist.</p>
+
+    <div class="info-box">
+        <strong>Modelltraining:</strong> Gemäss den Commercial Terms, Abschnitt B, trainiert
+        Anthropic seine Modelle <strong>nicht</strong> mit den über die API gesendeten oder
+        empfangenen Inhalten ("Anthropic may not train models on Customer Content from Services").
+    </div>
+
+    <div class="criteria-box">
+        <strong>Speicherdauer bei Anthropic (Quelle: Anthropics offizielle
+        <a href="https://privacy.claude.com/en/articles/7996866-how-long-do-you-store-my-organization-s-data" target="_blank">Dokumentation</a>,
+        Stand 1. Juli 2026):</strong> Anfragen und Antworten über die API werden
+        <strong>standardmässig innerhalb von 30 Tagen</strong> nach Erhalt bzw. Erzeugung gelöscht.
+        Ausnahmen: Wird eine Anfrage von Anthropics automatisierten Systemen als Verstoss gegen
+        dessen Nutzungsrichtlinie eingestuft, kann sie <strong>bis zu 2 Jahre</strong> aufbewahrt
+        werden; zusätzlich gelten gesetzliche Aufbewahrungspflichten. BriefAI hat mit Anthropic
+        <strong>keine</strong> separate Zero-Data-Retention-Vereinbarung getroffen — es gilt die
+        hier genannte 30-Tage-Standardfrist.
+    </div>
+
+    <p style="font-size:0.85rem;color:#666;">Diese Angaben wurden am 23. November 2026 direkt anhand
+    der oben verlinkten offiziellen Anthropic-Dokumente geprüft. Sollte Anthropic seine Bedingungen
+    ändern, hat die jeweils aktuelle Fassung von Anthropic Vorrang vor dieser Zusammenfassung.</p>
 
     <h3>5.4 Proxy-Server (Cloudflare Workers)</h3>
     <p>Anfragen werden über einen Cloudflare Worker
@@ -204,13 +230,33 @@
         Wird nur bei aktiver Nutzung der Kamera-Funktion verwendet.</li>
     </ul>
 
-    <h2>9. Rechtsgrundlage</h2>
+    <h2 id="warteliste">9. Warteliste auf briefai.ch</h2>
+    <p>Solange BriefAI noch nicht auf Google Play veröffentlicht ist, kannst du dich auf
+    briefai.ch mit deiner E-Mail-Adresse für die Launch-Benachrichtigung eintragen.</p>
+    <p><strong>Was gespeichert wird:</strong> deine E-Mail-Adresse, die Sprache der Seite zum
+    Zeitpunkt der Anmeldung und der Zeitpunkt deiner Einwilligung. <strong>Was NICHT gespeichert
+    wird:</strong> deine IP-Adresse, dein Browser oder Gerät, dein Standort — diese werden
+    höchstens für eine Stunde zur Spam-Abwehr gezählt, aber nie zusammen mit deiner E-Mail-Adresse
+    gespeichert.</p>
+    <p><strong>Rechtsgrundlage:</strong> deine ausdrückliche Einwilligung gemäss DSGVO Art. 6
+    Abs. 1 lit. a, die du beim Absenden des Formulars durch das Ankreuzen der Einwilligungs-Checkbox
+    erteilst.</p>
+    <p><strong>Speicherort und Dauer:</strong> Die Adressen liegen in einem Cloudflare-Worker-KV-Speicher,
+    getrennt von der App und ihrer Analyse-Funktion. Nach der Veröffentlichung von BriefAI und dem
+    Versand der Launch-Benachrichtigung werden alle Adressen gelöscht, spätestens aber 12 Monate
+    nach deiner Anmeldung, falls BriefAI bis dahin nicht erschienen ist.</p>
+    <p><strong>Abmeldung und Löschung:</strong> Nach der Anmeldung erhältst du sofort einen
+    persönlichen Abmelde-Link angezeigt, der deine Adresse ohne weitere Rückfrage löscht. Du kannst
+    jederzeit auch formlos an <a href="mailto:khaled.mrah@icloud.com">khaled.mrah@icloud.com</a>
+    schreiben.</p>
+
+    <h2>10. Rechtsgrundlage der App-Nutzung</h2>
     <p>Die Verarbeitung erfolgt auf Grundlage deiner ausdrücklichen Einwilligung
     gemäss DSGVO Art. 6 Abs. 1 lit. a, die du beim ersten App-Start erteilst.
     Du kannst deine Einwilligung jederzeit in den App-Einstellungen widerrufen.
     Nach Widerruf ist eine Nutzung der Analyse-Funktion nicht mehr möglich.</p>
 
-    <h2>10. Deine Rechte</h2>
+    <h2>11. Deine Rechte</h2>
     <p>Gemäss DSGVO und Schweizer DSG (nDSG) hast du folgende Rechte:</p>
     <ul>
         <li><strong>Auskunft</strong> (Art. 15 DSGVO / Art. 25 nDSG)</li>
@@ -226,7 +272,7 @@
     <a href="https://www.edoeb.admin.ch" target="_blank">Eidgenössischen Datenschutz-
     und Öffentlichkeitsbeauftragten (EDÖB)</a> einzureichen.</p>
 
-    <h2>11. Datensicherheit</h2>
+    <h2>12. Datensicherheit</h2>
     <ul>
         <li>HTTPS/TLS-Verschlüsselung für alle Übertragungen</li>
         <li>API-Schlüssel nie im App-Code gespeichert (Cloudflare Worker)</li>
@@ -235,7 +281,7 @@
         <li>Fotos werden nach Texterkennung sofort gelöscht</li>
     </ul>
 
-    <h2>12. Änderungen</h2>
+    <h2>13. Änderungen</h2>
     <p>Änderungen dieser Datenschutzerklärung werden auf dieser Seite veröffentlicht.
     Bei wesentlichen Änderungen informieren wir dich beim nächsten App-Start.</p>
 
