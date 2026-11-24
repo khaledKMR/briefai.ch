@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Variante B — Titan Cards | BriefAI Swiss Miniature Worlds</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --navy: #0F1729; --navy2: #1A2240; --navy3: #243058;
+  --red: #D63031; --red2: #E84748; --white: #FFFFFF;
+  --off-white: #F4F6FA; --muted: #8A96B0; --border: rgba(255,255,255,0.08);
+  --card-bg: rgba(255,255,255,0.04);
+  --gold: #D5B574; --titan: #E4E5E8; --ivory: #F9F7F2;
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', sans-serif; background: var(--navy); color: var(--white); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 1.25rem 2.5rem; display: flex; align-items: center; justify-content: space-between;
+  background: rgba(15,23,41,0.85); backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo { font-size: 1.25rem; font-weight: 800; letter-spacing: -0.5px; display: flex; align-items: center; gap: 0.5rem; }
+.nav-logo span { color: var(--red); }
+.nav-right { display: flex; align-items: center; gap: 1.5rem; }
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a { color: var(--muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; }
+.lang-switcher { display: flex; background: rgba(255,255,255,0.06); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+.lang-btn { padding: 0.4rem 0.75rem; font-size: 0.8rem; font-weight: 700; border: none; background: transparent; color: var(--muted); letter-spacing: 0.05em; }
+.lang-btn.active { background: var(--red); color: var(--white); }
+.nav-cta { background: var(--red); color: var(--white); padding: 0.6rem 1.4rem; border-radius: 8px; text-decoration: none; font-size: 0.875rem; font-weight: 600; }
+
+.top-spacer { height: 6rem; }
+.section-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+.section-title { font-family: 'DM Serif Display', serif; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 1rem; max-width: 600px; }
+.section-sub { color: var(--muted); font-size: 1.05rem; line-height: 1.7; max-width: 520px; }
+
+.features-section { padding: 5rem 2rem 7rem; background: radial-gradient(ellipse at top, rgba(213,181,116,0.05), transparent 60%); }
+.features-inner { max-width: 1220px; margin: 0 auto; }
+.features-header { text-align: center; margin-bottom: 4rem; }
+.features-header .section-title, .features-header .section-sub { margin-left: auto; margin-right: auto; }
+
+.cat-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.1rem; }
+
+.cat-card {
+  position: relative; display: block; text-decoration: none; color: inherit;
+  background: linear-gradient(180deg, var(--navy3) 0%, var(--navy2) 100%);
+  border: 1px solid rgba(228,229,232,0.16);
+  border-radius: 20px;
+  padding: 1.6rem 1.1rem 1.4rem;
+  text-align: center;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.04) inset, 0 10px 24px rgba(0,0,0,0.25);
+  transition: transform 0.3s cubic-bezier(.2,.8,.2,1), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.cat-card::before {
+  content: ''; position: absolute; top: 0; left: 14%; right: 14%; height: 3px; border-radius: 0 0 4px 4px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  opacity: 0.45; transition: opacity 0.3s ease;
+}
+.cat-card:hover, .cat-card:focus-visible {
+  transform: perspective(700px) rotateX(3deg) translateY(-6px);
+  border-color: rgba(213,181,116,0.45);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.06) inset, 0 24px 40px rgba(0,0,0,0.4);
+}
+.cat-card:hover::before, .cat-card:focus-visible::before { opacity: 1; }
+.cat-card:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+.cat-stage {
+  width: 108px; height: 108px; margin: 0.25rem auto 1.1rem; border-radius: 50%;
+  background: radial-gradient(circle at 50% 35%, rgba(228,229,232,0.16), rgba(228,229,232,0.02) 70%);
+  display: flex; align-items: center; justify-content: center; position: relative;
+}
+.cat-stage img { width: 86%; height: 86%; object-fit: contain; filter: drop-shadow(0 6px 10px rgba(0,0,0,0.4)); transition: transform 0.3s ease; }
+.cat-card:hover .cat-stage img, .cat-card:focus-visible .cat-stage img { transform: scale(1.07); }
+
+.cat-title { font-size: 0.98rem; font-weight: 700; margin-bottom: 0.3rem; }
+.cat-sub { color: var(--muted); font-size: 0.78rem; line-height: 1.5; }
+
+.cat-card.placeholder { opacity: 0.6; background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01)); }
+.cat-card.placeholder::before { display: none; }
+.cat-card.placeholder:hover, .cat-card.placeholder:focus-visible { transform: none; box-shadow: 0 1px 0 rgba(255,255,255,0.04) inset, 0 10px 24px rgba(0,0,0,0.25); border-color: rgba(228,229,232,0.16); }
+.cat-card.placeholder .cat-stage { border: 1px dashed rgba(228,229,232,0.3); background: none; }
+.cat-card.placeholder .cat-title { color: var(--muted); }
+.cat-card.placeholder .pending-pill {
+  position: absolute; top: -8px; right: 10px; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--gold); border: 1px solid rgba(213,181,116,0.4); background: rgba(213,181,116,0.08);
+  padding: 0.2rem 0.5rem; border-radius: 100px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cat-card, .cat-stage img { transition: none !important; }
+  .cat-card:hover, .cat-card:focus-visible { transform: none; }
+}
+
+@media (max-width: 1024px) { .cat-grid { grid-template-columns: repeat(4, 1fr); } }
+@media (max-width: 768px)  { .cat-grid { grid-template-columns: repeat(3, 1fr); } .nav-links{display:none;} nav{padding:1rem 1.25rem;} }
+@media (max-width: 480px)  { .cat-grid { grid-template-columns: repeat(2, 1fr); } .cat-stage{width:88px;height:88px;} .cat-sub{display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden;} }
+@media (max-width: 340px)  { .cat-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">📄 Brief<span>AI</span></div>
+  <ul class="nav-links">
+    <li><a href="#">Wie es funktioniert</a></li>
+    <li><a href="#">Features</a></li>
+    <li><a href="#">Datenschutz</a></li>
+    <li><a href="#">Preise</a></li>
+    <li><a href="#">Ratgeber</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="lang-switcher"><button class="lang-btn active">DE</button><button class="lang-btn">EN</button></div>
+    <a href="#" class="nav-cta">Warteliste</a>
+  </div>
+</nav>
+<div class="top-spacer"></div>
+
+<section class="features-section" id="features">
+  <div class="features-inner">
+    <div class="features-header">
+      <div class="section-label">Briefkategorien</div>
+      <h2 class="section-title">Jeden offiziellen Brief verstehen</h2>
+      <p class="section-sub">Von AHV bis Gericht — BriefAI versteht alle wichtigen Schweizer Behördenbriefe.</p>
+    </div>
+
+    <div class="cat-grid">
+      <a class="cat-card" href="#waitlist">
+        <div class="cat-stage"><img src="../assets/images/categories/ahv-rente.webp" alt="" loading="lazy"></div>
+        <h4 class="cat-title">AHV / Rente</h4>
+        <p class="cat-sub">Alters- &amp; Hinterlassenenversicherung</p>
+      </a>
+      <a class="cat-card" href="#waitlist">
+        <div class="cat-stage"><img src="../assets/images/categories/iv-behinderung.webp" alt="" loading="lazy"></div>
+        <h4 class="cat-title">IV / Behinderung</h4>
+        <p class="cat-sub">Invalidenversicherung</p>
+      </a>
+      <a class="cat-card" href="#waitlist">
+        <div class="cat-stage"><img src="../assets/images/categories/krankenkasse.webp" alt="" loading="lazy"></div>
+        <h4 class="cat-title">Krankenkasse</h4>
+        <p class="cat-sub">Versicherung &amp; Rechnungen</p>
+      </a>
+      <a class="cat-card" href="#waitlist">
+        <div class="cat-stage"><img src="../assets/images/categories/steueramt.webp" alt="" loading="lazy"></div>
+        <h4 class="cat-title">Steueramt</h4>
+        <p class="cat-sub">Steuererklärung &amp; Bescheide</p>
+      </a>
+      <a class="cat-card" href="#waitlist">
+        <div class="cat-stage"><img src="../assets/images/categories/gemeinde.webp" alt="" loading="lazy"></div>
+        <h4 class="cat-title">Gemeinde</h4>
+        <p class="cat-sub">Behörden &amp; Verwaltung</p>
+      </a>
+      <a class="cat-card" href="#waitlist">
+        <div class="cat-stage"><img src="../assets/images/categories/rav-arbeit.webp" alt="" loading="lazy"></div>
+        <h4 class="cat-title">RAV / Arbeit</h4>
+        <p class="cat-sub">Arbeitsamt &amp; Versicherung</p>
+      </a>
+      <a class="cat-card placeholder" href="#waitlist" aria-label="Schule — Bild folgt">
+        <span class="pending-pill">Bild folgt</span>
+        <div class="cat-stage"></div>
+        <h4 class="cat-title">Schule</h4>
+        <p class="cat-sub">Schule &amp; Ausbildung</p>
+      </a>
+      <a class="cat-card placeholder" href="#waitlist" aria-label="Vermieter — Bild folgt">
+        <span class="pending-pill">Bild folgt</span>
+        <div class="cat-stage"></div>
+        <h4 class="cat-title">Vermieter</h4>
+        <p class="cat-sub">Mietverträge &amp; Konflikte</p>
+      </a>
+      <a class="cat-card placeholder" href="#waitlist" aria-label="Gericht — Bild folgt">
+        <span class="pending-pill">Bild folgt</span>
+        <div class="cat-stage"></div>
+        <h4 class="cat-title">Gericht</h4>
+        <p class="cat-sub">Rechtliche Schreiben</p>
+      </a>
+      <a class="cat-card placeholder" href="#waitlist" aria-label="Andere — Bild folgt">
+        <span class="pending-pill">Bild folgt</span>
+        <div class="cat-stage"></div>
+        <h4 class="cat-title">Andere</h4>
+        <p class="cat-sub">Sonstige Briefe</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

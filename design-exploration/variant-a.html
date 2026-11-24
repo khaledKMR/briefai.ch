@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Variante A — Editorial Minimal | BriefAI Swiss Miniature Worlds</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --navy: #0F1729; --navy2: #1A2240; --navy3: #243058;
+  --red: #D63031; --red2: #E84748; --white: #FFFFFF;
+  --off-white: #F4F6FA; --muted: #8A96B0; --border: rgba(255,255,255,0.08);
+  --card-bg: rgba(255,255,255,0.04);
+  --gold: #D5B574; --gold-soft: rgba(213,181,116,0.35);
+  --titan: #E4E5E8; --ivory: #F9F7F2;
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', sans-serif; background: var(--navy); color: var(--white); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 1.25rem 2.5rem; display: flex; align-items: center; justify-content: space-between;
+  background: rgba(15,23,41,0.85); backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo { font-size: 1.25rem; font-weight: 800; letter-spacing: -0.5px; display: flex; align-items: center; gap: 0.5rem; }
+.nav-logo span { color: var(--red); }
+.nav-right { display: flex; align-items: center; gap: 1.5rem; }
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a { color: var(--muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; }
+.lang-switcher { display: flex; background: rgba(255,255,255,0.06); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+.lang-btn { padding: 0.4rem 0.75rem; font-size: 0.8rem; font-weight: 700; border: none; background: transparent; color: var(--muted); letter-spacing: 0.05em; }
+.lang-btn.active { background: var(--red); color: var(--white); }
+.nav-cta { background: var(--red); color: var(--white); padding: 0.6rem 1.4rem; border-radius: 8px; text-decoration: none; font-size: 0.875rem; font-weight: 600; }
+
+.top-spacer { height: 6rem; }
+.section-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+.section-title { font-family: 'DM Serif Display', serif; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 1rem; max-width: 600px; }
+.section-sub { color: var(--muted); font-size: 1.05rem; line-height: 1.7; max-width: 520px; }
+
+.features-section { padding: 5rem 2rem 7rem; }
+.features-inner { max-width: 1180px; margin: 0 auto; }
+.features-header { text-align: center; margin-bottom: 4.5rem; }
+.features-header .section-title, .features-header .section-sub { margin-left: auto; margin-right: auto; }
+
+.cat-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.5rem 1rem;
+}
+.cat-card {
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  text-decoration: none; color: inherit;
+  padding: 1.75rem 1rem 2rem;
+  border-radius: 16px;
+  transition: background 0.25s ease;
+}
+.cat-card:hover, .cat-card:focus-visible { background: rgba(255,255,255,0.03); }
+.cat-card:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
+
+.cat-img-wrap { width: 120px; height: 120px; margin-bottom: 1.25rem; position: relative; }
+.cat-img-wrap img {
+  width: 100%; height: 100%; object-fit: contain;
+  transition: transform 0.35s cubic-bezier(.2,.8,.2,1), filter 0.35s ease;
+  filter: drop-shadow(0 8px 16px rgba(0,0,0,0.35));
+}
+.cat-card:hover .cat-img-wrap img, .cat-card:focus-visible .cat-img-wrap img {
+  transform: translateY(-8px) scale(1.06);
+  filter: drop-shadow(0 20px 28px rgba(213,181,116,0.28));
+}
+
+.cat-title { font-size: 1rem; font-weight: 700; margin-bottom: 0.3rem; position: relative; display: inline-block; }
+.cat-title::after {
+  content: ''; position: absolute; left: 50%; bottom: -6px; height: 1px; width: 0;
+  background: var(--gold); transform: translateX(-50%);
+  transition: width 0.3s ease;
+}
+.cat-card:hover .cat-title::after, .cat-card:focus-visible .cat-title::after { width: 70%; }
+.cat-sub { color: var(--muted); font-size: 0.8rem; line-height: 1.5; max-width: 15ch; }
+
+.cat-card.placeholder { opacity: 0.55; }
+.cat-card.placeholder .cat-img-wrap {
+  border: 1px dashed rgba(255,255,255,0.22); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+}
+.cat-card.placeholder .pending-tag {
+  font-size: 0.65rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--muted);
+}
+.cat-card.placeholder .cat-title { color: var(--muted); }
+.cat-card.placeholder:hover { background: none; }
+.cat-card.placeholder .cat-img-wrap img { display: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .cat-img-wrap img, .cat-title::after { transition: none !important; }
+}
+
+@media (max-width: 1024px) { .cat-grid { grid-template-columns: repeat(4, 1fr); } }
+@media (max-width: 768px)  { .cat-grid { grid-template-columns: repeat(3, 1fr); } .nav-links{display:none;} nav{padding:1rem 1.25rem;} }
+@media (max-width: 480px)  { .cat-grid { grid-template-columns: repeat(2, 1fr); } .cat-img-wrap{width:92px;height:92px;} .cat-sub{display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden;} }
+@media (max-width: 340px)  { .cat-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">📄 Brief<span>AI</span></div>
+  <ul class="nav-links">
+    <li><a href="#">Wie es funktioniert</a></li>
+    <li><a href="#">Features</a></li>
+    <li><a href="#">Datenschutz</a></li>
+    <li><a href="#">Preise</a></li>
+    <li><a href="#">Ratgeber</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="lang-switcher"><button class="lang-btn active">DE</button><button class="lang-btn">EN</button></div>
+    <a href="#" class="nav-cta">Warteliste</a>
+  </div>
+</nav>
+<div class="top-spacer"></div>
+
+<section class="features-section" id="features">
+  <div class="features-inner">
+    <div class="features-header">
+      <div class="section-label">Briefkategorien</div>
+      <h2 class="section-title">Jeden offiziellen Brief verstehen</h2>
+      <p class="section-sub">Von AHV bis Gericht — BriefAI versteht alle wichtigen Schweizer Behördenbriefe.</p>
+    </div>
+
+    <div class="cat-grid">
+      <a class="cat-card" href="#waitlist">
+        <div class="cat-img-wrap"><img src="../assets/images/categories/ahv-rente.webp" alt="" loading="lazy"></div>
+        <h4 class="cat-title">AHV / Rente</h4>
+        <p class="cat-sub">Alters- &amp; Hinterlassenenversicherung</p>
+      </a>
+      <a class="cat-card" href="#waitlist">
+        <div class="cat-img-wrap"><img src="../assets/images/categories/iv-behinderung.webp" alt="" loading="lazy"></div>
+        <h4 class="cat-title">IV / Behinderung</h4>
+        <p class="cat-sub">Invalidenversicherung</p>
+      </a>
+      <a class="cat-card" href="#waitlist">
+        <div class="cat-img-wrap"><img src="../assets/images/categories/krankenkasse.webp" alt="" loading="lazy"></div>
+        <h4 class="cat-title">Krankenkasse</h4>
+        <p class="cat-sub">Versicherung &amp; Rechnungen</p>
+      </a>
+      <a class="cat-card" href="#waitlist">
+        <div class="cat-img-wrap"><img src="../assets/images/categories/steueramt.webp" alt="" loading="lazy"></div>
+        <h4 class="cat-title">Steueramt</h4>
+        <p class="cat-sub">Steuererklärung &amp; Bescheide</p>
+      </a>
+      <a class="cat-card" href="#waitlist">
+        <div class="cat-img-wrap"><img src="../assets/images/categories/gemeinde.webp" alt="" loading="lazy"></div>
+        <h4 class="cat-title">Gemeinde</h4>
+        <p class="cat-sub">Behörden &amp; Verwaltung</p>
+      </a>
+      <a class="cat-card" href="#waitlist">
+        <div class="cat-img-wrap"><img src="../assets/images/categories/rav-arbeit.webp" alt="" loading="lazy"></div>
+        <h4 class="cat-title">RAV / Arbeit</h4>
+        <p class="cat-sub">Arbeitsamt &amp; Versicherung</p>
+      </a>
+      <a class="cat-card placeholder" href="#waitlist" aria-label="Schule — Bild folgt">
+        <div class="cat-img-wrap"><span class="pending-tag">Bild&nbsp;folgt</span></div>
+        <h4 class="cat-title">Schule</h4>
+        <p class="cat-sub">Schule &amp; Ausbildung</p>
+      </a>
+      <a class="cat-card placeholder" href="#waitlist" aria-label="Vermieter — Bild folgt">
+        <div class="cat-img-wrap"><span class="pending-tag">Bild&nbsp;folgt</span></div>
+        <h4 class="cat-title">Vermieter</h4>
+        <p class="cat-sub">Mietverträge &amp; Konflikte</p>
+      </a>
+      <a class="cat-card placeholder" href="#waitlist" aria-label="Gericht — Bild folgt">
+        <div class="cat-img-wrap"><span class="pending-tag">Bild&nbsp;folgt</span></div>
+        <h4 class="cat-title">Gericht</h4>
+        <p class="cat-sub">Rechtliche Schreiben</p>
+      </a>
+      <a class="cat-card placeholder" href="#waitlist" aria-label="Andere — Bild folgt">
+        <div class="cat-img-wrap"><span class="pending-tag">Bild&nbsp;folgt</span></div>
+        <h4 class="cat-title">Andere</h4>
+        <p class="cat-sub">Sonstige Briefe</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
