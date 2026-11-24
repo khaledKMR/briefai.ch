@@ -24,10 +24,12 @@
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
-  <!-- impressum.html bewusst NICHT gelistet: traegt aktuell robots
-       "noindex" (siehe <meta>), solange Adresse/UID als Platzhalter
-       stehen. Erst nach Befuellung mit echten Daten hier eintragen
-       und noindex entfernen. -->
+  <url>
+    <loc>https://briefai.ch/impressum.html</loc>
+    <lastmod>2026-11-24</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
   <url>
     <loc>https://briefai.ch/ratgeber/</loc>
     <lastmod>2026-11-24</lastmod>
