@@ -119,7 +119,7 @@ const CATEGORIES = {
                en: "Sample employment office, penalty ruling: 5 penalty days for late registration. Objection possible within 30 days." },
     cta: "/ratgeber/rav-brief-einstelltage.html" },
 
-  schule: { tier: "contentOnly", img: null,
+  schule: { tier: "full", img: "/assets/images/categories/schule.webp",
     desc: {
       de: "Briefe der Schule reichen von Elternabend-Einladungen über Zeugnisse bis zu schulrechtlichen Entscheiden wie einer Rückstufung oder einem Schulausschluss. Das Schulwesen ist in der Schweiz kantonal geregelt — eine einheitliche Frist gibt es nicht, die geltende Frist steht auf Ihrem eigenen Brief.",
       en: "School letters range from parent-evening invitations to report cards to formal school decisions like being held back a grade or a school exclusion. Schooling in Switzerland is regulated cantonally — there's no uniform deadline, the deadline that applies is stated on your own letter.",
@@ -132,7 +132,7 @@ const CATEGORIES = {
                en: "Sample school administration: Invitation to a meeting regarding a provisional grade repetition. Response deadline per cantonal school law." },
     cta: null },
 
-  vermieter: { tier: "contentOnly", img: null,
+  vermieter: { tier: "full", img: "/assets/images/categories/vermieter.webp",
     desc: {
       de: "Als Mieterin oder Mieter haben Sie das Recht, die Belege hinter einer Nebenkostenabrechnung einzusehen. Eine feste gesetzliche Frist, um die Abrechnung zu bestreiten, schreibt das Bundesrecht allerdings nicht vor.",
       en: "As a tenant, you have the right to inspect the receipts behind a utility-cost statement. Federal law doesn't set a fixed deadline for disputing the statement.",
@@ -145,7 +145,7 @@ const CATEGORIES = {
                en: "Utility-cost statement 2026: Additional payment CHF 320. Receipt inspection with the landlord possible at any time." },
     cta: "/ratgeber/nebenkostenabrechnung-pruefen.html" },
 
-  gericht: { tier: "contentOnly", img: null,
+  gericht: { tier: "full", img: "/assets/images/categories/gericht.webp",
     desc: {
       de: "Schreiben im Zusammenhang mit einem Gerichtsverfahren reichen von einer Vorladung über einen Strafbefehl der Staatsanwaltschaft bis zur Zivilklage. Ein Strafbefehl kann innert 10 Tagen schriftlich bei der Staatsanwaltschaft angefochten werden — bei anderen Schreiben hängt die Frist von der Verfahrensart ab und steht im Dokument selbst.",
       en: "Letters related to legal proceedings range from a summons to a penalty order from the public prosecutor to a civil lawsuit. A penalty order can be contested in writing with the public prosecutor's office within 10 days — for other letters, the deadline depends on the type of proceeding and is stated in the document itself.",
@@ -158,7 +158,7 @@ const CATEGORIES = {
                en: "Sample canton public prosecutor, penalty order: Fine CHF 300 for a traffic violation. Objection possible within 10 days." },
     cta: null },
 
-  andere: { tier: "contentOnly", img: null,
+  andere: { tier: "full", img: "/assets/images/categories/andere.webp",
     desc: {
       de: "Eine Mahnung kommt von einem privaten Gläubiger, nicht von einer Behörde. Sie setzt Sie rechtlich in Verzug — mit der Folge, dass ab diesem Zeitpunkt Verzugszins anfällt. Ein festes Antwort-Datum schreibt das Gesetz dafür nicht vor.",
       en: "A dunning letter comes from a private creditor, not a public authority. It legally puts you in default, meaning default interest starts accruing — but the law doesn't set a fixed date by which you must respond.",

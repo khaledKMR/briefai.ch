@@ -287,7 +287,7 @@ html[dir="rtl"] .modal-example { border-left: 1px solid var(--border); border-ri
 .privacy-visual { background: var(--card-bg); border: 1px solid var(--border); border-radius: 20px; padding: 2.5rem; }
 .flow-step { display: flex; align-items: center; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid var(--border); }
 .flow-step:last-child { border-bottom: none; }
-.flow-icon { width: 40px; height: 40px; border-radius: 10px; background: rgba(214,48,49,0.1); border: 1px solid rgba(214,48,49,0.2); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+.flow-icon { width: 40px; height: 40px; border-radius: 10px; background: rgba(214,48,49,0.1); border: 1px solid rgba(214,48,49,0.2); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; } .flow-icon img { width: 26px; height: 26px; object-fit: contain; }
 .flow-text h6 { font-size: 0.85rem; font-weight: 600; margin-bottom: 0.15rem; }
 .flow-text p { font-size: 0.75rem; color: var(--muted); }
 .flow-badge { margin-inline-start: auto; font-size: 0.65rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 100px; flex-shrink: 0; }
@@ -492,27 +492,23 @@ html[dir="rtl"] .org-tile { text-align: right; }
         <h4 class="cat-title">URC / Disoccupazione</h4>
         <p class="cat-sub">Ufficio del lavoro e assicurazione</p>
       </button>
-      <button type="button" class="cat-card placeholder" data-cat="schule" aria-haspopup="dialog" aria-label="Scuola — Immagine in arrivo">
-        <span class="pending-pill">Immagine in arrivo</span>
-        <div class="cat-stage"></div>
+      <button type="button" class="cat-card" data-cat="schule" aria-haspopup="dialog">
+        <div class="cat-stage"><img src="/assets/images/categories/schule.webp" alt="" loading="lazy"></div>
         <h4 class="cat-title">Scuola</h4>
         <p class="cat-sub">Scuola e formazione</p>
       </button>
-      <button type="button" class="cat-card placeholder" data-cat="vermieter" aria-haspopup="dialog" aria-label="Locatore — Immagine in arrivo">
-        <span class="pending-pill">Immagine in arrivo</span>
-        <div class="cat-stage"></div>
+      <button type="button" class="cat-card" data-cat="vermieter" aria-haspopup="dialog">
+        <div class="cat-stage"><img src="/assets/images/categories/vermieter.webp" alt="" loading="lazy"></div>
         <h4 class="cat-title">Locatore</h4>
         <p class="cat-sub">Contratti e controversie</p>
       </button>
-      <button type="button" class="cat-card placeholder" data-cat="gericht" aria-haspopup="dialog" aria-label="Tribunale — Immagine in arrivo">
-        <span class="pending-pill">Immagine in arrivo</span>
-        <div class="cat-stage"></div>
+      <button type="button" class="cat-card" data-cat="gericht" aria-haspopup="dialog">
+        <div class="cat-stage"><img src="/assets/images/categories/gericht.webp" alt="" loading="lazy"></div>
         <h4 class="cat-title">Tribunale</h4>
         <p class="cat-sub">Lettere legali</p>
       </button>
-      <button type="button" class="cat-card placeholder" data-cat="andere" aria-haspopup="dialog" aria-label="Altro — Immagine in arrivo">
-        <span class="pending-pill">Immagine in arrivo</span>
-        <div class="cat-stage"></div>
+      <button type="button" class="cat-card" data-cat="andere" aria-haspopup="dialog">
+        <div class="cat-stage"><img src="/assets/images/categories/andere.webp" alt="" loading="lazy"></div>
         <h4 class="cat-title">Altro</h4>
         <p class="cat-sub">Altre lettere</p>
       </button>
@@ -554,11 +550,11 @@ html[dir="rtl"] .org-tile { text-align: right; }
       <div>
         <div class="privacy-visual">
           <p style="font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:1.5rem;">Flusso dei dati</p>
-          <div class="flow-step"><div class="flow-icon">📷</div><div class="flow-text"><h6>Scatta una foto</h6><p>Apri la fotocamera, fotografa la lettera</p></div><span class="flow-badge badge-local">Locale</span></div>
-          <div class="flow-step"><div class="flow-icon">🔍</div><div class="flow-text"><h6>Riconoscimento testo (OCR)</h6><p>ML Kit funziona sul dispositivo</p></div><span class="flow-badge badge-local">Locale</span></div>
-          <div class="flow-step"><div class="flow-icon">🔐</div><div class="flow-text"><h6>Anonimizzazione</h6><p>AVS, IBAN, telefono mascherati</p></div><span class="flow-badge badge-local">Locale</span></div>
-          <div class="flow-step"><div class="flow-icon">☁️</div><div class="flow-text"><h6>Testo anonimizzato → IA</h6><p>Crittografato tramite Cloudflare</p></div><span class="flow-badge badge-enc">Crittografato</span></div>
-          <div class="flow-step"><div class="flow-icon">💾</div><div class="flow-text"><h6>Nessuna memorizzazione</h6><p>Nessun log, nessun tracciamento</p></div><span class="flow-badge badge-no">Mai</span></div>
+          <div class="flow-step"><div class="flow-icon"><img src="/assets/images/flow/foto.webp" alt="" loading="lazy"></div><div class="flow-text"><h6>Scatta una foto</h6><p>Apri la fotocamera, fotografa la lettera</p></div><span class="flow-badge badge-local">Locale</span></div>
+          <div class="flow-step"><div class="flow-icon"><img src="/assets/images/flow/ocr.webp" alt="" loading="lazy"></div><div class="flow-text"><h6>Riconoscimento testo (OCR)</h6><p>ML Kit funziona sul dispositivo</p></div><span class="flow-badge badge-local">Locale</span></div>
+          <div class="flow-step"><div class="flow-icon"><img src="/assets/images/flow/anonymisierung.webp" alt="" loading="lazy"></div><div class="flow-text"><h6>Anonimizzazione</h6><p>AVS, IBAN, telefono mascherati</p></div><span class="flow-badge badge-local">Locale</span></div>
+          <div class="flow-step"><div class="flow-icon"><img src="/assets/images/flow/ki.webp" alt="" loading="lazy"></div><div class="flow-text"><h6>Testo anonimizzato → IA</h6><p>Crittografato tramite Cloudflare</p></div><span class="flow-badge badge-enc">Crittografato</span></div>
+          <div class="flow-step"><div class="flow-icon"><img src="/assets/images/flow/keine-speicherung.webp" alt="" loading="lazy"></div><div class="flow-text"><h6>Nessuna memorizzazione</h6><p>Nessun log, nessun tracciamento</p></div><span class="flow-badge badge-no">Mai</span></div>
         </div>
       </div>
     </div>

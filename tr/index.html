@@ -287,7 +287,7 @@ html[dir="rtl"] .modal-example { border-left: 1px solid var(--border); border-ri
 .privacy-visual { background: var(--card-bg); border: 1px solid var(--border); border-radius: 20px; padding: 2.5rem; }
 .flow-step { display: flex; align-items: center; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid var(--border); }
 .flow-step:last-child { border-bottom: none; }
-.flow-icon { width: 40px; height: 40px; border-radius: 10px; background: rgba(214,48,49,0.1); border: 1px solid rgba(214,48,49,0.2); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+.flow-icon { width: 40px; height: 40px; border-radius: 10px; background: rgba(214,48,49,0.1); border: 1px solid rgba(214,48,49,0.2); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; } .flow-icon img { width: 26px; height: 26px; object-fit: contain; }
 .flow-text h6 { font-size: 0.85rem; font-weight: 600; margin-bottom: 0.15rem; }
 .flow-text p { font-size: 0.75rem; color: var(--muted); }
 .flow-badge { margin-inline-start: auto; font-size: 0.65rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 100px; flex-shrink: 0; }
@@ -492,27 +492,23 @@ html[dir="rtl"] .org-tile { text-align: right; }
         <h4 class="cat-title">İş Kurumu</h4>
         <p class="cat-sub">İş Kurumu ve Sigorta</p>
       </button>
-      <button type="button" class="cat-card placeholder" data-cat="schule" aria-haspopup="dialog" aria-label="Okul — Görsel yakında">
-        <span class="pending-pill">Görsel yakında</span>
-        <div class="cat-stage"></div>
+      <button type="button" class="cat-card" data-cat="schule" aria-haspopup="dialog">
+        <div class="cat-stage"><img src="/assets/images/categories/schule.webp" alt="" loading="lazy"></div>
         <h4 class="cat-title">Okul</h4>
         <p class="cat-sub">Okul ve Eğitim</p>
       </button>
-      <button type="button" class="cat-card placeholder" data-cat="vermieter" aria-haspopup="dialog" aria-label="Ev Sahibi — Görsel yakında">
-        <span class="pending-pill">Görsel yakında</span>
-        <div class="cat-stage"></div>
+      <button type="button" class="cat-card" data-cat="vermieter" aria-haspopup="dialog">
+        <div class="cat-stage"><img src="/assets/images/categories/vermieter.webp" alt="" loading="lazy"></div>
         <h4 class="cat-title">Ev Sahibi</h4>
         <p class="cat-sub">Kira Sözleşmeleri ve Anlaşmazlıklar</p>
       </button>
-      <button type="button" class="cat-card placeholder" data-cat="gericht" aria-haspopup="dialog" aria-label="Mahkeme — Görsel yakında">
-        <span class="pending-pill">Görsel yakında</span>
-        <div class="cat-stage"></div>
+      <button type="button" class="cat-card" data-cat="gericht" aria-haspopup="dialog">
+        <div class="cat-stage"><img src="/assets/images/categories/gericht.webp" alt="" loading="lazy"></div>
         <h4 class="cat-title">Mahkeme</h4>
         <p class="cat-sub">Hukuki Yazışmalar</p>
       </button>
-      <button type="button" class="cat-card placeholder" data-cat="andere" aria-haspopup="dialog" aria-label="Diğer — Görsel yakında">
-        <span class="pending-pill">Görsel yakında</span>
-        <div class="cat-stage"></div>
+      <button type="button" class="cat-card" data-cat="andere" aria-haspopup="dialog">
+        <div class="cat-stage"><img src="/assets/images/categories/andere.webp" alt="" loading="lazy"></div>
         <h4 class="cat-title">Diğer</h4>
         <p class="cat-sub">Diğer Mektuplar</p>
       </button>
@@ -554,11 +550,11 @@ html[dir="rtl"] .org-tile { text-align: right; }
       <div>
         <div class="privacy-visual">
           <p style="font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:1.5rem;">Veri akışı</p>
-          <div class="flow-step"><div class="flow-icon">📷</div><div class="flow-text"><h6>Fotoğraf çekin</h6><p>Kamerayı açın, mektubu fotoğraflayın</p></div><span class="flow-badge badge-local">Yerel</span></div>
-          <div class="flow-step"><div class="flow-icon">🔍</div><div class="flow-text"><h6>Metin tanıma (OCR)</h6><p>ML Kit cihazda çalışır</p></div><span class="flow-badge badge-local">Yerel</span></div>
-          <div class="flow-step"><div class="flow-icon">🔐</div><div class="flow-text"><h6>Anonimleştirme</h6><p>Emeklilik sigortası, IBAN, telefon gizlenir</p></div><span class="flow-badge badge-local">Yerel</span></div>
-          <div class="flow-step"><div class="flow-icon">☁️</div><div class="flow-text"><h6>Anonimleştirilmiş metin → Yapay Zeka</h6><p>Cloudflare üzerinden şifrelenir</p></div><span class="flow-badge badge-enc">Şifreli</span></div>
-          <div class="flow-step"><div class="flow-icon">💾</div><div class="flow-text"><h6>Saklama yok</h6><p>Günlük tutma yok, izleme yok</p></div><span class="flow-badge badge-no">Asla</span></div>
+          <div class="flow-step"><div class="flow-icon"><img src="/assets/images/flow/foto.webp" alt="" loading="lazy"></div><div class="flow-text"><h6>Fotoğraf çekin</h6><p>Kamerayı açın, mektubu fotoğraflayın</p></div><span class="flow-badge badge-local">Yerel</span></div>
+          <div class="flow-step"><div class="flow-icon"><img src="/assets/images/flow/ocr.webp" alt="" loading="lazy"></div><div class="flow-text"><h6>Metin tanıma (OCR)</h6><p>ML Kit cihazda çalışır</p></div><span class="flow-badge badge-local">Yerel</span></div>
+          <div class="flow-step"><div class="flow-icon"><img src="/assets/images/flow/anonymisierung.webp" alt="" loading="lazy"></div><div class="flow-text"><h6>Anonimleştirme</h6><p>Emeklilik sigortası, IBAN, telefon gizlenir</p></div><span class="flow-badge badge-local">Yerel</span></div>
+          <div class="flow-step"><div class="flow-icon"><img src="/assets/images/flow/ki.webp" alt="" loading="lazy"></div><div class="flow-text"><h6>Anonimleştirilmiş metin → Yapay Zeka</h6><p>Cloudflare üzerinden şifrelenir</p></div><span class="flow-badge badge-enc">Şifreli</span></div>
+          <div class="flow-step"><div class="flow-icon"><img src="/assets/images/flow/keine-speicherung.webp" alt="" loading="lazy"></div><div class="flow-text"><h6>Saklama yok</h6><p>Günlük tutma yok, izleme yok</p></div><span class="flow-badge badge-no">Asla</span></div>
         </div>
       </div>
     </div>
