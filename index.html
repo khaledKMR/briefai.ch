@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" dir="ltr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,18 +7,26 @@
 <title>BriefAI Schweiz – Behördenbriefe verstehen | AHV, Steuern, Krankenkasse</title>
 <meta name="description" content="BriefAI Schweiz erklärt Behördenbriefe von AHV, Krankenkasse und Steueramt einfach — in 7 Sprachen, lokal und sicher. 3 Analysen pro Monat gratis.">
 <link rel="canonical" href="https://briefai.ch/">
+<link rel="alternate" hreflang="de" href="https://briefai.ch/">
+<link rel="alternate" hreflang="en" href="https://briefai.ch/en/">
+<link rel="alternate" hreflang="fr" href="https://briefai.ch/fr/">
+<link rel="alternate" hreflang="it" href="https://briefai.ch/it/">
+<link rel="alternate" hreflang="ar" href="https://briefai.ch/ar/">
+<link rel="alternate" hreflang="tr" href="https://briefai.ch/tr/">
+<link rel="alternate" hreflang="sq" href="https://briefai.ch/sq/">
+<link rel="alternate" hreflang="x-default" href="https://briefai.ch/">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="BriefAI Schweiz">
+<meta property="og:site_name" content="BriefAI">
 <meta property="og:title" content="BriefAI Schweiz – Behördenbriefe verstehen | AHV, Steuern, Krankenkasse">
-<meta property="og:description" content="BriefAI Schweiz erklärt Behördenbriefe von AHV, Krankenkasse und Steueramt einfach — in 7 Sprachen, lokal und sicher.">
+<meta property="og:description" content="BriefAI Schweiz erklärt Behördenbriefe von AHV, Krankenkasse und Steueramt einfach — in 7 Sprachen, lokal und sicher. 3 Analysen pro Monat gratis.">
 <meta property="og:url" content="https://briefai.ch/">
 <meta property="og:image" content="https://briefai.ch/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="de_CH">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="BriefAI Schweiz – Behördenbriefe verstehen">
-<meta name="twitter:description" content="BriefAI Schweiz erklärt Behördenbriefe einfach — in 7 Sprachen, lokal und sicher.">
+<meta name="twitter:title" content="BriefAI Schweiz – Behördenbriefe verstehen | AHV, Steuern, Krankenkasse">
+<meta name="twitter:description" content="BriefAI Schweiz erklärt Behördenbriefe von AHV, Krankenkasse und Steueramt einfach — in 7 Sprachen, lokal und sicher. 3 Analysen pro Monat gratis.">
 <meta name="twitter:image" content="https://briefai.ch/og-image.png">
 <script type="application/ld+json">
 {
@@ -38,12 +46,12 @@
       "operatingSystem": "ANDROID",
       "applicationCategory": "UtilitiesApplication",
       "url": "https://briefai.ch/",
-      "description": "BriefAI erklärt offizielle Schweizer Briefe in einfacher Sprache, in 7 Sprachen.",
+      "description": "BriefAI Schweiz erklärt Behördenbriefe von AHV, Krankenkasse und Steueramt einfach — in 7 Sprachen, lokal und sicher. 3 Analysen pro Monat gratis.",
       "publisher": { "@id": "https://briefai.ch/#organization" },
       "offers": [
         { "@type": "Offer", "name": "Kostenlos", "price": "0", "priceCurrency": "CHF" },
         { "@type": "Offer", "name": "PRO Monat", "price": "4.90", "priceCurrency": "CHF" },
-        { "@type": "Offer", "name": "PRO Jahr", "price": "29", "priceCurrency": "CHF" }
+        { "@type": "Offer", "name": "PRO Jahr — 50% Rabatt", "price": "29", "priceCurrency": "CHF" }
       ]
     }
   ]
@@ -59,9 +67,11 @@
   --red: #D63031; --red2: #E84748; --white: #FFFFFF;
   --off-white: #F4F6FA; --muted: #8A96B0; --border: rgba(255,255,255,0.08);
   --card-bg: rgba(255,255,255,0.04);
+  --gold: #D5B574; --titan: #E4E5E8; --ivory: #F9F7F2;
 }
 html { scroll-behavior: smooth; }
 body { font-family: 'Inter', sans-serif; background: var(--navy); color: var(--white); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+html[dir="rtl"] body { direction: rtl; }
 
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
@@ -71,18 +81,66 @@ nav {
 }
 .nav-logo { font-size: 1.25rem; font-weight: 800; letter-spacing: -0.5px; display: flex; align-items: center; gap: 0.5rem; }
 .nav-logo span { color: var(--red); }
-.nav-right { display: flex; align-items: center; gap: 1.5rem; }
+.nav-right { display: flex; align-items: center; gap: 1.25rem; }
 .nav-links { display: flex; gap: 2rem; list-style: none; }
 .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
 .nav-links a:hover { color: var(--white); }
 
-.lang-switcher { display: flex; background: rgba(255,255,255,0.06); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
-.lang-btn { padding: 0.4rem 0.75rem; font-size: 0.8rem; font-weight: 700; cursor: pointer; border: none; background: transparent; color: var(--muted); transition: all 0.2s; letter-spacing: 0.05em; }
-.lang-btn.active { background: var(--red); color: var(--white); }
-.lang-btn:hover:not(.active) { color: var(--white); }
-
 .nav-cta { background: var(--red); color: var(--white); padding: 0.6rem 1.4rem; border-radius: 8px; text-decoration: none; font-size: 0.875rem; font-weight: 600; transition: all 0.2s; }
 .nav-cta:hover { background: var(--red2); transform: translateY(-1px); }
+
+/* Sprachauswahl */
+.lang-switch { position: relative; }
+.lang-switch-btn {
+  display: flex; align-items: center; gap: 0.4rem;
+  background: rgba(255,255,255,0.06); border: 1px solid var(--border); border-radius: 10px;
+  color: var(--white); padding: 0.5rem 0.8rem; font-size: 0.85rem; font-weight: 600; cursor: pointer;
+}
+.lang-switch-btn:hover, .lang-switch-btn:focus-visible { border-color: rgba(213,181,116,0.5); }
+.lang-switch-btn .chev { font-size: 0.65rem; color: var(--gold); }
+.lang-switch-label-short { display: none; }
+/* Sehr schmale Bildschirme (ab 320px): voller Sprachname + Warteliste-Knopf
+   passen nicht nebeneinander in die Nav - Sprachname wird auf den Code
+   verkuerzt, Logo und Knopf leicht verkleinert. Gefunden beim Testen auf
+   exakt 320px (scrollWidth 365 vs. clientWidth 320). */
+@media (max-width: 400px) {
+  .nav-right { gap: 0.5rem; }
+  .nav-logo { font-size: 1.05rem; gap: 0.35rem; }
+  .lang-switch-btn { padding: 0.5rem 0.55rem; }
+  .lang-switch-label-full { display: none; }
+  .lang-switch-label-short { display: inline; }
+  .nav-cta { padding: 0.55rem 0.9rem; font-size: 0.8rem; }
+}
+.lang-switch[data-open="true"] .chev { transform: rotate(180deg); }
+.lang-menu {
+  position: absolute; top: calc(100% + 0.6rem); right: 0; min-width: 210px;
+  background: linear-gradient(180deg, var(--navy3), var(--navy2));
+  border: 1px solid rgba(228,229,232,0.18); border-radius: 14px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.45);
+  padding: 0.4rem; display: none; flex-direction: column; gap: 0.1rem;
+  max-height: 70vh; overflow-y: auto; z-index: 200;
+}
+html[dir="rtl"] .lang-menu { right: auto; left: 0; }
+.lang-switch[data-open="true"] .lang-menu { display: flex; }
+.lang-option {
+  display: flex; align-items: center; justify-content: space-between; gap: 0.75rem;
+  background: none; border: none; color: var(--off-white); text-align: left; text-decoration: none;
+  padding: 0.65rem 0.8rem; border-radius: 9px; font-size: 0.92rem; cursor: pointer;
+}
+html[dir="rtl"] .lang-option { text-align: right; }
+.lang-option:hover, .lang-option:focus-visible { background: rgba(255,255,255,0.06); }
+.lang-option[aria-current="true"] { background: rgba(213,181,116,0.12); }
+.lang-option .native { font-weight: 600; }
+.lang-option .code { font-size: 0.72rem; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; }
+
+.lang-suggest-banner {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 500;
+  background: var(--navy3); border-top: 1px solid rgba(213,181,116,0.3);
+  padding: 0.9rem 1.5rem; display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap;
+  font-size: 0.88rem;
+}
+.lang-suggest-switch { color: var(--gold); font-weight: 700; text-decoration: none; }
+.lang-suggest-dismiss { background: rgba(255,255,255,0.08); border: 1px solid var(--border); color: var(--white); border-radius: 8px; padding: 0.35rem 0.8rem; font-size: 0.82rem; cursor: pointer; }
 
 .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 8rem 2rem 5rem; position: relative; overflow: hidden; }
 .hero::before { content: ''; position: absolute; top: -200px; left: 50%; transform: translateX(-50%); width: 800px; height: 800px; background: radial-gradient(circle, rgba(214,48,49,0.12) 0%, transparent 70%); pointer-events: none; }
@@ -119,17 +177,97 @@ nav {
 .step h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; }
 .step p { color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
 
-.features-section { padding: 6rem 2rem; background: rgba(255,255,255,0.02); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-.features-inner { max-width: 1100px; margin: 0 auto; }
+/* Briefkategorien (Swiss Miniature Worlds, Variante B) */
+.features-section { padding: 6rem 2rem; background: radial-gradient(ellipse at top, rgba(213,181,116,0.05), transparent 60%); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.features-inner { max-width: 1220px; margin: 0 auto; }
 .features-header { text-align: center; margin-bottom: 4rem; }
-.features-header .section-title { margin: 0 auto 1rem; }
-.features-header .section-sub { margin: 0 auto; }
-.features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
-.feat { background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; padding: 1.5rem; transition: all 0.2s; }
-.feat:hover { border-color: rgba(214,48,49,0.25); background: rgba(214,48,49,0.05); }
-.feat-icon { font-size: 1.8rem; margin-bottom: 0.75rem; }
-.feat h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.35rem; }
-.feat p { color: var(--muted); font-size: 0.82rem; line-height: 1.5; }
+.features-header .section-title, .features-header .section-sub { margin: 0 auto 1rem; }
+
+.cat-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.1rem; }
+.cat-card {
+  position: relative; display: block; width: 100%; text-decoration: none; color: inherit; font-family: inherit;
+  background: linear-gradient(180deg, var(--navy3) 0%, var(--navy2) 100%);
+  border: 1px solid rgba(228,229,232,0.16); border-radius: 20px;
+  padding: 1.6rem 1.1rem 1.4rem; text-align: center; min-width: 0; cursor: pointer;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.04) inset, 0 10px 24px rgba(0,0,0,0.25);
+  transition: transform 0.3s cubic-bezier(.2,.8,.2,1), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.cat-card::before {
+  content: ''; position: absolute; top: 0; left: 14%; right: 14%; height: 3px; border-radius: 0 0 4px 4px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent); opacity: 0.45; transition: opacity 0.3s ease;
+}
+.cat-card:hover, .cat-card:focus-visible {
+  transform: perspective(700px) rotateX(3deg) translateY(-6px);
+  border-color: rgba(213,181,116,0.45); box-shadow: 0 1px 0 rgba(255,255,255,0.06) inset, 0 24px 40px rgba(0,0,0,0.4);
+}
+.cat-card:hover::before, .cat-card:focus-visible::before { opacity: 1; }
+.cat-card:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+.cat-stage {
+  width: 108px; height: 108px; margin: 0.25rem auto 1.1rem; border-radius: 50%;
+  background: radial-gradient(circle at 50% 35%, rgba(228,229,232,0.16), rgba(228,229,232,0.02) 70%);
+  display: flex; align-items: center; justify-content: center; position: relative;
+}
+.cat-stage img { width: 86%; height: 86%; object-fit: contain; filter: drop-shadow(0 6px 10px rgba(0,0,0,0.4)); transition: transform 0.3s ease; }
+.cat-card:hover .cat-stage img, .cat-card:focus-visible .cat-stage img { transform: scale(1.07); }
+.cat-title { font-size: 0.98rem; font-weight: 700; margin-bottom: 0.3rem; }
+.cat-sub { color: var(--muted); font-size: 0.78rem; line-height: 1.5; }
+.cat-card.placeholder { opacity: 0.6; background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01)); }
+.cat-card.placeholder::before { display: none; }
+.cat-card.placeholder .cat-stage { border: 1px dashed rgba(228,229,232,0.3); background: none; }
+.cat-card.placeholder .cat-title { color: var(--muted); }
+.cat-card.placeholder .pending-pill {
+  position: absolute; top: -8px; right: 10px; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--gold); border: 1px solid rgba(213,181,116,0.4); background: rgba(213,181,116,0.08); padding: 0.2rem 0.5rem; border-radius: 100px;
+}
+html[dir="rtl"] .cat-card.placeholder .pending-pill { right: auto; left: 10px; }
+@media (max-width: 1024px) { .cat-grid { grid-template-columns: repeat(4, 1fr); } }
+@media (max-width: 768px)  { .cat-grid { grid-template-columns: repeat(3, 1fr); } .nav-links{display:none;} nav{padding:1rem 1.25rem;} }
+@media (max-width: 480px)  { .cat-grid { grid-template-columns: repeat(2, 1fr); } .cat-stage{width:88px;height:88px;} .cat-sub{display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden;} }
+@media (max-width: 340px)  { .cat-grid { grid-template-columns: 1fr; } }
+
+/* Modal */
+.modal-backdrop {
+  position: fixed; inset: 0; background: rgba(5,8,16,0.72); backdrop-filter: blur(4px);
+  display: none; align-items: center; justify-content: center; z-index: 1000; padding: 1.25rem;
+}
+.modal-backdrop[data-open="true"] { display: flex; }
+.modal-box {
+  width: 100%; max-width: 560px; max-height: 88vh; overflow-y: auto;
+  background: linear-gradient(180deg, var(--navy3), var(--navy2));
+  border: 1px solid rgba(228,229,232,0.18); border-radius: 22px; padding: 2rem 1.75rem 1.75rem; position: relative;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+}
+.modal-close {
+  position: absolute; top: 1rem; right: 1rem; width: 40px; height: 40px; border-radius: 50%;
+  background: rgba(255,255,255,0.08); border: 1px solid var(--border); color: var(--white);
+  font-size: 1.1rem; cursor: pointer; display: flex; align-items: center; justify-content: center;
+}
+html[dir="rtl"] .modal-close { right: auto; left: 1rem; }
+.modal-close:hover, .modal-close:focus-visible { background: rgba(255,255,255,0.16); }
+.modal-stage {
+  width: 120px; height: 120px; margin: 0 auto 1.25rem; border-radius: 50%;
+  background: radial-gradient(circle at 50% 35%, rgba(228,229,232,0.18), rgba(228,229,232,0.02) 70%);
+  display: flex; align-items: center; justify-content: center;
+}
+.modal-stage img { width: 84%; height: 84%; object-fit: contain; filter: drop-shadow(0 8px 14px rgba(0,0,0,0.4)); }
+.modal-stage.placeholder { border: 1px dashed rgba(228,229,232,0.3); background: none; }
+.modal-title { font-family: 'DM Serif Display', serif; font-size: 1.6rem; text-align: center; margin-bottom: 0.9rem; }
+.modal-desc { color: rgba(255,255,255,0.88); font-size: 0.98rem; line-height: 1.7; text-align: center; margin-bottom: 1.1rem; }
+.modal-example { background: rgba(255,255,255,0.04); border: 1px solid var(--border); border-left: 3px solid var(--gold); border-radius: 12px; padding: 1rem 1.1rem; margin-bottom: 1.3rem; }
+html[dir="rtl"] .modal-example { border-left: 1px solid var(--border); border-right: 3px solid var(--gold); }
+.modal-example .tag { display: block; font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold); margin-bottom: 0.4rem; }
+.modal-example p { font-family: ui-monospace, monospace; font-size: 0.85rem; color: rgba(255,255,255,0.75); }
+.speak-row { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.4rem; }
+.lang-chip {
+  min-width: 44px; min-height: 36px; padding: 0.3rem 0.6rem; border-radius: 100px; font-size: 0.75rem; font-weight: 700;
+  background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: var(--off-white); cursor: pointer;
+}
+.lang-chip[aria-pressed="true"] { background: var(--gold); color: var(--navy); border-color: var(--gold); }
+.lang-chip:disabled { opacity: 0.35; cursor: not-allowed; }
+.modal-cta { display: block; text-align: center; background: var(--red); color: var(--white); text-decoration: none;
+  font-weight: 700; padding: 0.9rem 1.5rem; border-radius: 12px; font-size: 0.95rem; }
+.modal-cta:hover { background: var(--red2); }
+.modal-note { color: var(--muted); font-size: 0.82rem; text-align: center; margin-bottom: 1.1rem; }
 
 .langs-section { padding: 6rem 2rem; }
 .langs-inner { max-width: 1100px; margin: 0 auto; }
@@ -152,7 +290,7 @@ nav {
 .flow-icon { width: 40px; height: 40px; border-radius: 10px; background: rgba(214,48,49,0.1); border: 1px solid rgba(214,48,49,0.2); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
 .flow-text h6 { font-size: 0.85rem; font-weight: 600; margin-bottom: 0.15rem; }
 .flow-text p { font-size: 0.75rem; color: var(--muted); }
-.flow-badge { margin-left: auto; font-size: 0.65rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 100px; flex-shrink: 0; }
+.flow-badge { margin-inline-start: auto; font-size: 0.65rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 100px; flex-shrink: 0; }
 .badge-local { background: rgba(39,174,96,0.15); color: #4ADE80; border: 1px solid rgba(39,174,96,0.3); }
 .badge-enc { background: rgba(214,48,49,0.15); color: #FF6B6B; border: 1px solid rgba(214,48,49,0.3); }
 .badge-no { background: rgba(138,150,176,0.15); color: var(--muted); border: 1px solid rgba(138,150,176,0.2); }
@@ -160,8 +298,7 @@ nav {
 .pricing-section { padding: 6rem 2rem; }
 .pricing-inner { max-width: 1100px; margin: 0 auto; }
 .pricing-header { text-align: center; margin-bottom: 4rem; }
-.pricing-header .section-title { margin: 0 auto 1rem; }
-.pricing-header .section-sub { margin: 0 auto; }
+.pricing-header .section-title, .pricing-header .section-sub { margin: 0 auto 1rem; }
 .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; max-width: 900px; margin: 0 auto; }
 .price-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 20px; padding: 2.5rem; transition: all 0.2s; }
 .price-card:hover { transform: translateY(-4px); }
@@ -181,7 +318,6 @@ nav {
 .btn-outlined:hover { border-color: rgba(255,255,255,0.3); background: rgba(255,255,255,0.05); }
 .btn-filled { background: var(--red); color: var(--white); }
 .btn-filled:hover { background: var(--red2); box-shadow: 0 6px 20px rgba(214,48,49,0.3); }
-
 .org-tile { max-width: 900px; margin: 2.5rem auto 0; background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px; padding: 1.75rem 2rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; }
 .org-tile h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.3rem; }
 .org-tile p { color: var(--muted); font-size: 0.9rem; }
@@ -190,14 +326,21 @@ nav {
 .waitlist-inner { max-width: 560px; margin: 0 auto; }
 .waitlist-inner .section-title { margin: 0 auto 1rem; }
 .waitlist-inner .section-sub { margin: 0 auto 2.5rem; }
-.hp-field { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+/* Honeypot bewusst NICHT mit "left:-9999px" versteckt: in RTL (siehe
+   html[dir="rtl"]) zaehlt ein physischer Negativ-Offset in die
+   "vorwaertige" Scrollrichtung und blaeht document.documentElement.scrollWidth
+   massiv auf (gefunden auf der arabischen Seite: scrollWidth > 10000px bei
+   1425px Viewport, Ursache exakt auf #wl-hp zurueckgefuehrt). Das klassische
+   Clip-Pattern versteckt das Feld fuer Menschen genauso zuverlaessig, bleibt
+   aber fuer Bots ausfuellbar, ohne das Dokument zu verbreitern. */
+.hp-field { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; opacity: 0; }
 .wl-row { display: flex; gap: 0.75rem; flex-wrap: wrap; justify-content: center; margin-bottom: 1.25rem; }
 .wl-input { flex: 1 1 260px; max-width: 320px; background: rgba(255,255,255,0.06); border: 1px solid var(--border); border-radius: 10px; padding: 0.9rem 1.1rem; color: var(--white); font-size: 1rem; font-family: inherit; }
 .wl-input:focus { outline: none; border-color: rgba(214,48,49,0.5); }
 .wl-input::placeholder { color: var(--muted); }
 .wl-btn { border: none; cursor: pointer; white-space: nowrap; }
 .wl-btn:disabled { opacity: 0.6; cursor: not-allowed; }
-.wl-consent { display: flex; align-items: flex-start; gap: 0.6rem; text-align: left; max-width: 480px; margin: 0 auto; font-size: 0.8rem; color: var(--muted); line-height: 1.5; cursor: pointer; }
+.wl-consent { display: flex; align-items: flex-start; gap: 0.6rem; text-align: start; max-width: 480px; margin: 0 auto; font-size: 0.8rem; color: var(--muted); line-height: 1.5; cursor: pointer; }
 .wl-consent input { margin-top: 0.2rem; flex-shrink: 0; }
 .wl-consent a { color: var(--red); }
 .wl-message { margin-top: 1.25rem; font-size: 0.9rem; min-height: 1.3rem; }
@@ -226,6 +369,18 @@ footer { border-top: 1px solid var(--border); padding: 3rem 2.5rem 2rem; }
   .wl-input { max-width: none; }
   .org-tile { flex-direction: column; align-items: flex-start; text-align: left; }
 }
+html[dir="rtl"] .org-tile { text-align: right; }
+/* Verhindert dieselbe Grid/Flex-Falle wie beim Kategorie-Grid (siehe
+   Commit "Fix: Mobile-Grid lief..."): ohne min-width:0 duerfen Flex-/
+   Grid-Kinder nicht unter ihre Inhalts-Mindestbreite schrumpfen, wodurch
+   eine einzelne lange Zeile (z. B. in .privacy-point oder .flow-text) die
+   ganze Spalte - und damit die Seite - ueber die Viewport-Breite hinaus
+   drueckt. Reproduziert und bestaetigt bei 320px (scrollWidth 365 vs.
+   clientWidth 320, isoliert auf #privacy zurueckgefuehrt). Rein defensiv,
+   keine optische Aenderung bei ausreichend Platz. */
+.privacy-grid > div, .privacy-point, .privacy-point > div,
+.flow-step, .flow-text, .step, .footer-col, .price-card,
+.org-tile > div, .steps, .footer-inner, .footer-inner > * { min-width: 0; }
 @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
 </style>
 </head>
@@ -234,66 +389,60 @@ footer { border-top: 1px solid var(--border); padding: 3rem 2.5rem 2rem; }
 <nav>
   <div class="nav-logo">📄 Brief<span>AI</span></div>
   <ul class="nav-links">
-    <li><a href="#how" data-de="Wie es funktioniert" data-en="How it works">Wie es funktioniert</a></li>
-    <li><a href="#features" data-de="Features" data-en="Features">Features</a></li>
-    <li><a href="#privacy" data-de="Datenschutz" data-en="Privacy">Datenschutz</a></li>
-    <li><a href="#pricing" data-de="Preise" data-en="Pricing">Preise</a></li>
-    <li><a href="ratgeber/" data-de="Ratgeber" data-en="Guides">Ratgeber</a></li>
+    <li><a href="#how">Wie es funktioniert</a></li>
+    <li><a href="#features">Briefkategorien</a></li>
+    <li><a href="#privacy">Datenschutz</a></li>
+    <li><a href="#pricing">Preise</a></li>
+    <li><a href="ratgeber/">Ratgeber</a></li>
   </ul>
   <div class="nav-right">
-    <div class="lang-switcher">
-      <button class="lang-btn active" onclick="setLang('de')">DE</button>
-      <!-- EN-Umschalter bewusst ausgeblendet: es gibt noch keine echte,
-           indexierbare englische Seite (nur Text-Swap auf derselben URL).
-           Wieder einblenden, sobald /en/ als eigene Seite existiert. -->
-      <button class="lang-btn" onclick="setLang('en')" style="display:none">EN</button>
-    </div>
-    <a href="#waitlist" class="nav-cta play-cta" data-de="Warteliste" data-en="Waitlist" data-de-launched="App herunterladen" data-en-launched="Download App" data-play-href="https://play.google.com/store/apps/details?id=com.briefai.app">Warteliste</a>
+    <div class="lang-switch" id="langSwitch"></div>
+    <a href="#waitlist" class="nav-cta play-cta" data-launched-text="App herunterladen" data-launched-href="https://play.google.com/store/apps/details?id=com.briefai.app">Warteliste</a>
   </div>
 </nav>
 
 <main>
 <section class="hero">
-  <div class="hero-badge status-badge" data-de="Bald auf Google Play" data-en="Coming soon to Google Play" data-de-launched="Neu auf Google Play" data-en-launched="Now on Google Play" data-de-pre="Bald auf Google Play" data-en-pre="Coming soon to Google Play">Bald auf Google Play</div>
-  <p class="brand-tag" data-de="BriefAI Schweiz" data-en="BriefAI Switzerland">BriefAI Schweiz</p>
-  <h1 data-de="Jeden Schweizer<br>Brief <em>verstehen</em>" data-en="Understand every<br>Swiss <em>letter</em>">Jeden Schweizer<br>Brief <em>verstehen</em></h1>
-  <p class="hero-sub" data-de="BriefAI analysiert offizielle Briefe von AHV, Krankenkasse, Steueramt und mehr — in 7 Sprachen, lokal und sicher." data-en="BriefAI analyzes official Swiss letters from AHV, health insurance, tax office and more — in 7 languages, locally and securely.">BriefAI analysiert offizielle Briefe von AHV, Krankenkasse, Steueramt und mehr — in 7 Sprachen, lokal und sicher.</p>
-  <p class="hero-langs" data-de='Deutsch · Français · Italiano · Shqip · English · <span dir="rtl" lang="ar">العربية</span> · Türkçe' data-en='Deutsch · Français · Italiano · Shqip · English · <span dir="rtl" lang="ar">العربية</span> · Türkçe'>Deutsch · Français · Italiano · Shqip · English · <span dir="rtl" lang="ar">العربية</span> · Türkçe</p>
+  <div class="hero-badge status-badge" data-launched-text="Neu auf Google Play">Bald auf Google Play</div>
+  <p class="brand-tag">BriefAI Schweiz</p>
+  <h1>Jeden Schweizer<br>Brief <em>verstehen</em></h1>
+  <p class="hero-sub">BriefAI analysiert offizielle Briefe von AHV, Krankenkasse, Steueramt und mehr — in 7 Sprachen, lokal und sicher.</p>
+  <p class="hero-langs">Deutsch · Français · Italiano · Shqip · English · <span dir="rtl" lang="ar">العربية</span> · Türkçe</p>
   <div class="hero-actions">
-    <a href="#waitlist" class="btn-main play-cta" data-de="🔔 Jetzt vormerken" data-en="🔔 Join the waitlist" data-de-launched="📱 Kostenlos herunterladen" data-en-launched="📱 Download for free" data-play-href="https://play.google.com/store/apps/details?id=com.briefai.app">🔔 Jetzt vormerken</a>
-    <a href="#how" class="btn-ghost" data-de="Wie es funktioniert" data-en="How it works">Wie es funktioniert</a>
+    <a href="#waitlist" class="btn-main play-cta" data-launched-text="📱 Kostenlos herunterladen" data-launched-href="https://play.google.com/store/apps/details?id=com.briefai.app">🔔 Jetzt vormerken</a>
+    <a href="#how" class="btn-ghost">Wie es funktioniert</a>
   </div>
   <div class="stats-bar">
-    <div class="stat"><div class="stat-num">7<span>+</span></div><div class="stat-label" data-de="Sprachen" data-en="Languages">Sprachen</div></div>
-    <div class="stat"><div class="stat-num">10<span>+</span></div><div class="stat-label" data-de="Briefkategorien" data-en="Letter types">Briefkategorien</div></div>
-    <div class="stat"><div class="stat-num">0<span></span></div><div class="stat-label" data-de="Tracking" data-en="Tracking">Tracking</div></div>
-    <div class="stat"><div class="stat-num">0<span>CHF</span></div><div class="stat-label" data-de="Zum Starten" data-en="To start">Zum Starten</div></div>
+    <div class="stat"><div class="stat-num">7<span>+</span></div><div class="stat-label">Sprachen</div></div>
+    <div class="stat"><div class="stat-num">10<span>+</span></div><div class="stat-label">Briefkategorien</div></div>
+    <div class="stat"><div class="stat-num">0<span></span></div><div class="stat-label">Tracking</div></div>
+    <div class="stat"><div class="stat-num">0<span>CHF</span></div><div class="stat-label">Zum Starten</div></div>
   </div>
 </section>
 
 <section class="section" id="how">
   <div style="max-width:1100px;margin:0 auto;">
-    <div class="section-label" data-de="So funktioniert es" data-en="How it works">So funktioniert es</div>
-    <h2 class="section-title" data-de="In 3 Schritten zum Ergebnis" data-en="3 steps to your answer">In 3 Schritten zum Ergebnis</h2>
-    <p class="section-sub" data-de="Kein Konto nötig. Einfach Brief scannen, Sprache wählen, verstehen." data-en="No account needed. Simply scan the letter, choose your language, understand.">Kein Konto nötig. Einfach Brief scannen, Sprache wählen, verstehen.</p>
+    <div class="section-label">So funktioniert es</div>
+    <h2 class="section-title">In 3 Schritten zum Ergebnis</h2>
+    <p class="section-sub">Kein Konto nötig. Einfach Brief scannen, Sprache wählen, verstehen.</p>
     <div class="steps">
       <div class="step">
-        <div class="step-num" data-de="Schritt 01" data-en="Step 01">Schritt 01</div>
+        <div class="step-num">Schritt 01</div>
         <div class="step-icon">📸</div>
-        <h3 data-de="Brief fotografieren oder einfügen" data-en="Photograph or paste your letter">Brief fotografieren oder einfügen</h3>
-        <p data-de="Fotografiere deinen Brief direkt mit der Kamera oder kopiere den Text hinein. Die Texterkennung läuft lokal auf deinem Gerät." data-en="Take a photo of your letter with the camera or paste the text. Text recognition runs locally on your device.">Fotografiere deinen Brief direkt mit der Kamera oder kopiere den Text hinein. Die Texterkennung läuft lokal auf deinem Gerät.</p>
+        <h3>Brief fotografieren oder einfügen</h3>
+        <p>Fotografiere deinen Brief direkt mit der Kamera oder kopiere den Text hinein. Die Texterkennung läuft lokal auf deinem Gerät.</p>
       </div>
       <div class="step">
-        <div class="step-num" data-de="Schritt 02" data-en="Step 02">Schritt 02</div>
+        <div class="step-num">Schritt 02</div>
         <div class="step-icon">🔐</div>
-        <h3 data-de="Automatische Anonymisierung" data-en="Automatic anonymization">Automatische Anonymisierung</h3>
-        <p data-de="AHV-Nummern, IBANs und Telefonnummern werden vor jeder Übertragung automatisch ersetzt — nur anonymisierter Text verlässt dein Gerät." data-en="AHV numbers, IBANs and phone numbers are automatically replaced before any transfer — only anonymized text leaves your device.">AHV-Nummern, IBANs und Telefonnummern werden vor jeder Übertragung automatisch ersetzt — nur anonymisierter Text verlässt dein Gerät.</p>
+        <h3>Automatische Anonymisierung</h3>
+        <p>AHV-Nummern, IBANs und Telefonnummern werden vor jeder Übertragung automatisch ersetzt — nur anonymisierter Text verlässt dein Gerät.</p>
       </div>
       <div class="step">
-        <div class="step-num" data-de="Schritt 03" data-en="Step 03">Schritt 03</div>
+        <div class="step-num">Schritt 03</div>
         <div class="step-icon">✅</div>
-        <h3 data-de="Analyse in deiner Sprache" data-en="Analysis in your language">Analyse in deiner Sprache</h3>
-        <p data-de="BriefAI erklärt dir was der Brief bedeutet, was du tun musst und ob eine Frist besteht — in deiner gewählten Sprache." data-en="BriefAI explains what the letter means, what you need to do, and whether there is a deadline — in your chosen language.">BriefAI erklärt dir was der Brief bedeutet, was du tun musst und ob eine Frist besteht — in deiner gewählten Sprache.</p>
+        <h3>Analyse in deiner Sprache</h3>
+        <p>BriefAI erklärt dir was der Brief bedeutet, was du tun musst und ob eine Frist besteht — in deiner gewählten Sprache.</p>
       </div>
     </div>
   </div>
@@ -302,30 +451,80 @@ footer { border-top: 1px solid var(--border); padding: 3rem 2.5rem 2rem; }
 <section class="features-section" id="features">
   <div class="features-inner">
     <div class="features-header">
-      <div class="section-label" data-de="Briefkategorien" data-en="Letter categories">Briefkategorien</div>
-      <h2 class="section-title" data-de="Jeden offiziellen Brief analysieren" data-en="Analyze every official letter">Jeden offiziellen Brief analysieren</h2>
-      <p class="section-sub" data-de="Von AHV bis Gericht — BriefAI versteht alle wichtigen Schweizer Behördenbriefe." data-en="From AHV to court — BriefAI understands all important Swiss official letters.">Von AHV bis Gericht — BriefAI versteht alle wichtigen Schweizer Behördenbriefe.</p>
+      <div class="section-label">Briefkategorien</div>
+      <h2 class="section-title">Jeden offiziellen Brief verstehen</h2>
+      <p class="section-sub">Von AHV bis Gericht — BriefAI versteht alle wichtigen Schweizer Behördenbriefe.</p>
     </div>
-    <div class="features-grid">
-      <div class="feat"><div class="feat-icon">🏛️</div><h4>AHV / Rente</h4><p data-de="Alters- & Hinterlassenenversicherung" data-en="Old age & survivors insurance">Alters- & Hinterlassenenversicherung</p></div>
-      <div class="feat"><div class="feat-icon">♿</div><h4>IV / <span data-de="Behinderung" data-en="Disability">Behinderung</span></h4><p data-de="Invalidenversicherung" data-en="Disability insurance">Invalidenversicherung</p></div>
-      <div class="feat"><div class="feat-icon">🏥</div><h4 data-de="Krankenkasse" data-en="Health Insurance">Krankenkasse</h4><p data-de="Versicherung & Rechnungen" data-en="Insurance & bills">Versicherung & Rechnungen</p></div>
-      <div class="feat"><div class="feat-icon">📊</div><h4 data-de="Steueramt" data-en="Tax Office">Steueramt</h4><p data-de="Steuererklärung & Bescheide" data-en="Tax returns & notices">Steuererklärung & Bescheide</p></div>
-      <div class="feat"><div class="feat-icon">🏢</div><h4 data-de="Gemeinde" data-en="Municipality">Gemeinde</h4><p data-de="Behörden & Verwaltung" data-en="Authorities & administration">Behörden & Verwaltung</p></div>
-      <div class="feat"><div class="feat-icon">💼</div><h4>RAV / <span data-de="Arbeit" data-en="Employment">Arbeit</span></h4><p data-de="Arbeitsamt & Versicherung" data-en="Employment office & insurance">Arbeitsamt & Versicherung</p></div>
-      <div class="feat"><div class="feat-icon">🏫</div><h4 data-de="Schule" data-en="School">Schule</h4><p data-de="Schule & Ausbildung" data-en="School & education">Schule & Ausbildung</p></div>
-      <div class="feat"><div class="feat-icon">🏠</div><h4 data-de="Vermieter" data-en="Landlord">Vermieter</h4><p data-de="Mietverträge & Konflikte" data-en="Rental contracts & disputes">Mietverträge & Konflikte</p></div>
-      <div class="feat"><div class="feat-icon">⚖️</div><h4 data-de="Gericht" data-en="Court">Gericht</h4><p data-de="Rechtliche Schreiben" data-en="Legal letters">Rechtliche Schreiben</p></div>
-      <div class="feat"><div class="feat-icon">📄</div><h4 data-de="Andere" data-en="Other">Andere</h4><p data-de="Sonstige Briefe" data-en="Other letters">Sonstige Briefe</p></div>
+    <div class="cat-grid">
+      <button type="button" class="cat-card" data-cat="ahv" aria-haspopup="dialog">
+        
+        <div class="cat-stage"><img src="/assets/images/categories/ahv-rente.webp" alt="" loading="lazy"></div>
+        <h4 class="cat-title">AHV / Rente</h4>
+        <p class="cat-sub">Alters- & Hinterlassenenversicherung</p>
+      </button>
+      <button type="button" class="cat-card" data-cat="iv" aria-haspopup="dialog">
+        
+        <div class="cat-stage"><img src="/assets/images/categories/iv-behinderung.webp" alt="" loading="lazy"></div>
+        <h4 class="cat-title">IV / Behinderung</h4>
+        <p class="cat-sub">Invalidenversicherung</p>
+      </button>
+      <button type="button" class="cat-card" data-cat="krankenkasse" aria-haspopup="dialog">
+        
+        <div class="cat-stage"><img src="/assets/images/categories/krankenkasse.webp" alt="" loading="lazy"></div>
+        <h4 class="cat-title">Krankenkasse</h4>
+        <p class="cat-sub">Versicherung & Rechnungen</p>
+      </button>
+      <button type="button" class="cat-card" data-cat="steueramt" aria-haspopup="dialog">
+        
+        <div class="cat-stage"><img src="/assets/images/categories/steueramt.webp" alt="" loading="lazy"></div>
+        <h4 class="cat-title">Steueramt</h4>
+        <p class="cat-sub">Steuererklärung & Bescheide</p>
+      </button>
+      <button type="button" class="cat-card" data-cat="gemeinde" aria-haspopup="dialog">
+        
+        <div class="cat-stage"><img src="/assets/images/categories/gemeinde.webp" alt="" loading="lazy"></div>
+        <h4 class="cat-title">Gemeinde</h4>
+        <p class="cat-sub">Behörden & Verwaltung</p>
+      </button>
+      <button type="button" class="cat-card" data-cat="rav" aria-haspopup="dialog">
+        
+        <div class="cat-stage"><img src="/assets/images/categories/rav-arbeit.webp" alt="" loading="lazy"></div>
+        <h4 class="cat-title">RAV / Arbeit</h4>
+        <p class="cat-sub">Arbeitsamt & Versicherung</p>
+      </button>
+      <button type="button" class="cat-card placeholder" data-cat="schule" aria-haspopup="dialog" aria-label="Schule — Bild folgt">
+        <span class="pending-pill">Bild folgt</span>
+        <div class="cat-stage"></div>
+        <h4 class="cat-title">Schule</h4>
+        <p class="cat-sub">Schule & Ausbildung</p>
+      </button>
+      <button type="button" class="cat-card placeholder" data-cat="vermieter" aria-haspopup="dialog" aria-label="Vermieter — Bild folgt">
+        <span class="pending-pill">Bild folgt</span>
+        <div class="cat-stage"></div>
+        <h4 class="cat-title">Vermieter</h4>
+        <p class="cat-sub">Mietverträge & Konflikte</p>
+      </button>
+      <button type="button" class="cat-card placeholder" data-cat="gericht" aria-haspopup="dialog" aria-label="Gericht — Bild folgt">
+        <span class="pending-pill">Bild folgt</span>
+        <div class="cat-stage"></div>
+        <h4 class="cat-title">Gericht</h4>
+        <p class="cat-sub">Rechtliche Schreiben</p>
+      </button>
+      <button type="button" class="cat-card placeholder" data-cat="andere" aria-haspopup="dialog" aria-label="Andere — Bild folgt">
+        <span class="pending-pill">Bild folgt</span>
+        <div class="cat-stage"></div>
+        <h4 class="cat-title">Andere</h4>
+        <p class="cat-sub">Sonstige Briefe</p>
+      </button>
     </div>
   </div>
 </section>
 
 <section class="langs-section">
   <div class="langs-inner">
-    <div class="section-label" data-de="Sprachen" data-en="Languages">Sprachen</div>
-    <h2 class="section-title" data-de="7 Sprachen, eine App" data-en="7 languages, one app">7 Sprachen, eine App</h2>
-    <p class="section-sub" style="margin-bottom:2rem;" data-de="Für alle, die in der Schweiz leben — egal welche Sprache du sprichst." data-en="For everyone living in Switzerland — no matter what language you speak.">Für alle, die in der Schweiz leben — egal welche Sprache du sprichst.</p>
+    <div class="section-label">Sprachen</div>
+    <h2 class="section-title">7 Sprachen, eine App</h2>
+    <p class="section-sub" style="margin-bottom:2rem;">Für alle, die in der Schweiz leben — egal welche Sprache du sprichst.</p>
     <div class="lang-list">
       <div class="lang-pill"><span class="lang-flag">🇩🇪</span> Deutsch</div>
       <div class="lang-pill"><span class="lang-flag">🇫🇷</span> Français</div>
@@ -342,24 +541,24 @@ footer { border-top: 1px solid var(--border); padding: 3rem 2.5rem 2rem; }
   <div class="privacy-inner">
     <div class="privacy-grid">
       <div>
-        <div class="section-label" data-de="Datenschutz" data-en="Privacy">Datenschutz</div>
-        <h2 class="section-title" data-de="Deine Daten bleiben deine Daten" data-en="Your data stays your data">Deine Daten bleiben deine Daten</h2>
-        <p class="section-sub" data-de="BriefAI wurde von Grund auf datenschutzfreundlich entwickelt. Kein Konto, kein Tracking, keine Datenspeicherung." data-en="BriefAI was built privacy-first from the ground up. No account, no tracking, no data storage.">BriefAI wurde von Grund auf datenschutzfreundlich entwickelt. Kein Konto, kein Tracking, keine Datenspeicherung.</p>
+        <div class="section-label">Datenschutz</div>
+        <h2 class="section-title">Deine Daten bleiben deine Daten</h2>
+        <p class="section-sub">BriefAI wurde von Grund auf datenschutzfreundlich entwickelt. Kein Konto, kein Tracking, keine Datenspeicherung.</p>
         <div class="privacy-points">
-          <div class="privacy-point"><div class="privacy-check">✓</div><div><h5 data-de="Lokale Texterkennung (OCR)" data-en="Local text recognition (OCR)">Lokale Texterkennung (OCR)</h5><p data-de="Fotos werden auf deinem Gerät verarbeitet. Kein Bild verlässt dein Handy." data-en="Photos are processed on your device. No image ever leaves your phone.">Fotos werden auf deinem Gerät verarbeitet. Kein Bild verlässt dein Handy.</p></div></div>
-          <div class="privacy-point"><div class="privacy-check">✓</div><div><h5 data-de="Automatische Anonymisierung" data-en="Automatic anonymization">Automatische Anonymisierung</h5><p data-de="AHV, IBAN und Telefonnummern werden lokal maskiert bevor der Text übertragen wird." data-en="AHV, IBAN and phone numbers are masked locally before the text is transmitted.">AHV, IBAN und Telefonnummern werden lokal maskiert bevor der Text übertragen wird.</p></div></div>
-          <div class="privacy-point"><div class="privacy-check">✓</div><div><h5 data-de="Keine Datenspeicherung" data-en="No data storage">Keine Datenspeicherung</h5><p data-de="Briefinhalte werden nicht auf Servern gespeichert. Nur du siehst deine Analysen." data-en="Letter contents are never stored on servers. Only you see your analyses.">Briefinhalte werden nicht auf Servern gespeichert. Nur du siehst deine Analysen.</p></div></div>
-          <div class="privacy-point"><div class="privacy-check">✓</div><div><h5 data-de="DSGVO & Schweizer DSG konform" data-en="GDPR & Swiss DSG compliant">DSGVO & Schweizer DSG konform</h5><p data-de="Vollständig konform mit EU-Datenschutzverordnung und Schweizer Datenschutzgesetz." data-en="Fully compliant with EU GDPR and Swiss Data Protection Act.">Vollständig konform mit EU-Datenschutzverordnung und Schweizer Datenschutzgesetz.</p></div></div>
+          <div class="privacy-point"><div class="privacy-check">✓</div><div><h5>Lokale Texterkennung (OCR)</h5><p>Fotos werden auf deinem Gerät verarbeitet. Kein Bild verlässt dein Handy.</p></div></div>
+          <div class="privacy-point"><div class="privacy-check">✓</div><div><h5>Automatische Anonymisierung</h5><p>AHV, IBAN und Telefonnummern werden lokal maskiert bevor der Text übertragen wird.</p></div></div>
+          <div class="privacy-point"><div class="privacy-check">✓</div><div><h5>Keine Datenspeicherung</h5><p>Briefinhalte werden nicht auf Servern gespeichert. Nur du siehst deine Analysen.</p></div></div>
+          <div class="privacy-point"><div class="privacy-check">✓</div><div><h5>DSGVO & Schweizer DSG konform</h5><p>Vollständig konform mit EU-Datenschutzverordnung und Schweizer Datenschutzgesetz.</p></div></div>
         </div>
       </div>
       <div>
         <div class="privacy-visual">
-          <p style="font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:1.5rem;" data-de="Datenfluss" data-en="Data flow">Datenfluss</p>
-          <div class="flow-step"><div class="flow-icon">📷</div><div class="flow-text"><h6 data-de="Foto aufnehmen" data-en="Take photo">Foto aufnehmen</h6><p data-de="Kamera öffnen, Brief fotografieren" data-en="Open camera, photograph letter">Kamera öffnen, Brief fotografieren</p></div><span class="flow-badge badge-local" data-de="Lokal" data-en="Local">Lokal</span></div>
-          <div class="flow-step"><div class="flow-icon">🔍</div><div class="flow-text"><h6 data-de="Texterkennung (OCR)" data-en="Text recognition (OCR)">Texterkennung (OCR)</h6><p data-de="ML Kit läuft auf dem Gerät" data-en="ML Kit runs on device">ML Kit läuft auf dem Gerät</p></div><span class="flow-badge badge-local" data-de="Lokal" data-en="Local">Lokal</span></div>
-          <div class="flow-step"><div class="flow-icon">🔐</div><div class="flow-text"><h6 data-de="Anonymisierung" data-en="Anonymization">Anonymisierung</h6><p data-de="AHV, IBAN, Telefon maskiert" data-en="AHV, IBAN, phone masked">AHV, IBAN, Telefon maskiert</p></div><span class="flow-badge badge-local" data-de="Lokal" data-en="Local">Lokal</span></div>
-          <div class="flow-step"><div class="flow-icon">☁️</div><div class="flow-text"><h6 data-de="Anonymisierter Text → KI" data-en="Anonymized text → AI">Anonymisierter Text → KI</h6><p data-de="Verschlüsselt via Cloudflare" data-en="Encrypted via Cloudflare">Verschlüsselt via Cloudflare</p></div><span class="flow-badge badge-enc" data-de="Verschlüsselt" data-en="Encrypted">Verschlüsselt</span></div>
-          <div class="flow-step"><div class="flow-icon">💾</div><div class="flow-text"><h6 data-de="Keine Speicherung" data-en="No storage">Keine Speicherung</h6><p data-de="Kein Logging, kein Tracking" data-en="No logging, no tracking">Kein Logging, kein Tracking</p></div><span class="flow-badge badge-no" data-de="Nie" data-en="Never">Nie</span></div>
+          <p style="font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:1.5rem;">Datenfluss</p>
+          <div class="flow-step"><div class="flow-icon">📷</div><div class="flow-text"><h6>Foto aufnehmen</h6><p>Kamera öffnen, Brief fotografieren</p></div><span class="flow-badge badge-local">Lokal</span></div>
+          <div class="flow-step"><div class="flow-icon">🔍</div><div class="flow-text"><h6>Texterkennung (OCR)</h6><p>ML Kit läuft auf dem Gerät</p></div><span class="flow-badge badge-local">Lokal</span></div>
+          <div class="flow-step"><div class="flow-icon">🔐</div><div class="flow-text"><h6>Anonymisierung</h6><p>AHV, IBAN, Telefon maskiert</p></div><span class="flow-badge badge-local">Lokal</span></div>
+          <div class="flow-step"><div class="flow-icon">☁️</div><div class="flow-text"><h6>Anonymisierter Text → KI</h6><p>Verschlüsselt via Cloudflare</p></div><span class="flow-badge badge-enc">Verschlüsselt</span></div>
+          <div class="flow-step"><div class="flow-icon">💾</div><div class="flow-text"><h6>Keine Speicherung</h6><p>Kein Logging, kein Tracking</p></div><span class="flow-badge badge-no">Nie</span></div>
         </div>
       </div>
     </div>
@@ -369,77 +568,76 @@ footer { border-top: 1px solid var(--border); padding: 3rem 2.5rem 2rem; }
 <section class="pricing-section" id="pricing">
   <div class="pricing-inner">
     <div class="pricing-header">
-      <div class="section-label" data-de="Preise" data-en="Pricing">Preise</div>
-      <h2 class="section-title" data-de="Einfach und transparent" data-en="Simple and transparent">Einfach und transparent</h2>
-      <p class="section-sub" data-de="Starte kostenlos. Upgrade jederzeit möglich, Kündigung per Google Play." data-en="Start for free. Upgrade anytime, cancel via Google Play.">Starte kostenlos. Upgrade jederzeit möglich, Kündigung per Google Play.</p>
+      <div class="section-label">Preise</div>
+      <h2 class="section-title">Einfach und transparent</h2>
+      <p class="section-sub">Starte kostenlos. Upgrade jederzeit möglich, Kündigung per Google Play.</p>
     </div>
     <div class="pricing-grid">
       <div class="price-card">
-        <span class="price-tag tag-free" data-de="Kostenlos" data-en="Free">Kostenlos</span>
+        <span class="price-tag tag-free">Kostenlos</span>
         <div class="price-amount">0 <small>CHF</small></div>
-        <div class="price-period" data-de="für immer" data-en="forever">für immer</div>
+        <div class="price-period">für immer</div>
         <ul class="price-features">
-          <li data-de="3 Analysen pro Monat" data-en="3 analyses per month">3 Analysen pro Monat</li>
-          <li data-de="7 Sprachen" data-en="7 languages">7 Sprachen</li>
-          <li data-de="Alle Briefkategorien" data-en="All letter categories">Alle Briefkategorien</li>
-          <li data-de="Senioren-Modus" data-en="Senior mode">Senioren-Modus</li>
-          <li data-de="Lokale Texterkennung" data-en="Local text recognition">Lokale Texterkennung</li>
+          <li>3 Analysen pro Monat</li>
+          <li>7 Sprachen</li>
+          <li>Alle Briefkategorien</li>
+          <li>Senioren-Modus</li>
+          <li>Lokale Texterkennung</li>
         </ul>
-        <a href="#waitlist" class="price-btn btn-outlined play-cta" data-de="Jetzt vormerken" data-en="Join waitlist" data-de-launched="Jetzt herunterladen" data-en-launched="Download now" data-play-href="https://play.google.com/store/apps/details?id=com.briefai.app">Jetzt vormerken</a>
+        <a href="#waitlist" class="price-btn btn-outlined play-cta" data-launched-text="Jetzt herunterladen" data-launched-href="https://play.google.com/store/apps/details?id=com.briefai.app">Jetzt vormerken</a>
       </div>
       <div class="price-card featured">
-        <span class="price-tag tag-pro" data-de="PRO Monat" data-en="PRO Monthly">PRO Monat</span>
+        <span class="price-tag tag-pro">PRO Monat</span>
         <div class="price-amount">4.90 <small>CHF</small></div>
-        <div class="price-period" data-de="pro Monat" data-en="per month">pro Monat</div>
+        <div class="price-period">pro Monat</div>
         <ul class="price-features">
-          <li data-de="Unbegrenzte Analysen" data-en="Unlimited analyses">Unbegrenzte Analysen</li>
-          <li data-de="7 Sprachen" data-en="7 languages">7 Sprachen</li>
-          <li data-de="Briefe vorlesen lassen" data-en="Letters read aloud">Briefe vorlesen lassen</li>
-          <li data-de="Alle Briefkategorien" data-en="All letter categories">Alle Briefkategorien</li>
-          <li data-de="Jederzeit kündbar" data-en="Cancel anytime">Jederzeit kündbar</li>
+          <li>Unbegrenzte Analysen</li>
+          <li>7 Sprachen</li>
+          <li>Briefe vorlesen lassen</li>
+          <li>Alle Briefkategorien</li>
+          <li>Jederzeit kündbar</li>
         </ul>
-        <a href="#waitlist" class="price-btn btn-filled play-cta" data-de="Jetzt vormerken" data-en="Join waitlist" data-de-launched="PRO werden" data-en-launched="Go PRO" data-play-href="https://play.google.com/store/apps/details?id=com.briefai.app">Jetzt vormerken</a>
+        <a href="#waitlist" class="price-btn btn-filled play-cta" data-launched-text="PRO werden" data-launched-href="https://play.google.com/store/apps/details?id=com.briefai.app">Jetzt vormerken</a>
       </div>
       <div class="price-card">
-        <span class="price-tag tag-year" data-de="PRO Jahr — 50% Rabatt" data-en="PRO Annual — 50% off">PRO Jahr — 50% Rabatt</span>
+        <span class="price-tag tag-year">PRO Jahr — 50% Rabatt</span>
         <div class="price-amount">29 <small>CHF</small></div>
-        <div class="price-period" data-de="pro Jahr statt 58.80 CHF" data-en="per year instead of CHF 58.80">pro Jahr statt 58.80 CHF</div>
+        <div class="price-period">pro Jahr statt 58.80 CHF</div>
         <ul class="price-features">
-          <li data-de="Unbegrenzte Analysen" data-en="Unlimited analyses">Unbegrenzte Analysen</li>
-          <li data-de="7 Sprachen" data-en="7 languages">7 Sprachen</li>
-          <li data-de="Briefe vorlesen lassen" data-en="Letters read aloud">Briefe vorlesen lassen</li>
-          <li data-de="Alle Briefkategorien" data-en="All letter categories">Alle Briefkategorien</li>
-          <li data-de="Bestes Preis-Leistungs-Verhältnis" data-en="Best value for money">Bestes Preis-Leistungs-Verhältnis</li>
+          <li>Unbegrenzte Analysen</li>
+          <li>7 Sprachen</li>
+          <li>Briefe vorlesen lassen</li>
+          <li>Alle Briefkategorien</li>
+          <li>Bestes Preis-Leistungs-Verhältnis</li>
         </ul>
-        <a href="#waitlist" class="price-btn btn-outlined play-cta" data-de="Jetzt vormerken" data-en="Join waitlist" data-de-launched="Jahresabo wählen" data-en-launched="Choose annual plan" data-play-href="https://play.google.com/store/apps/details?id=com.briefai.app">Jetzt vormerken</a>
+        <a href="#waitlist" class="price-btn btn-outlined play-cta" data-launched-text="Jahresabo wählen" data-launched-href="https://play.google.com/store/apps/details?id=com.briefai.app">Jetzt vormerken</a>
       </div>
     </div>
     <div class="org-tile">
       <div>
-        <h3 data-de="Für Organisationen" data-en="For organizations">Für Organisationen</h3>
-        <p data-de="Lizenzen für Beratungsstellen, Integrationsfachstellen und Schulen." data-en="Licenses for counseling centers, integration offices and schools.">Lizenzen für Beratungsstellen, Integrationsfachstellen und Schulen.</p>
+        <h3>Für Organisationen</h3>
+        <p>Lizenzen für Beratungsstellen, Integrationsfachstellen und Schulen.</p>
       </div>
-      <a href="mailto:khaled.mrah@icloud.com?subject=BriefAI%20f%C3%BCr%20Organisationen" class="price-btn btn-outlined" style="width:auto;padding:0.85rem 1.75rem;flex-shrink:0;" data-de="Kontakt aufnehmen" data-en="Get in touch">Kontakt aufnehmen</a>
+      <a href="mailto:khaled.mrah@icloud.com?subject=BriefAI%20f%C3%BCr%20Organisationen" class="price-btn btn-outlined" style="width:auto;padding:0.85rem 1.75rem;flex-shrink:0;">Kontakt aufnehmen</a>
     </div>
   </div>
 </section>
 
 <section class="waitlist-section" id="waitlist">
   <div class="waitlist-inner">
-    <div class="section-label" data-de="Warteliste" data-en="Waitlist">Warteliste</div>
-    <h2 class="section-title" data-de="Bald auf Google Play" data-en="Coming soon to Google Play">Bald auf Google Play</h2>
-    <p class="section-sub" data-de="Tragen Sie Ihre E-Mail ein. Wir benachrichtigen Sie, sobald BriefAI verfügbar ist." data-en="Enter your email. We'll notify you as soon as BriefAI is available.">Tragen Sie Ihre E-Mail ein. Wir benachrichtigen Sie, sobald BriefAI verfügbar ist.</p>
+    <div class="section-label">Warteliste</div>
+    <h2 class="section-title">Bald auf Google Play</h2>
+    <p class="section-sub">Tragen Sie Ihre E-Mail ein. Wir benachrichtigen Sie, sobald BriefAI verfügbar ist.</p>
     <form id="waitlist-form" novalidate>
       <!-- Honeypot: fuer Menschen unsichtbar, Bots fuellen es trotzdem aus. -->
       <input type="text" name="webseite" id="wl-hp" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
       <div class="wl-row">
-        <input type="email" id="wl-email" class="wl-input" required maxlength="254"
-               placeholder="ihre@email.ch" data-de-placeholder="ihre@email.ch" data-en-placeholder="your@email.com">
-        <button type="submit" id="wl-submit" class="btn-main wl-btn" data-de="Benachrichtigen" data-en="Notify me">Benachrichtigen</button>
+        <input type="email" id="wl-email" class="wl-input" required maxlength="254" placeholder="ihre@email.ch">
+        <button type="submit" id="wl-submit" class="btn-main wl-btn">Benachrichtigen</button>
       </div>
       <label class="wl-consent">
         <input type="checkbox" id="wl-consent" required>
-        <span data-de='Ich bin einverstanden, dass BriefAI mich per E-Mail über den Launch informiert. Abmeldung jederzeit möglich. <a href="privacy.html#warteliste">Mehr dazu</a>.' data-en='I agree that BriefAI may email me about the launch. Unsubscribe anytime. <a href="privacy.html#warteliste">Learn more</a>.'>Ich bin einverstanden, dass BriefAI mich per E-Mail über den Launch informiert. Abmeldung jederzeit möglich. <a href="privacy.html#warteliste">Mehr dazu</a>.</span>
+        <span>Ich bin einverstanden, dass BriefAI mich per E-Mail über den Launch informiert. Abmeldung jederzeit möglich. <a href="privacy.html#warteliste">Mehr dazu</a>.</span>
       </label>
     </form>
     <p id="wl-message" class="wl-message" role="status" aria-live="polite"></p>
@@ -451,173 +649,30 @@ footer { border-top: 1px solid var(--border); padding: 3rem 2.5rem 2rem; }
   <div class="footer-inner">
     <div class="footer-brand">
       <div class="nav-logo">📄 Brief<span style="color:var(--red)">AI</span></div>
-      <p data-de="BriefAI Schweiz — Behördenbriefe verstehen, für alle, die in der Schweiz leben. Sicher, lokal, in 7 Sprachen." data-en="BriefAI Switzerland — understanding official letters, for everyone living in Switzerland. Secure, local, in 7 languages.">BriefAI Schweiz — Behördenbriefe verstehen, für alle, die in der Schweiz leben. Sicher, lokal, in 7 Sprachen.</p>
+      <p>BriefAI Schweiz — Behördenbriefe verstehen, für alle, die in der Schweiz leben. Sicher, lokal, in 7 Sprachen.</p>
     </div>
     <div class="footer-col">
-      <h5 data-de="Rechtliches" data-en="Legal">Rechtliches</h5>
-      <a href="impressum.html" data-de="Impressum" data-en="Legal Notice">Impressum</a>
-      <a href="privacy.html" data-de="Datenschutz" data-en="Privacy Policy">Datenschutz</a>
-      <a href="terms.html" data-de="Nutzungsbedingungen" data-en="Terms of Service">Nutzungsbedingungen</a>
-      <a href="security.html" data-de="Sicherheit" data-en="Security">Sicherheit</a>
+      <h5>Rechtliches</h5>
+      <a href="impressum.html">Impressum</a>
+      <a href="privacy.html">Datenschutz</a>
+      <a href="terms.html">Nutzungsbedingungen</a>
+      <a href="security.html">Sicherheit</a>
     </div>
     <div class="footer-col">
-      <h5 data-de="Kontakt" data-en="Contact">Kontakt</h5>
+      <h5>Kontakt</h5>
       <a href="mailto:Khaled.mrah@icloud.com">Khaled.mrah@icloud.com</a>
-      <a href="#waitlist" class="play-cta" data-de="Warteliste" data-en="Waitlist" data-de-launched="Google Play" data-en-launched="Google Play" data-play-href="https://play.google.com/store/apps/details?id=com.briefai.app">Warteliste</a>
+      <a href="#waitlist" class="play-cta" data-launched-text="Google Play">Warteliste</a>
     </div>
   </div>
   <div class="footer-bottom">
-    <p data-de="© 2026 BriefAI — Khaled Mrah, Schaffhausen, Schweiz" data-en="© 2026 BriefAI — Khaled Mrah, Schaffhausen, Switzerland">© 2026 BriefAI — Khaled Mrah, Schaffhausen, Schweiz</p>
-    <p style="font-size:0.75rem;" data-de="DSGVO & Schweizer DSG konform · Kein Tracking · Keine Werbung" data-en="GDPR & Swiss DSG compliant · No tracking · No ads">DSGVO & Schweizer DSG konform · Kein Tracking · Keine Werbung</p>
+    <p>© 2026 BriefAI — Khaled Mrah, Schaffhausen, Schweiz</p>
+    <p style="font-size:0.75rem;">DSGVO & Schweizer DSG konform · Kein Tracking · Keine Werbung</p>
   </div>
 </footer>
 
-<script>
-// ============================================================
-// EIN Schalter fuer den Launch-Tag. Siehe docs/LAUNCH-SCHALTER.md
-// fuer die genaue Erklaerung. Auf true setzen, SOBALD BriefAI in
-// Production live ist — ALLE "play-cta"-Elemente (Nav, Hero, alle
-// drei Preis-Buttons, Footer) springen dann automatisch auf den
-// echten Play-Store-Link und ihren echten Text zurueck, der
-// Status-Badge zeigt "Neu auf Google Play" statt "Bald", und das
-// Formular wird durch den direkten Play-Store-Link ersetzt.
-// Nichts davon muss sonst irgendwo im Code geaendert werden.
-const LAUNCHED = false;
-
-const WAITLIST_ENDPOINT = "https://waitlist.briefai.ch/subscribe";
-
-function wendeLaunchStatusAn() {
-  // WICHTIG: Das HTML selbst steht standardmaessig schon auf "noch nicht
-  // live" (href="#waitlist", Text "Jetzt vormerken" / "Bald auf Google
-  // Play") — so bleibt die Seite auch OHNE JavaScript ehrlich (Punkt 7
-  // der Freigabe: Buttons duerfen den Status nie falsch darstellen).
-  // Diese Funktion macht deshalb nur etwas, wenn LAUNCHED auf true steht:
-  // dann springt sie auf die echten Play-Store-Angaben um.
-  if (!LAUNCHED) return;
-  document.querySelectorAll('.play-cta').forEach((el) => {
-    const playHref = el.getAttribute('data-play-href');
-    if (playHref) el.setAttribute('href', playHref);
-    el.setAttribute('target', '_blank');
-    ['de', 'en'].forEach((sprache) => {
-      const echt = el.getAttribute('data-' + sprache + '-launched');
-      if (echt) el.setAttribute('data-' + sprache, echt);
-    });
-  });
-  document.querySelectorAll('.status-badge').forEach((el) => {
-    ['de', 'en'].forEach((sprache) => {
-      const echt = el.getAttribute('data-' + sprache + '-launched');
-      if (echt) el.setAttribute('data-' + sprache, echt);
-    });
-  });
-  // Attribute sind jetzt aktualisiert — Anzeige mit der gerade aktiven
-  // Sprache neu rendern, sonst stehen die neuen Werte nur im DOM-Attribut,
-  // nicht im sichtbaren Text.
-  setLang(document.documentElement.lang || 'de');
-}
-
-function initWaitlistForm() {
-  const form = document.getElementById('waitlist-form');
-  if (!form) return;
-  if (LAUNCHED) {
-    // Nach dem Launch braucht es kein Formular mehr — die play-cta-Links
-    // fuehren dann direkt zu Google Play.
-    document.getElementById('waitlist')?.remove();
-    return;
-  }
-
-  const button = document.getElementById('wl-submit');
-  const message = document.getElementById('wl-message');
-  const emailInput = document.getElementById('wl-email');
-  const consentInput = document.getElementById('wl-consent');
-  const hpInput = document.getElementById('wl-hp');
-
-  form.addEventListener('submit', async (ev) => {
-    ev.preventDefault();
-    message.className = 'wl-message';
-    message.textContent = '';
-
-    const email = emailInput.value.trim();
-    const sprache = document.documentElement.lang || 'de';
-
-    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
-      message.className = 'wl-message err';
-      message.textContent = sprache === 'en'
-        ? 'Please enter a valid email address.'
-        : 'Bitte eine gültige E-Mail-Adresse angeben.';
-      emailInput.focus();
-      return;
-    }
-    if (!consentInput.checked) {
-      message.className = 'wl-message err';
-      message.textContent = sprache === 'en'
-        ? 'Please accept to continue.'
-        : 'Bitte die Einwilligung bestätigen.';
-      return;
-    }
-
-    button.disabled = true;
-    const urspruenglicherText = button.textContent;
-    button.textContent = sprache === 'en' ? 'Sending…' : 'Senden…';
-
-    try {
-      const antwort = await fetch(WAITLIST_ENDPOINT, {
-        method: 'POST',
-        headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({
-          email,
-          lang: sprache,
-          consent: consentInput.checked,
-          webseite: hpInput.value, // Honeypot — bleibt fuer Menschen immer leer
-        }),
-      });
-      const daten = await antwort.json().catch(() => ({}));
-
-      if (antwort.ok && daten.ok) {
-        message.className = 'wl-message ok';
-        message.textContent = sprache === 'en'
-          ? "Thanks! We'll email you when BriefAI launches."
-          : 'Danke! Wir melden uns, sobald BriefAI verfügbar ist.';
-        form.reset();
-      } else {
-        message.className = 'wl-message err';
-        message.textContent = daten.error || (sprache === 'en'
-          ? 'Something went wrong. Please try again later.'
-          : 'Etwas ist schiefgelaufen. Bitte später erneut versuchen.');
-      }
-    } catch {
-      message.className = 'wl-message err';
-      message.textContent = sprache === 'en'
-        ? 'The waitlist is currently not reachable. Please try again later.'
-        : 'Die Warteliste ist gerade nicht erreichbar. Bitte später erneut versuchen.';
-    } finally {
-      button.disabled = false;
-      button.textContent = urspruenglicherText;
-    }
-  });
-}
-
-function setLang(lang) {
-  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
-  document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
-  document.querySelectorAll('[data-de]').forEach(el => {
-    const text = el.getAttribute('data-' + lang);
-    if (!text) return;
-    if (el.tagName === 'A' || el.tagName === 'BUTTON') { el.textContent = text; return; }
-    // Jedes Tag erkennen, nicht nur die drei fest genannten — sonst zeigt
-    // ein Element mit z. B. <span dir="rtl"> oder <a href="..."> den
-    // rohen HTML-Text an, statt ihn zu rendern (gefunden beim Einbau der
-    // Sprachenzeile und der Einwilligungs-Checkbox, Phase 1, 23.11.2026).
-    if (/<[a-zA-Z]/.test(text)) {
-      el.innerHTML = text;
-    } else {
-      el.textContent = text;
-    }
-  });
-  document.documentElement.lang = lang;
-}
-
-wendeLaunchStatusAn();
-initWaitlistForm();
-</script>
+<script src="assets/js/launch-toggle.js"></script>
+<script src="assets/js/waitlist-form.js"></script>
+<script src="assets/js/category-section.js"></script>
+<script src="assets/js/lang-switch.js"></script>
 </body>
 </html>

@@ -1,10 +1,106 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <!-- Phase A (siehe docs/I18N_PLAN_SWISS_MINIATURE_WORLDS.md): sieben
+       Sprachversionen derselben Startseite, mit hreflang-Alternates pro
+       URL. Alle sieben Eintraege tragen dieselben sieben xhtml:link-Zeilen
+       plus x-default, nur <loc> und <lastmod> unterscheiden sich. -->
   <url>
     <loc>https://briefai.ch/</loc>
-    <lastmod>2026-11-23</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://briefai.ch/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://briefai.ch/en/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://briefai.ch/fr/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://briefai.ch/it/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://briefai.ch/ar/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://briefai.ch/tr/"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://briefai.ch/sq/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://briefai.ch/"/>
+  </url>
+  <url>
+    <loc>https://briefai.ch/en/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://briefai.ch/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://briefai.ch/en/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://briefai.ch/fr/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://briefai.ch/it/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://briefai.ch/ar/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://briefai.ch/tr/"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://briefai.ch/sq/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://briefai.ch/"/>
+  </url>
+  <url>
+    <loc>https://briefai.ch/fr/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://briefai.ch/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://briefai.ch/en/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://briefai.ch/fr/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://briefai.ch/it/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://briefai.ch/ar/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://briefai.ch/tr/"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://briefai.ch/sq/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://briefai.ch/"/>
+  </url>
+  <url>
+    <loc>https://briefai.ch/it/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://briefai.ch/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://briefai.ch/en/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://briefai.ch/fr/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://briefai.ch/it/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://briefai.ch/ar/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://briefai.ch/tr/"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://briefai.ch/sq/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://briefai.ch/"/>
+  </url>
+  <url>
+    <loc>https://briefai.ch/ar/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://briefai.ch/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://briefai.ch/en/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://briefai.ch/fr/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://briefai.ch/it/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://briefai.ch/ar/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://briefai.ch/tr/"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://briefai.ch/sq/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://briefai.ch/"/>
+  </url>
+  <url>
+    <loc>https://briefai.ch/tr/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://briefai.ch/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://briefai.ch/en/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://briefai.ch/fr/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://briefai.ch/it/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://briefai.ch/ar/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://briefai.ch/tr/"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://briefai.ch/sq/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://briefai.ch/"/>
+  </url>
+  <url>
+    <loc>https://briefai.ch/sq/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://briefai.ch/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://briefai.ch/en/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://briefai.ch/fr/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://briefai.ch/it/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://briefai.ch/ar/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://briefai.ch/tr/"/>
+    <xhtml:link rel="alternate" hreflang="sq" href="https://briefai.ch/sq/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://briefai.ch/"/>
   </url>
   <url>
     <loc>https://briefai.ch/privacy.html</loc>

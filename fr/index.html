@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="../Briefai icon 512x512 .png">
+<title>BriefAI Suisse – Comprendre les courriers officiels | AVS, impôts, assurance-maladie</title>
+<meta name="description" content="BriefAI Suisse explique simplement les courriers officiels de l'AVS, de l'assurance-maladie et du fisc — en 7 langues, localement et en toute sécurité. 3 analyses gratuites par mois.">
+<link rel="canonical" href="https://briefai.ch/fr/">
+<link rel="alternate" hreflang="de" href="https://briefai.ch/">
+<link rel="alternate" hreflang="en" href="https://briefai.ch/en/">
+<link rel="alternate" hreflang="fr" href="https://briefai.ch/fr/">
+<link rel="alternate" hreflang="it" href="https://briefai.ch/it/">
+<link rel="alternate" hreflang="ar" href="https://briefai.ch/ar/">
+<link rel="alternate" hreflang="tr" href="https://briefai.ch/tr/">
+<link rel="alternate" hreflang="sq" href="https://briefai.ch/sq/">
+<link rel="alternate" hreflang="x-default" href="https://briefai.ch/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="BriefAI">
+<meta property="og:title" content="BriefAI Suisse – Comprendre les courriers officiels | AVS, impôts, assurance-maladie">
+<meta property="og:description" content="BriefAI Suisse explique simplement les courriers officiels de l'AVS, de l'assurance-maladie et du fisc — en 7 langues, localement et en toute sécurité. 3 analyses gratuites par mois.">
+<meta property="og:url" content="https://briefai.ch/fr/">
+<meta property="og:image" content="https://briefai.ch/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="fr_CH">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="BriefAI Suisse – Comprendre les courriers officiels | AVS, impôts, assurance-maladie">
+<meta name="twitter:description" content="BriefAI Suisse explique simplement les courriers officiels de l'AVS, de l'assurance-maladie et du fisc — en 7 langues, localement et en toute sécurité. 3 analyses gratuites par mois.">
+<meta name="twitter:image" content="https://briefai.ch/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://briefai.ch/#organization",
+      "name": "BriefAI Schweiz",
+      "url": "https://briefai.ch/",
+      "logo": "https://briefai.ch/Briefai%20icon%20512x512%20.png",
+      "email": "mailto:khaled.mrah@icloud.com"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "BriefAI",
+      "operatingSystem": "ANDROID",
+      "applicationCategory": "UtilitiesApplication",
+      "url": "https://briefai.ch/fr/",
+      "description": "BriefAI Suisse explique simplement les courriers officiels de l'AVS, de l'assurance-maladie et du fisc — en 7 langues, localement et en toute sécurité. 3 analyses gratuites par mois.",
+      "publisher": { "@id": "https://briefai.ch/#organization" },
+      "offers": [
+        { "@type": "Offer", "name": "Gratuit", "price": "0", "priceCurrency": "CHF" },
+        { "@type": "Offer", "name": "PRO Mensuel", "price": "4.90", "priceCurrency": "CHF" },
+        { "@type": "Offer", "name": "PRO Annuel — 50 % de réduction", "price": "29", "priceCurrency": "CHF" }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --navy: #0F1729; --navy2: #1A2240; --navy3: #243058;
+  --red: #D63031; --red2: #E84748; --white: #FFFFFF;
+  --off-white: #F4F6FA; --muted: #8A96B0; --border: rgba(255,255,255,0.08);
+  --card-bg: rgba(255,255,255,0.04);
+  --gold: #D5B574; --titan: #E4E5E8; --ivory: #F9F7F2;
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', sans-serif; background: var(--navy); color: var(--white); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+html[dir="rtl"] body { direction: rtl; }
+
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 1.25rem 2.5rem; display: flex; align-items: center; justify-content: space-between;
+  background: rgba(15,23,41,0.85); backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo { font-size: 1.25rem; font-weight: 800; letter-spacing: -0.5px; display: flex; align-items: center; gap: 0.5rem; }
+.nav-logo span { color: var(--red); }
+.nav-right { display: flex; align-items: center; gap: 1.25rem; }
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a { color: var(--muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+.nav-links a:hover { color: var(--white); }
+
+.nav-cta { background: var(--red); color: var(--white); padding: 0.6rem 1.4rem; border-radius: 8px; text-decoration: none; font-size: 0.875rem; font-weight: 600; transition: all 0.2s; }
+.nav-cta:hover { background: var(--red2); transform: translateY(-1px); }
+
+/* Sprachauswahl */
+.lang-switch { position: relative; }
+.lang-switch-btn {
+  display: flex; align-items: center; gap: 0.4rem;
+  background: rgba(255,255,255,0.06); border: 1px solid var(--border); border-radius: 10px;
+  color: var(--white); padding: 0.5rem 0.8rem; font-size: 0.85rem; font-weight: 600; cursor: pointer;
+}
+.lang-switch-btn:hover, .lang-switch-btn:focus-visible { border-color: rgba(213,181,116,0.5); }
+.lang-switch-btn .chev { font-size: 0.65rem; color: var(--gold); }
+.lang-switch-label-short { display: none; }
+/* Sehr schmale Bildschirme (ab 320px): voller Sprachname + Warteliste-Knopf
+   passen nicht nebeneinander in die Nav - Sprachname wird auf den Code
+   verkuerzt, Logo und Knopf leicht verkleinert. Gefunden beim Testen auf
+   exakt 320px (scrollWidth 365 vs. clientWidth 320). */
+@media (max-width: 400px) {
+  .nav-right { gap: 0.5rem; }
+  .nav-logo { font-size: 1.05rem; gap: 0.35rem; }
+  .lang-switch-btn { padding: 0.5rem 0.55rem; }
+  .lang-switch-label-full { display: none; }
+  .lang-switch-label-short { display: inline; }
+  .nav-cta { padding: 0.55rem 0.9rem; font-size: 0.8rem; }
+}
+.lang-switch[data-open="true"] .chev { transform: rotate(180deg); }
+.lang-menu {
+  position: absolute; top: calc(100% + 0.6rem); right: 0; min-width: 210px;
+  background: linear-gradient(180deg, var(--navy3), var(--navy2));
+  border: 1px solid rgba(228,229,232,0.18); border-radius: 14px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.45);
+  padding: 0.4rem; display: none; flex-direction: column; gap: 0.1rem;
+  max-height: 70vh; overflow-y: auto; z-index: 200;
+}
+html[dir="rtl"] .lang-menu { right: auto; left: 0; }
+.lang-switch[data-open="true"] .lang-menu { display: flex; }
+.lang-option {
+  display: flex; align-items: center; justify-content: space-between; gap: 0.75rem;
+  background: none; border: none; color: var(--off-white); text-align: left; text-decoration: none;
+  padding: 0.65rem 0.8rem; border-radius: 9px; font-size: 0.92rem; cursor: pointer;
+}
+html[dir="rtl"] .lang-option { text-align: right; }
+.lang-option:hover, .lang-option:focus-visible { background: rgba(255,255,255,0.06); }
+.lang-option[aria-current="true"] { background: rgba(213,181,116,0.12); }
+.lang-option .native { font-weight: 600; }
+.lang-option .code { font-size: 0.72rem; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; }
+
+.lang-suggest-banner {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 500;
+  background: var(--navy3); border-top: 1px solid rgba(213,181,116,0.3);
+  padding: 0.9rem 1.5rem; display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap;
+  font-size: 0.88rem;
+}
+.lang-suggest-switch { color: var(--gold); font-weight: 700; text-decoration: none; }
+.lang-suggest-dismiss { background: rgba(255,255,255,0.08); border: 1px solid var(--border); color: var(--white); border-radius: 8px; padding: 0.35rem 0.8rem; font-size: 0.82rem; cursor: pointer; }
+
+.hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 8rem 2rem 5rem; position: relative; overflow: hidden; }
+.hero::before { content: ''; position: absolute; top: -200px; left: 50%; transform: translateX(-50%); width: 800px; height: 800px; background: radial-gradient(circle, rgba(214,48,49,0.12) 0%, transparent 70%); pointer-events: none; }
+.hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(214,48,49,0.12); border: 1px solid rgba(214,48,49,0.3); color: #FF6B6B; padding: 0.4rem 1rem; border-radius: 100px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 2rem; }
+.hero-badge::before { content: '●'; font-size: 0.5rem; animation: pulse 2s infinite; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+.hero h1 { font-family: 'DM Serif Display', serif; font-size: clamp(3rem, 7vw, 6rem); line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 1.5rem; max-width: 800px; }
+.hero h1 em { font-style: italic; color: var(--red); }
+.brand-tag { font-size: 0.85rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.75rem; }
+.hero-sub { font-size: clamp(1rem, 2vw, 1.2rem); color: var(--muted); max-width: 520px; line-height: 1.7; margin-bottom: 1.25rem; }
+.hero-langs { font-size: 0.85rem; color: var(--muted); max-width: 520px; margin-bottom: 2.5rem; }
+.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-bottom: 4rem; }
+.btn-main { background: var(--red); color: var(--white); padding: 0.9rem 2rem; border-radius: 10px; text-decoration: none; font-weight: 700; font-size: 1rem; display: inline-flex; align-items: center; gap: 0.5rem; transition: all 0.2s; }
+.btn-main:hover { background: var(--red2); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(214,48,49,0.35); }
+.btn-ghost { background: var(--card-bg); color: var(--white); padding: 0.9rem 2rem; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 1rem; border: 1px solid var(--border); transition: all 0.2s; }
+.btn-ghost:hover { background: rgba(255,255,255,0.08); transform: translateY(-2px); }
+
+.stats-bar { display: flex; gap: 3rem; flex-wrap: wrap; justify-content: center; padding: 2rem 2.5rem; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin: 0 auto; max-width: 700px; }
+.stat { text-align: center; }
+.stat-num { font-size: 1.8rem; font-weight: 800; color: var(--white); }
+.stat-num span { color: var(--red); }
+.stat-label { font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 0.2rem; }
+
+.section { padding: 6rem 2rem; }
+.section-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--red); margin-bottom: 1rem; }
+.section-title { font-family: 'DM Serif Display', serif; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 1rem; max-width: 600px; }
+.section-sub { color: var(--muted); font-size: 1.05rem; line-height: 1.7; max-width: 500px; }
+
+.steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin-top: 3.5rem; max-width: 1100px; margin-left: auto; margin-right: auto; }
+.step { background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; transition: border-color 0.2s, transform 0.2s; }
+.step:hover { border-color: rgba(214,48,49,0.3); transform: translateY(-4px); }
+.step-num { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; color: var(--red); margin-bottom: 1rem; text-transform: uppercase; }
+.step-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+.step h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; }
+.step p { color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
+
+/* Briefkategorien (Swiss Miniature Worlds, Variante B) */
+.features-section { padding: 6rem 2rem; background: radial-gradient(ellipse at top, rgba(213,181,116,0.05), transparent 60%); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.features-inner { max-width: 1220px; margin: 0 auto; }
+.features-header { text-align: center; margin-bottom: 4rem; }
+.features-header .section-title, .features-header .section-sub { margin: 0 auto 1rem; }
+
+.cat-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.1rem; }
+.cat-card {
+  position: relative; display: block; width: 100%; text-decoration: none; color: inherit; font-family: inherit;
+  background: linear-gradient(180deg, var(--navy3) 0%, var(--navy2) 100%);
+  border: 1px solid rgba(228,229,232,0.16); border-radius: 20px;
+  padding: 1.6rem 1.1rem 1.4rem; text-align: center; min-width: 0; cursor: pointer;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.04) inset, 0 10px 24px rgba(0,0,0,0.25);
+  transition: transform 0.3s cubic-bezier(.2,.8,.2,1), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.cat-card::before {
+  content: ''; position: absolute; top: 0; left: 14%; right: 14%; height: 3px; border-radius: 0 0 4px 4px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent); opacity: 0.45; transition: opacity 0.3s ease;
+}
+.cat-card:hover, .cat-card:focus-visible {
+  transform: perspective(700px) rotateX(3deg) translateY(-6px);
+  border-color: rgba(213,181,116,0.45); box-shadow: 0 1px 0 rgba(255,255,255,0.06) inset, 0 24px 40px rgba(0,0,0,0.4);
+}
+.cat-card:hover::before, .cat-card:focus-visible::before { opacity: 1; }
+.cat-card:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+.cat-stage {
+  width: 108px; height: 108px; margin: 0.25rem auto 1.1rem; border-radius: 50%;
+  background: radial-gradient(circle at 50% 35%, rgba(228,229,232,0.16), rgba(228,229,232,0.02) 70%);
+  display: flex; align-items: center; justify-content: center; position: relative;
+}
+.cat-stage img { width: 86%; height: 86%; object-fit: contain; filter: drop-shadow(0 6px 10px rgba(0,0,0,0.4)); transition: transform 0.3s ease; }
+.cat-card:hover .cat-stage img, .cat-card:focus-visible .cat-stage img { transform: scale(1.07); }
+.cat-title { font-size: 0.98rem; font-weight: 700; margin-bottom: 0.3rem; }
+.cat-sub { color: var(--muted); font-size: 0.78rem; line-height: 1.5; }
+.cat-card.placeholder { opacity: 0.6; background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01)); }
+.cat-card.placeholder::before { display: none; }
+.cat-card.placeholder .cat-stage { border: 1px dashed rgba(228,229,232,0.3); background: none; }
+.cat-card.placeholder .cat-title { color: var(--muted); }
+.cat-card.placeholder .pending-pill {
+  position: absolute; top: -8px; right: 10px; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--gold); border: 1px solid rgba(213,181,116,0.4); background: rgba(213,181,116,0.08); padding: 0.2rem 0.5rem; border-radius: 100px;
+}
+html[dir="rtl"] .cat-card.placeholder .pending-pill { right: auto; left: 10px; }
+@media (max-width: 1024px) { .cat-grid { grid-template-columns: repeat(4, 1fr); } }
+@media (max-width: 768px)  { .cat-grid { grid-template-columns: repeat(3, 1fr); } .nav-links{display:none;} nav{padding:1rem 1.25rem;} }
+@media (max-width: 480px)  { .cat-grid { grid-template-columns: repeat(2, 1fr); } .cat-stage{width:88px;height:88px;} .cat-sub{display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden;} }
+@media (max-width: 340px)  { .cat-grid { grid-template-columns: 1fr; } }
+
+/* Modal */
+.modal-backdrop {
+  position: fixed; inset: 0; background: rgba(5,8,16,0.72); backdrop-filter: blur(4px);
+  display: none; align-items: center; justify-content: center; z-index: 1000; padding: 1.25rem;
+}
+.modal-backdrop[data-open="true"] { display: flex; }
+.modal-box {
+  width: 100%; max-width: 560px; max-height: 88vh; overflow-y: auto;
+  background: linear-gradient(180deg, var(--navy3), var(--navy2));
+  border: 1px solid rgba(228,229,232,0.18); border-radius: 22px; padding: 2rem 1.75rem 1.75rem; position: relative;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+}
+.modal-close {
+  position: absolute; top: 1rem; right: 1rem; width: 40px; height: 40px; border-radius: 50%;
+  background: rgba(255,255,255,0.08); border: 1px solid var(--border); color: var(--white);
+  font-size: 1.1rem; cursor: pointer; display: flex; align-items: center; justify-content: center;
+}
+html[dir="rtl"] .modal-close { right: auto; left: 1rem; }
+.modal-close:hover, .modal-close:focus-visible { background: rgba(255,255,255,0.16); }
+.modal-stage {
+  width: 120px; height: 120px; margin: 0 auto 1.25rem; border-radius: 50%;
+  background: radial-gradient(circle at 50% 35%, rgba(228,229,232,0.18), rgba(228,229,232,0.02) 70%);
+  display: flex; align-items: center; justify-content: center;
+}
+.modal-stage img { width: 84%; height: 84%; object-fit: contain; filter: drop-shadow(0 8px 14px rgba(0,0,0,0.4)); }
+.modal-stage.placeholder { border: 1px dashed rgba(228,229,232,0.3); background: none; }
+.modal-title { font-family: 'DM Serif Display', serif; font-size: 1.6rem; text-align: center; margin-bottom: 0.9rem; }
+.modal-desc { color: rgba(255,255,255,0.88); font-size: 0.98rem; line-height: 1.7; text-align: center; margin-bottom: 1.1rem; }
+.modal-example { background: rgba(255,255,255,0.04); border: 1px solid var(--border); border-left: 3px solid var(--gold); border-radius: 12px; padding: 1rem 1.1rem; margin-bottom: 1.3rem; }
+html[dir="rtl"] .modal-example { border-left: 1px solid var(--border); border-right: 3px solid var(--gold); }
+.modal-example .tag { display: block; font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold); margin-bottom: 0.4rem; }
+.modal-example p { font-family: ui-monospace, monospace; font-size: 0.85rem; color: rgba(255,255,255,0.75); }
+.speak-row { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.4rem; }
+.lang-chip {
+  min-width: 44px; min-height: 36px; padding: 0.3rem 0.6rem; border-radius: 100px; font-size: 0.75rem; font-weight: 700;
+  background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: var(--off-white); cursor: pointer;
+}
+.lang-chip[aria-pressed="true"] { background: var(--gold); color: var(--navy); border-color: var(--gold); }
+.lang-chip:disabled { opacity: 0.35; cursor: not-allowed; }
+.modal-cta { display: block; text-align: center; background: var(--red); color: var(--white); text-decoration: none;
+  font-weight: 700; padding: 0.9rem 1.5rem; border-radius: 12px; font-size: 0.95rem; }
+.modal-cta:hover { background: var(--red2); }
+.modal-note { color: var(--muted); font-size: 0.82rem; text-align: center; margin-bottom: 1.1rem; }
+
+.langs-section { padding: 6rem 2rem; }
+.langs-inner { max-width: 1100px; margin: 0 auto; }
+.lang-list { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.lang-pill { display: flex; align-items: center; gap: 0.6rem; background: var(--card-bg); border: 1px solid var(--border); padding: 0.75rem 1.25rem; border-radius: 100px; font-size: 0.9rem; font-weight: 500; transition: all 0.2s; }
+.lang-pill:hover { border-color: rgba(214,48,49,0.4); background: rgba(214,48,49,0.06); }
+.lang-flag { font-size: 1.4rem; }
+
+.privacy-section { padding: 6rem 2rem; background: rgba(255,255,255,0.02); border-top: 1px solid var(--border); }
+.privacy-inner { max-width: 1100px; margin: 0 auto; }
+.privacy-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+.privacy-points { display: flex; flex-direction: column; gap: 1.25rem; margin-top: 2.5rem; }
+.privacy-point { display: flex; gap: 1rem; align-items: flex-start; }
+.privacy-check { width: 24px; height: 24px; border-radius: 50%; background: rgba(214,48,49,0.15); border: 1px solid rgba(214,48,49,0.3); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; font-size: 0.7rem; color: var(--red); }
+.privacy-point h5 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.25rem; }
+.privacy-point p { color: var(--muted); font-size: 0.85rem; line-height: 1.6; }
+.privacy-visual { background: var(--card-bg); border: 1px solid var(--border); border-radius: 20px; padding: 2.5rem; }
+.flow-step { display: flex; align-items: center; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid var(--border); }
+.flow-step:last-child { border-bottom: none; }
+.flow-icon { width: 40px; height: 40px; border-radius: 10px; background: rgba(214,48,49,0.1); border: 1px solid rgba(214,48,49,0.2); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+.flow-text h6 { font-size: 0.85rem; font-weight: 600; margin-bottom: 0.15rem; }
+.flow-text p { font-size: 0.75rem; color: var(--muted); }
+.flow-badge { margin-inline-start: auto; font-size: 0.65rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 100px; flex-shrink: 0; }
+.badge-local { background: rgba(39,174,96,0.15); color: #4ADE80; border: 1px solid rgba(39,174,96,0.3); }
+.badge-enc { background: rgba(214,48,49,0.15); color: #FF6B6B; border: 1px solid rgba(214,48,49,0.3); }
+.badge-no { background: rgba(138,150,176,0.15); color: var(--muted); border: 1px solid rgba(138,150,176,0.2); }
+
+.pricing-section { padding: 6rem 2rem; }
+.pricing-inner { max-width: 1100px; margin: 0 auto; }
+.pricing-header { text-align: center; margin-bottom: 4rem; }
+.pricing-header .section-title, .pricing-header .section-sub { margin: 0 auto 1rem; }
+.pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; max-width: 900px; margin: 0 auto; }
+.price-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 20px; padding: 2.5rem; transition: all 0.2s; }
+.price-card:hover { transform: translateY(-4px); }
+.price-card.featured { background: rgba(214,48,49,0.06); border-color: rgba(214,48,49,0.4); }
+.price-tag { display: inline-block; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.3rem 0.8rem; border-radius: 100px; margin-bottom: 1.5rem; }
+.tag-free { background: rgba(138,150,176,0.15); color: var(--muted); }
+.tag-pro { background: rgba(214,48,49,0.15); color: var(--red); }
+.tag-year { background: rgba(39,174,96,0.15); color: #4ADE80; }
+.price-amount { font-size: 3rem; font-weight: 800; line-height: 1; margin-bottom: 0.25rem; }
+.price-amount small { font-size: 1rem; font-weight: 400; color: var(--muted); }
+.price-period { color: var(--muted); font-size: 0.85rem; margin-bottom: 2rem; }
+.price-features { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 2rem; }
+.price-features li { display: flex; align-items: center; gap: 0.75rem; font-size: 0.9rem; color: rgba(255,255,255,0.8); }
+.price-features li::before { content: '✓'; color: var(--red); font-weight: 700; flex-shrink: 0; }
+.price-btn { display: block; text-align: center; text-decoration: none; padding: 0.85rem; border-radius: 10px; font-weight: 700; font-size: 0.9rem; transition: all 0.2s; }
+.btn-outlined { border: 1px solid var(--border); color: var(--white); }
+.btn-outlined:hover { border-color: rgba(255,255,255,0.3); background: rgba(255,255,255,0.05); }
+.btn-filled { background: var(--red); color: var(--white); }
+.btn-filled:hover { background: var(--red2); box-shadow: 0 6px 20px rgba(214,48,49,0.3); }
+.org-tile { max-width: 900px; margin: 2.5rem auto 0; background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px; padding: 1.75rem 2rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; }
+.org-tile h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.3rem; }
+.org-tile p { color: var(--muted); font-size: 0.9rem; }
+
+.waitlist-section { padding: 6rem 2rem; background: rgba(214,48,49,0.04); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); text-align: center; scroll-margin-top: 80px; }
+.waitlist-inner { max-width: 560px; margin: 0 auto; }
+.waitlist-inner .section-title { margin: 0 auto 1rem; }
+.waitlist-inner .section-sub { margin: 0 auto 2.5rem; }
+/* Honeypot bewusst NICHT mit "left:-9999px" versteckt: in RTL (siehe
+   html[dir="rtl"]) zaehlt ein physischer Negativ-Offset in die
+   "vorwaertige" Scrollrichtung und blaeht document.documentElement.scrollWidth
+   massiv auf (gefunden auf der arabischen Seite: scrollWidth > 10000px bei
+   1425px Viewport, Ursache exakt auf #wl-hp zurueckgefuehrt). Das klassische
+   Clip-Pattern versteckt das Feld fuer Menschen genauso zuverlaessig, bleibt
+   aber fuer Bots ausfuellbar, ohne das Dokument zu verbreitern. */
+.hp-field { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; opacity: 0; }
+.wl-row { display: flex; gap: 0.75rem; flex-wrap: wrap; justify-content: center; margin-bottom: 1.25rem; }
+.wl-input { flex: 1 1 260px; max-width: 320px; background: rgba(255,255,255,0.06); border: 1px solid var(--border); border-radius: 10px; padding: 0.9rem 1.1rem; color: var(--white); font-size: 1rem; font-family: inherit; }
+.wl-input:focus { outline: none; border-color: rgba(214,48,49,0.5); }
+.wl-input::placeholder { color: var(--muted); }
+.wl-btn { border: none; cursor: pointer; white-space: nowrap; }
+.wl-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+.wl-consent { display: flex; align-items: flex-start; gap: 0.6rem; text-align: start; max-width: 480px; margin: 0 auto; font-size: 0.8rem; color: var(--muted); line-height: 1.5; cursor: pointer; }
+.wl-consent input { margin-top: 0.2rem; flex-shrink: 0; }
+.wl-consent a { color: var(--red); }
+.wl-message { margin-top: 1.25rem; font-size: 0.9rem; min-height: 1.3rem; }
+.wl-message.ok { color: #4ADE80; }
+.wl-message.err { color: #FF6B6B; }
+
+footer { border-top: 1px solid var(--border); padding: 3rem 2.5rem 2rem; }
+.footer-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+.footer-brand p { color: var(--muted); font-size: 0.875rem; line-height: 1.7; margin-top: 0.75rem; max-width: 280px; }
+.footer-col h5 { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 1rem; }
+.footer-col a { display: block; color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.875rem; margin-bottom: 0.6rem; transition: color 0.2s; }
+.footer-col a:hover { color: var(--white); }
+.footer-bottom { border-top: 1px solid var(--border); padding-top: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; max-width: 1100px; margin: 0 auto; }
+.footer-bottom p { color: var(--muted); font-size: 0.8rem; }
+
+@media (max-width: 768px) {
+  nav { padding: 1rem 1.25rem; }
+  .nav-links { display: none; }
+  .hero { padding: 7rem 1.25rem 4rem; }
+  .stats-bar { gap: 1.5rem; padding: 1.5rem 1rem; }
+  .section, .features-section, .privacy-section, .pricing-section, .langs-section, .waitlist-section { padding: 4rem 1.25rem; }
+  .privacy-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+  .wl-row { flex-direction: column; align-items: stretch; }
+  .wl-input { max-width: none; }
+  .org-tile { flex-direction: column; align-items: flex-start; text-align: left; }
+}
+html[dir="rtl"] .org-tile { text-align: right; }
+/* Verhindert dieselbe Grid/Flex-Falle wie beim Kategorie-Grid (siehe
+   Commit "Fix: Mobile-Grid lief..."): ohne min-width:0 duerfen Flex-/
+   Grid-Kinder nicht unter ihre Inhalts-Mindestbreite schrumpfen, wodurch
+   eine einzelne lange Zeile (z. B. in .privacy-point oder .flow-text) die
+   ganze Spalte - und damit die Seite - ueber die Viewport-Breite hinaus
+   drueckt. Reproduziert und bestaetigt bei 320px (scrollWidth 365 vs.
+   clientWidth 320, isoliert auf #privacy zurueckgefuehrt). Rein defensiv,
+   keine optische Aenderung bei ausreichend Platz. */
+.privacy-grid > div, .privacy-point, .privacy-point > div,
+.flow-step, .flow-text, .step, .footer-col, .price-card,
+.org-tile > div, .steps, .footer-inner, .footer-inner > * { min-width: 0; }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">📄 Brief<span>AI</span></div>
+  <ul class="nav-links">
+    <li><a href="#how">Comment ça marche</a></li>
+    <li><a href="#features">Catégories de courriers</a></li>
+    <li><a href="#privacy">Confidentialité</a></li>
+    <li><a href="#pricing">Tarifs</a></li>
+    <li><a href="../ratgeber/">Guides</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="lang-switch" id="langSwitch"></div>
+    <a href="#waitlist" class="nav-cta play-cta" data-launched-text="Télécharger l'appli" data-launched-href="https://play.google.com/store/apps/details?id=com.briefai.app">Liste d'attente</a>
+  </div>
+</nav>
+
+<main>
+<section class="hero">
+  <div class="hero-badge status-badge" data-launched-text="Maintenant sur Google Play">Bientôt sur Google Play</div>
+  <p class="brand-tag">BriefAI Suisse</p>
+  <h1>Comprendre chaque<br>courrier <em>suisse</em></h1>
+  <p class="hero-sub">BriefAI analyse les courriers officiels de l'AVS, de l'assurance-maladie, du fisc et bien d'autres — en 7 langues, localement et en toute sécurité.</p>
+  <p class="hero-langs">Deutsch · Français · Italiano · Shqip · English · <span dir="rtl" lang="ar">العربية</span> · Türkçe</p>
+  <div class="hero-actions">
+    <a href="#waitlist" class="btn-main play-cta" data-launched-text="📱 Télécharger gratuitement" data-launched-href="https://play.google.com/store/apps/details?id=com.briefai.app">🔔 Rejoindre la liste</a>
+    <a href="#how" class="btn-ghost">Comment ça marche</a>
+  </div>
+  <div class="stats-bar">
+    <div class="stat"><div class="stat-num">7<span>+</span></div><div class="stat-label">Langues</div></div>
+    <div class="stat"><div class="stat-num">10<span>+</span></div><div class="stat-label">Types de courriers</div></div>
+    <div class="stat"><div class="stat-num">0<span></span></div><div class="stat-label">Suivi</div></div>
+    <div class="stat"><div class="stat-num">0<span>CHF</span></div><div class="stat-label">Pour commencer</div></div>
+  </div>
+</section>
+
+<section class="section" id="how">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div class="section-label">Comment ça marche</div>
+    <h2 class="section-title">3 étapes vers la réponse</h2>
+    <p class="section-sub">Aucun compte nécessaire. Scannez le courrier, choisissez votre langue, comprenez.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">Étape 01</div>
+        <div class="step-icon">📸</div>
+        <h3>Photographiez ou collez votre courrier</h3>
+        <p>Photographiez votre courrier avec l'appareil photo ou collez-en le texte. La reconnaissance de texte s'exécute localement sur votre appareil.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">Étape 02</div>
+        <div class="step-icon">🔐</div>
+        <h3>Anonymisation automatique</h3>
+        <p>Les numéros AVS, IBAN et de téléphone sont automatiquement masqués avant tout transfert — seul un texte anonymisé quitte votre appareil.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">Étape 03</div>
+        <div class="step-icon">✅</div>
+        <h3>Analyse dans votre langue</h3>
+        <p>BriefAI vous explique ce que signifie le courrier, ce que vous devez faire et s'il existe un délai — dans la langue de votre choix.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="features-section" id="features">
+  <div class="features-inner">
+    <div class="features-header">
+      <div class="section-label">Catégories de courriers</div>
+      <h2 class="section-title">Comprendre chaque courrier officiel</h2>
+      <p class="section-sub">De l'AVS aux courriers judiciaires — BriefAI comprend tous les courriers importants des autorités suisses.</p>
+    </div>
+    <div class="cat-grid">
+      <button type="button" class="cat-card" data-cat="ahv" aria-haspopup="dialog">
+        
+        <div class="cat-stage"><img src="/assets/images/categories/ahv-rente.webp" alt="" loading="lazy"></div>
+        <h4 class="cat-title">AVS / Rente</h4>
+        <p class="cat-sub">Assurance vieillesse et survivants</p>
+      </button>
+      <button type="button" class="cat-card" data-cat="iv" aria-haspopup="dialog">
+        
+        <div class="cat-stage"><img src="/assets/images/categories/iv-behinderung.webp" alt="" loading="lazy"></div>
+        <h4 class="cat-title">AI / Invalidité</h4>
+        <p class="cat-sub">Assurance invalidité</p>
+      </button>
+      <button type="button" class="cat-card" data-cat="krankenkasse" aria-haspopup="dialog">
+        
+        <div class="cat-stage"><img src="/assets/images/categories/krankenkasse.webp" alt="" loading="lazy"></div>
+        <h4 class="cat-title">Assurance-maladie</h4>
+        <p class="cat-sub">Assurance et factures</p>
+      </button>
+      <button type="button" class="cat-card" data-cat="steueramt" aria-haspopup="dialog">
+        
+        <div class="cat-stage"><img src="/assets/images/categories/steueramt.webp" alt="" loading="lazy"></div>
+        <h4 class="cat-title">Office des impôts</h4>
+        <p class="cat-sub">Déclaration et décisions fiscales</p>
+      </button>
+      <button type="button" class="cat-card" data-cat="gemeinde" aria-haspopup="dialog">
+        
+        <div class="cat-stage"><img src="/assets/images/categories/gemeinde.webp" alt="" loading="lazy"></div>
+        <h4 class="cat-title">Commune</h4>
+        <p class="cat-sub">Autorités et administration</p>
+      </button>
+      <button type="button" class="cat-card" data-cat="rav" aria-haspopup="dialog">
+        
+        <div class="cat-stage"><img src="/assets/images/categories/rav-arbeit.webp" alt="" loading="lazy"></div>
+        <h4 class="cat-title">ORP / Chômage</h4>
+        <p class="cat-sub">Office de l'emploi et assurance</p>
+      </button>
+      <button type="button" class="cat-card placeholder" data-cat="schule" aria-haspopup="dialog" aria-label="École — Image à venir">
+        <span class="pending-pill">Image à venir</span>
+        <div class="cat-stage"></div>
+        <h4 class="cat-title">École</h4>
+        <p class="cat-sub">École et formation</p>
+      </button>
+      <button type="button" class="cat-card placeholder" data-cat="vermieter" aria-haspopup="dialog" aria-label="Bailleur — Image à venir">
+        <span class="pending-pill">Image à venir</span>
+        <div class="cat-stage"></div>
+        <h4 class="cat-title">Bailleur</h4>
+        <p class="cat-sub">Baux et litiges</p>
+      </button>
+      <button type="button" class="cat-card placeholder" data-cat="gericht" aria-haspopup="dialog" aria-label="Tribunal — Image à venir">
+        <span class="pending-pill">Image à venir</span>
+        <div class="cat-stage"></div>
+        <h4 class="cat-title">Tribunal</h4>
+        <p class="cat-sub">Courriers judiciaires</p>
+      </button>
+      <button type="button" class="cat-card placeholder" data-cat="andere" aria-haspopup="dialog" aria-label="Autre — Image à venir">
+        <span class="pending-pill">Image à venir</span>
+        <div class="cat-stage"></div>
+        <h4 class="cat-title">Autre</h4>
+        <p class="cat-sub">Autres courriers</p>
+      </button>
+    </div>
+  </div>
+</section>
+
+<section class="langs-section">
+  <div class="langs-inner">
+    <div class="section-label">Langues</div>
+    <h2 class="section-title">7 langues, une application</h2>
+    <p class="section-sub" style="margin-bottom:2rem;">Pour tous ceux qui vivent en Suisse — quelle que soit la langue que vous parlez.</p>
+    <div class="lang-list">
+      <div class="lang-pill"><span class="lang-flag">🇩🇪</span> Deutsch</div>
+      <div class="lang-pill"><span class="lang-flag">🇫🇷</span> Français</div>
+      <div class="lang-pill"><span class="lang-flag">🇮🇹</span> Italiano</div>
+      <div class="lang-pill"><span class="lang-flag">🇦🇱</span> Shqip</div>
+      <div class="lang-pill"><span class="lang-flag">🇬🇧</span> English</div>
+      <div class="lang-pill"><span class="lang-flag">🇸🇦</span> العربية</div>
+      <div class="lang-pill"><span class="lang-flag">🇹🇷</span> Türkçe</div>
+    </div>
+  </div>
+</section>
+
+<section class="privacy-section" id="privacy">
+  <div class="privacy-inner">
+    <div class="privacy-grid">
+      <div>
+        <div class="section-label">Confidentialité</div>
+        <h2 class="section-title">Vos données restent vos données</h2>
+        <p class="section-sub">BriefAI a été conçu dès le départ pour protéger votre vie privée. Pas de compte, pas de suivi, aucune conservation de données.</p>
+        <div class="privacy-points">
+          <div class="privacy-point"><div class="privacy-check">✓</div><div><h5>Reconnaissance de texte locale (OCR)</h5><p>Les photos sont traitées sur votre appareil. Aucune image ne quitte votre téléphone.</p></div></div>
+          <div class="privacy-point"><div class="privacy-check">✓</div><div><h5>Anonymisation automatique</h5><p>Les numéros AVS, IBAN et de téléphone sont masqués localement avant la transmission du texte.</p></div></div>
+          <div class="privacy-point"><div class="privacy-check">✓</div><div><h5>Aucune conservation de données</h5><p>Le contenu des courriers n'est jamais stocké sur des serveurs. Vous seul voyez vos analyses.</p></div></div>
+          <div class="privacy-point"><div class="privacy-check">✓</div><div><h5>Conforme au RGPD et à la LPD suisse</h5><p>Entièrement conforme au RGPD européen et à la loi suisse sur la protection des données.</p></div></div>
+        </div>
+      </div>
+      <div>
+        <div class="privacy-visual">
+          <p style="font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:1.5rem;">Flux de données</p>
+          <div class="flow-step"><div class="flow-icon">📷</div><div class="flow-text"><h6>Prendre une photo</h6><p>Ouvrir l'appareil photo, photographier le courrier</p></div><span class="flow-badge badge-local">Local</span></div>
+          <div class="flow-step"><div class="flow-icon">🔍</div><div class="flow-text"><h6>Reconnaissance de texte (OCR)</h6><p>ML Kit s'exécute sur l'appareil</p></div><span class="flow-badge badge-local">Local</span></div>
+          <div class="flow-step"><div class="flow-icon">🔐</div><div class="flow-text"><h6>Anonymisation</h6><p>AVS, IBAN, téléphone masqués</p></div><span class="flow-badge badge-local">Local</span></div>
+          <div class="flow-step"><div class="flow-icon">☁️</div><div class="flow-text"><h6>Texte anonymisé → IA</h6><p>Chiffré via Cloudflare</p></div><span class="flow-badge badge-enc">Chiffré</span></div>
+          <div class="flow-step"><div class="flow-icon">💾</div><div class="flow-text"><h6>Aucun stockage</h6><p>Pas de journalisation, pas de suivi</p></div><span class="flow-badge badge-no">Jamais</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pricing-section" id="pricing">
+  <div class="pricing-inner">
+    <div class="pricing-header">
+      <div class="section-label">Tarifs</div>
+      <h2 class="section-title">Simple et transparent</h2>
+      <p class="section-sub">Commencez gratuitement. Mise à niveau possible à tout moment, résiliation via Google Play.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <span class="price-tag tag-free">Gratuit</span>
+        <div class="price-amount">0 <small>CHF</small></div>
+        <div class="price-period">pour toujours</div>
+        <ul class="price-features">
+          <li>3 analyses par mois</li>
+          <li>7 langues</li>
+          <li>Toutes les catégories de courriers</li>
+          <li>Mode senior</li>
+          <li>Reconnaissance de texte locale</li>
+        </ul>
+        <a href="#waitlist" class="price-btn btn-outlined play-cta" data-launched-text="Télécharger maintenant" data-launched-href="https://play.google.com/store/apps/details?id=com.briefai.app">Rejoindre la liste</a>
+      </div>
+      <div class="price-card featured">
+        <span class="price-tag tag-pro">PRO Mensuel</span>
+        <div class="price-amount">4.90 <small>CHF</small></div>
+        <div class="price-period">par mois</div>
+        <ul class="price-features">
+          <li>Analyses illimitées</li>
+          <li>7 langues</li>
+          <li>Courriers lus à voix haute</li>
+          <li>Toutes les catégories de courriers</li>
+          <li>Résiliable à tout moment</li>
+        </ul>
+        <a href="#waitlist" class="price-btn btn-filled play-cta" data-launched-text="Passer PRO" data-launched-href="https://play.google.com/store/apps/details?id=com.briefai.app">Rejoindre la liste</a>
+      </div>
+      <div class="price-card">
+        <span class="price-tag tag-year">PRO Annuel — 50 % de réduction</span>
+        <div class="price-amount">29 <small>CHF</small></div>
+        <div class="price-period">par an au lieu de 58.80 CHF</div>
+        <ul class="price-features">
+          <li>Analyses illimitées</li>
+          <li>7 langues</li>
+          <li>Courriers lus à voix haute</li>
+          <li>Toutes les catégories de courriers</li>
+          <li>Meilleur rapport qualité-prix</li>
+        </ul>
+        <a href="#waitlist" class="price-btn btn-outlined play-cta" data-launched-text="Choisir l'abonnement annuel" data-launched-href="https://play.google.com/store/apps/details?id=com.briefai.app">Rejoindre la liste</a>
+      </div>
+    </div>
+    <div class="org-tile">
+      <div>
+        <h3>Pour les organisations</h3>
+        <p>Licences pour les centres de conseil, les offices d'intégration et les écoles.</p>
+      </div>
+      <a href="mailto:khaled.mrah@icloud.com?subject=BriefAI%20f%C3%BCr%20Organisationen" class="price-btn btn-outlined" style="width:auto;padding:0.85rem 1.75rem;flex-shrink:0;">Nous contacter</a>
+    </div>
+  </div>
+</section>
+
+<section class="waitlist-section" id="waitlist">
+  <div class="waitlist-inner">
+    <div class="section-label">Liste d'attente</div>
+    <h2 class="section-title">Bientôt sur Google Play</h2>
+    <p class="section-sub">Indiquez votre e-mail. Nous vous informerons dès que BriefAI sera disponible.</p>
+    <form id="waitlist-form" novalidate>
+      <!-- Honeypot: fuer Menschen unsichtbar, Bots fuellen es trotzdem aus. -->
+      <input type="text" name="webseite" id="wl-hp" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <div class="wl-row">
+        <input type="email" id="wl-email" class="wl-input" required maxlength="254" placeholder="votre@email.ch">
+        <button type="submit" id="wl-submit" class="btn-main wl-btn">Me prévenir</button>
+      </div>
+      <label class="wl-consent">
+        <input type="checkbox" id="wl-consent" required>
+        <span>J'accepte que BriefAI m'informe par e-mail du lancement. Désabonnement possible à tout moment. <a href="../privacy.html#warteliste">En savoir plus</a>.</span>
+      </label>
+    </form>
+    <p id="wl-message" class="wl-message" role="status" aria-live="polite"></p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="nav-logo">📄 Brief<span style="color:var(--red)">AI</span></div>
+      <p>BriefAI Suisse — comprendre les courriers officiels, pour tous ceux qui vivent en Suisse. Sécurisé, local, en 7 langues.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Mentions légales</h5>
+      <a href="../impressum.html">Mentions légales (DE)</a>
+      <a href="../privacy.html">Politique de confidentialité (DE)</a>
+      <a href="../terms.html">Conditions d'utilisation (DE)</a>
+      <a href="../security.html">Sécurité</a>
+    </div>
+    <div class="footer-col">
+      <h5>Contact</h5>
+      <a href="mailto:Khaled.mrah@icloud.com">Khaled.mrah@icloud.com</a>
+      <a href="#waitlist" class="play-cta" data-launched-text="Google Play">Liste d'attente</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 BriefAI — Khaled Mrah, Schaffhouse, Suisse</p>
+    <p style="font-size:0.75rem;">Conforme au RGPD et à la LPD suisse · Aucun suivi · Aucune publicité</p>
+  </div>
+</footer>
+
+<script src="../assets/js/launch-toggle.js"></script>
+<script src="../assets/js/waitlist-form.js"></script>
+<script src="../assets/js/category-section.js"></script>
+<script src="../assets/js/lang-switch.js"></script>
+</body>
+</html>
