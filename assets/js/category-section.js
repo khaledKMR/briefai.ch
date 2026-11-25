@@ -119,9 +119,17 @@ const CATEGORIES = {
                en: "Sample employment office, penalty ruling: 5 penalty days for late registration. Objection possible within 30 days." },
     cta: "/ratgeber/rav-brief-einstelltage.html" },
 
-  schule: { tier: "minimal", img: null,
-    desc: { de: "Briefe der Schule reichen von Elternabend-Einladungen über Zeugnisse bis zu schulrechtlichen Entscheiden — und das Schulwesen ist in der Schweiz kantonal geregelt.",
-            en: "School letters range from parent-evening invitations to report cards to formal school decisions — and schooling in Switzerland is regulated cantonally." },
+  schule: { tier: "contentOnly", img: null,
+    desc: {
+      de: "Briefe der Schule reichen von Elternabend-Einladungen über Zeugnisse bis zu schulrechtlichen Entscheiden wie einer Rückstufung oder einem Schulausschluss. Das Schulwesen ist in der Schweiz kantonal geregelt — eine einheitliche Frist gibt es nicht, die geltende Frist steht auf Ihrem eigenen Brief.",
+      en: "School letters range from parent-evening invitations to report cards to formal school decisions like being held back a grade or a school exclusion. Schooling in Switzerland is regulated cantonally — there's no uniform deadline, the deadline that applies is stated on your own letter.",
+      fr: "Les courriers de l'école vont de l'invitation à une réunion de parents au bulletin scolaire, jusqu'aux décisions scolaires formelles comme un redoublement ou une exclusion. L'école est réglée au niveau cantonal en Suisse — il n'existe pas de délai uniforme, le délai applicable figure sur votre propre courrier.",
+      it: "Le lettere della scuola vanno dagli inviti alle serate dei genitori alle pagelle, fino alle decisioni scolastiche formali come una bocciatura o un'esclusione. La scuola è regolata a livello cantonale in Svizzera — non esiste un termine uniforme, il termine applicabile è indicato sulla vostra lettera.",
+      ar: "تتراوح رسائل المدرسة من دعوات اجتماعات أولياء الأمور إلى الشهادات المدرسية وصولاً إلى القرارات المدرسية الرسمية مثل الإعادة أو الفصل. يخضع التعليم في سويسرا لتنظيم كانتوني — لا توجد مهلة موحدة، والمهلة المعمول بها مذكورة في رسالتكم نفسها.",
+      tr: "Okul mektupları, veli toplantısı davetiyelerinden karne notlarına, sınıf tekrarı veya okuldan uzaklaştırma gibi resmi okul kararlarına kadar uzanır. İsviçre'de okul sistemi kanton bazında düzenlenir — tek tip bir süre yoktur, geçerli süre kendi mektubunuzda belirtilir.",
+      sq: "Letrat e shkollës variojnë nga ftesat për mbledhjet e prindërve te dëftesat, deri te vendimet zyrtare shkollore si mbetja në klasë ose përjashtimi. Arsimi në Zvicër rregullohet në nivel kantonal — nuk ka afat të njëtrajtshëm, afati i zbatueshëm shënohet në letrën tuaj." },
+    example: { de: "Schulleitung Musterschule: Einladung zum Gespräch wegen provisorischer Rückstufung. Stellungnahme-Frist gemäss kantonalem Schulrecht.",
+               en: "Sample school administration: Invitation to a meeting regarding a provisional grade repetition. Response deadline per cantonal school law." },
     cta: null },
 
   vermieter: { tier: "contentOnly", img: null,
@@ -137,9 +145,17 @@ const CATEGORIES = {
                en: "Utility-cost statement 2026: Additional payment CHF 320. Receipt inspection with the landlord possible at any time." },
     cta: "/ratgeber/nebenkostenabrechnung-pruefen.html" },
 
-  gericht: { tier: "minimal", img: null,
-    desc: { de: "Gerichtliche Schreiben reichen von einer Vorladung über einen Strafbefehl bis zur Zivilklage — Fristen und Folgen unterscheiden sich stark je nach Art des Schreibens.",
-            en: "Court letters range from a summons to a penalty order to a civil claim — deadlines and consequences vary greatly by letter type." },
+  gericht: { tier: "contentOnly", img: null,
+    desc: {
+      de: "Schreiben im Zusammenhang mit einem Gerichtsverfahren reichen von einer Vorladung über einen Strafbefehl der Staatsanwaltschaft bis zur Zivilklage. Ein Strafbefehl kann innert 10 Tagen schriftlich bei der Staatsanwaltschaft angefochten werden — bei anderen Schreiben hängt die Frist von der Verfahrensart ab und steht im Dokument selbst.",
+      en: "Letters related to legal proceedings range from a summons to a penalty order from the public prosecutor to a civil lawsuit. A penalty order can be contested in writing with the public prosecutor's office within 10 days — for other letters, the deadline depends on the type of proceeding and is stated in the document itself.",
+      fr: "Les courriers liés à une procédure judiciaire vont de la convocation à une ordonnance pénale du ministère public jusqu'à l'action civile. Une ordonnance pénale peut faire l'objet d'une opposition écrite auprès du ministère public dans un délai de 10 jours — pour les autres courriers, le délai dépend du type de procédure et figure dans le document lui-même.",
+      it: "Le lettere legate a un procedimento giudiziario vanno da una citazione a un decreto d'accusa del pubblico ministero fino a un'azione civile. Un decreto d'accusa può essere opposto per iscritto al pubblico ministero entro 10 giorni — per le altre lettere, il termine dipende dal tipo di procedimento ed è indicato nel documento stesso.",
+      ar: "تتراوح الرسائل المتعلقة بإجراء قضائي من استدعاء إلى أمر عقوبة صادر عن النيابة العامة وصولاً إلى دعوى مدنية. يمكن الاعتراض كتابيًا على أمر العقوبة لدى النيابة العامة خلال 10 أيام — أما بالنسبة للرسائل الأخرى، فتعتمد المهلة على نوع الإجراء وتكون مذكورة في المستند نفسه.",
+      tr: "Bir yargı süreciyle ilgili mektuplar, bir celpten savcılığın ceza emrine, oradan da hukuk davasına kadar uzanır. Bir ceza emrine, savcılık nezdinde 10 gün içinde yazılı olarak itiraz edilebilir — diğer mektuplarda süre, sürecin türüne bağlıdır ve belgenin kendisinde belirtilir.",
+      sq: "Letrat e lidhura me një procedurë gjyqësore variojnë nga një thirrje gjyqësore te një urdhër ndëshkimi i prokurorisë, deri te një padi civile. Një urdhër ndëshkimi mund të kundërshtohet me shkrim pranë prokurorisë brenda 10 ditësh — për letrat e tjera, afati varet nga lloji i procedurës dhe shënohet në vetë dokumentin." },
+    example: { de: "Staatsanwaltschaft Musterkanton, Strafbefehl: Busse CHF 300.– wegen Ordnungswidrigkeit im Strassenverkehr. Einsprache innert 10 Tagen möglich.",
+               en: "Sample canton public prosecutor, penalty order: Fine CHF 300 for a traffic violation. Objection possible within 10 days." },
     cta: null },
 
   andere: { tier: "contentOnly", img: null,
