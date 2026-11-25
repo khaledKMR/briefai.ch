@@ -173,7 +173,7 @@ html[dir="rtl"] .lang-option { text-align: right; }
 .step { background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; transition: border-color 0.2s, transform 0.2s; }
 .step:hover { border-color: rgba(214,48,49,0.3); transform: translateY(-4px); }
 .step-num { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; color: var(--red); margin-bottom: 1rem; text-transform: uppercase; }
-.step-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+.step-icon { width: 96px; height: 96px; margin-bottom: 1.25rem; display: flex; align-items: center; justify-content: center; } .step-icon img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 6px 10px rgba(0,0,0,0.25)); } @media (max-width: 480px) { .step-icon { width: 80px; height: 80px; } }
 .step h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; }
 .step p { color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
 
@@ -428,19 +428,19 @@ html[dir="rtl"] .org-tile { text-align: right; }
     <div class="steps">
       <div class="step">
         <div class="step-num">Hapi 01</div>
-        <div class="step-icon">📸</div>
+        <div class="step-icon"><img src="/assets/images/steps/foto.webp" alt="" loading="lazy"></div>
         <h3>Fotografoni ose ngjisni letrën</h3>
         <p>Fotografoni letrën tuaj me kamerën ose ngjisni tekstin. Njohja e tekstit kryhet lokalisht në pajisjen tuaj.</p>
       </div>
       <div class="step">
         <div class="step-num">Hapi 02</div>
-        <div class="step-icon">🔐</div>
+        <div class="step-icon"><img src="/assets/images/steps/anonymisierung.webp" alt="" loading="lazy"></div>
         <h3>Anonimizim automatik</h3>
         <p>Numrat e sigurimit të pensionit, IBAN-et dhe numrat e telefonit zëvendësohen automatikisht para çdo transmetimi — vetëm teksti i anonimizuar largohet nga pajisja juaj.</p>
       </div>
       <div class="step">
         <div class="step-num">Hapi 03</div>
-        <div class="step-icon">✅</div>
+        <div class="step-icon"><img src="/assets/images/steps/analyse.webp" alt="" loading="lazy"></div>
         <h3>Analizë në gjuhën tuaj</h3>
         <p>BriefAI ju shpjegon çfarë do të thotë letra, çfarë duhet të bëni dhe nëse ka një afat — në gjuhën tuaj të zgjedhur.</p>
       </div>
