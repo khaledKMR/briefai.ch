@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BriefAI — Swiss Miniature Worlds (Variante B, final)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --navy: #0F1729; --navy2: #1A2240; --navy3: #243058;
+  --red: #D63031; --red2: #E84748; --white: #FFFFFF;
+  --off-white: #F4F6FA; --muted: #8A96B0; --border: rgba(255,255,255,0.08);
+  --card-bg: rgba(255,255,255,0.04);
+  --gold: #D5B574; --titan: #E4E5E8; --ivory: #F9F7F2;
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', sans-serif; background: var(--navy); color: var(--white); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+html[dir="rtl"] body { direction: rtl; }
+
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 1.25rem 2.5rem; display: flex; align-items: center; justify-content: space-between;
+  background: rgba(15,23,41,0.85); backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo { font-size: 1.25rem; font-weight: 800; letter-spacing: -0.5px; display: flex; align-items: center; gap: 0.5rem; }
+.nav-logo span { color: var(--red); }
+.nav-right { display: flex; align-items: center; gap: 1.25rem; }
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a { color: var(--muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; }
+.nav-cta { background: var(--red); color: var(--white); padding: 0.6rem 1.4rem; border-radius: 8px; text-decoration: none; font-size: 0.875rem; font-weight: 600; border: none; cursor: pointer; }
+
+/* Language switcher */
+.lang-switch { position: relative; }
+.lang-switch-btn {
+  display: flex; align-items: center; gap: 0.4rem;
+  background: rgba(255,255,255,0.06); border: 1px solid var(--border); border-radius: 10px;
+  color: var(--white); padding: 0.5rem 0.8rem; font-size: 0.85rem; font-weight: 600; cursor: pointer;
+}
+.lang-switch-btn:hover, .lang-switch-btn:focus-visible { border-color: rgba(213,181,116,0.5); }
+.lang-switch-btn .chev { font-size: 0.65rem; color: var(--gold); transition: transform 0.2s ease; }
+.lang-switch[data-open="true"] .chev { transform: rotate(180deg); }
+.lang-menu {
+  position: absolute; top: calc(100% + 0.6rem); right: 0; min-width: 220px;
+  background: linear-gradient(180deg, var(--navy3), var(--navy2));
+  border: 1px solid rgba(228,229,232,0.18); border-radius: 14px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.45);
+  padding: 0.4rem; display: none; flex-direction: column; gap: 0.1rem;
+  max-height: 70vh; overflow-y: auto;
+}
+html[dir="rtl"] .lang-menu { right: auto; left: 0; }
+.lang-switch[data-open="true"] .lang-menu { display: flex; }
+.lang-option {
+  display: flex; align-items: center; justify-content: space-between; gap: 0.75rem;
+  background: none; border: none; color: var(--off-white); text-align: left;
+  padding: 0.65rem 0.8rem; border-radius: 9px; font-size: 0.92rem; cursor: pointer;
+}
+html[dir="rtl"] .lang-option { text-align: right; }
+.lang-option:hover, .lang-option:focus-visible { background: rgba(255,255,255,0.06); }
+.lang-option[aria-current="true"] { background: rgba(213,181,116,0.12); }
+.lang-option .native { font-weight: 600; }
+.lang-option .code { font-size: 0.72rem; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; }
+
+.top-spacer { height: 6rem; }
+.section-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+.section-title { font-family: 'DM Serif Display', serif; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 1rem; max-width: 600px; }
+.section-sub { color: var(--muted); font-size: 1.05rem; line-height: 1.7; max-width: 520px; }
+
+.features-section { padding: 5rem 2rem 7rem; background: radial-gradient(ellipse at top, rgba(213,181,116,0.05), transparent 60%); }
+.features-inner { max-width: 1220px; margin: 0 auto; }
+.features-header { text-align: center; margin-bottom: 4rem; }
+.features-header .section-title, .features-header .section-sub { margin-left: auto; margin-right: auto; }
+
+.cat-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.1rem; }
+
+.cat-card {
+  position: relative; display: block; width: 100%; text-decoration: none; color: inherit;
+  font-family: inherit;
+  background: linear-gradient(180deg, var(--navy3) 0%, var(--navy2) 100%);
+  border: 1px solid rgba(228,229,232,0.16);
+  border-radius: 20px;
+  padding: 1.6rem 1.1rem 1.4rem;
+  text-align: center;
+  min-width: 0;
+  cursor: pointer;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.04) inset, 0 10px 24px rgba(0,0,0,0.25);
+  transition: transform 0.3s cubic-bezier(.2,.8,.2,1), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.cat-card::before {
+  content: ''; position: absolute; top: 0; left: 14%; right: 14%; height: 3px; border-radius: 0 0 4px 4px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  opacity: 0.45; transition: opacity 0.3s ease;
+}
+.cat-card:hover, .cat-card:focus-visible {
+  transform: perspective(700px) rotateX(3deg) translateY(-6px);
+  border-color: rgba(213,181,116,0.45);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.06) inset, 0 24px 40px rgba(0,0,0,0.4);
+}
+.cat-card:hover::before, .cat-card:focus-visible::before { opacity: 1; }
+.cat-card:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+.cat-stage {
+  width: 108px; height: 108px; margin: 0.25rem auto 1.1rem; border-radius: 50%;
+  background: radial-gradient(circle at 50% 35%, rgba(228,229,232,0.16), rgba(228,229,232,0.02) 70%);
+  display: flex; align-items: center; justify-content: center; position: relative;
+}
+.cat-stage img { width: 86%; height: 86%; object-fit: contain; filter: drop-shadow(0 6px 10px rgba(0,0,0,0.4)); transition: transform 0.3s ease; }
+.cat-card:hover .cat-stage img, .cat-card:focus-visible .cat-stage img { transform: scale(1.07); }
+
+.cat-title { font-size: 0.98rem; font-weight: 700; margin-bottom: 0.3rem; }
+.cat-sub { color: var(--muted); font-size: 0.78rem; line-height: 1.5; }
+
+.cat-card.placeholder { opacity: 0.6; background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01)); }
+.cat-card.placeholder::before { display: none; }
+.cat-card.placeholder:hover, .cat-card.placeholder:focus-visible { transform: none; box-shadow: 0 1px 0 rgba(255,255,255,0.04) inset, 0 10px 24px rgba(0,0,0,0.25); border-color: rgba(228,229,232,0.16); }
+.cat-card.placeholder .cat-stage { border: 1px dashed rgba(228,229,232,0.3); background: none; }
+.cat-card.placeholder .cat-title { color: var(--muted); }
+.cat-card.placeholder .pending-pill {
+  position: absolute; top: -8px; right: 10px; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--gold); border: 1px solid rgba(213,181,116,0.4); background: rgba(213,181,116,0.08);
+  padding: 0.2rem 0.5rem; border-radius: 100px;
+}
+html[dir="rtl"] .cat-card.placeholder .pending-pill { right: auto; left: 10px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .cat-card, .cat-stage img, .lang-switch-btn .chev { transition: none !important; }
+  .cat-card:hover, .cat-card:focus-visible { transform: none; }
+}
+
+@media (max-width: 1024px) { .cat-grid { grid-template-columns: repeat(4, 1fr); } }
+@media (max-width: 768px)  { .cat-grid { grid-template-columns: repeat(3, 1fr); } .nav-links{display:none;} nav{padding:1rem 1.25rem;} }
+@media (max-width: 480px)  { .cat-grid { grid-template-columns: repeat(2, 1fr); } .cat-stage{width:88px;height:88px;} .cat-sub{display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden;} }
+@media (max-width: 340px)  { .cat-grid { grid-template-columns: 1fr; } }
+
+/* ---- Modal ---- */
+.modal-backdrop {
+  position: fixed; inset: 0; background: rgba(5,8,16,0.72); backdrop-filter: blur(4px);
+  display: none; align-items: center; justify-content: center; z-index: 1000; padding: 1.25rem;
+}
+.modal-backdrop[data-open="true"] { display: flex; }
+.modal-box {
+  width: 100%; max-width: 560px; max-height: 88vh; overflow-y: auto;
+  background: linear-gradient(180deg, var(--navy3), var(--navy2));
+  border: 1px solid rgba(228,229,232,0.18); border-radius: 22px;
+  padding: 2rem 1.75rem 1.75rem; position: relative;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+}
+.modal-close {
+  position: absolute; top: 1rem; right: 1rem; width: 40px; height: 40px; border-radius: 50%;
+  background: rgba(255,255,255,0.08); border: 1px solid var(--border); color: var(--white);
+  font-size: 1.1rem; cursor: pointer; display: flex; align-items: center; justify-content: center;
+}
+html[dir="rtl"] .modal-close { right: auto; left: 1rem; }
+.modal-close:hover, .modal-close:focus-visible { background: rgba(255,255,255,0.16); }
+.modal-stage {
+  width: 120px; height: 120px; margin: 0 auto 1.25rem; border-radius: 50%;
+  background: radial-gradient(circle at 50% 35%, rgba(228,229,232,0.18), rgba(228,229,232,0.02) 70%);
+  display: flex; align-items: center; justify-content: center;
+}
+.modal-stage img { width: 84%; height: 84%; object-fit: contain; filter: drop-shadow(0 8px 14px rgba(0,0,0,0.4)); }
+.modal-stage.placeholder { border: 1px dashed rgba(228,229,232,0.3); background: none; }
+.modal-title { font-family: 'DM Serif Display', serif; font-size: 1.6rem; text-align: center; margin-bottom: 0.9rem; }
+.modal-desc { color: rgba(255,255,255,0.88); font-size: 0.98rem; line-height: 1.7; text-align: center; margin-bottom: 1.1rem; }
+.modal-example { background: rgba(255,255,255,0.04); border: 1px solid var(--border); border-left: 3px solid var(--gold); border-radius: 12px; padding: 1rem 1.1rem; margin-bottom: 1.3rem; }
+html[dir="rtl"] .modal-example { border-left: 1px solid var(--border); border-right: 3px solid var(--gold); }
+.modal-example .tag { display: block; font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold); margin-bottom: 0.4rem; }
+.modal-example p { font-family: ui-monospace, monospace; font-size: 0.85rem; color: rgba(255,255,255,0.75); }
+
+.speak-row { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.4rem; }
+.speak-btn {
+  display: flex; align-items: center; gap: 0.4rem; background: rgba(213,181,116,0.1);
+  border: 1px solid rgba(213,181,116,0.35); color: var(--gold); border-radius: 100px;
+  padding: 0.5rem 0.9rem; font-size: 0.8rem; font-weight: 700; cursor: pointer; min-height: 44px;
+}
+.speak-btn[aria-pressed="true"] { background: var(--gold); color: var(--navy); }
+.lang-chip {
+  min-width: 44px; min-height: 36px; padding: 0.3rem 0.6rem; border-radius: 100px; font-size: 0.75rem; font-weight: 700;
+  background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: var(--off-white); cursor: pointer;
+}
+.lang-chip[aria-current="true"] { background: rgba(213,181,116,0.18); border-color: rgba(213,181,116,0.5); color: var(--gold); }
+.lang-chip:disabled { opacity: 0.35; cursor: not-allowed; }
+
+.modal-cta { display: block; text-align: center; background: var(--red); color: var(--white); text-decoration: none;
+  font-weight: 700; padding: 0.9rem 1.5rem; border-radius: 12px; font-size: 0.95rem; }
+.modal-cta:hover { background: var(--red2); }
+.modal-note { color: var(--muted); font-size: 0.82rem; text-align: center; margin-bottom: 1.1rem; }
+
+@media (prefers-reduced-motion: reduce) { * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">📄 Brief<span>AI</span></div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#" data-i18n="nav.how">Wie es funktioniert</a></li>
+    <li><a href="#" data-i18n="nav.features">Features</a></li>
+    <li><a href="#" data-i18n="nav.privacy">Datenschutz</a></li>
+    <li><a href="#" data-i18n="nav.pricing">Preise</a></li>
+    <li><a href="#" data-i18n="nav.guides">Ratgeber</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="lang-switch" id="langSwitch">
+      <button class="lang-switch-btn" id="langSwitchBtn" aria-haspopup="true" aria-expanded="false">
+        <span id="langSwitchLabel">Deutsch</span><span class="chev">▾</span>
+      </button>
+      <div class="lang-menu" id="langMenu" role="menu"></div>
+    </div>
+    <a href="#waitlist" class="nav-cta" data-i18n="nav.waitlist">Warteliste</a>
+  </div>
+</nav>
+<div class="top-spacer"></div>
+
+<section class="features-section" id="features">
+  <div class="features-inner">
+    <div class="features-header">
+      <div class="section-label" data-i18n="section.label">Briefkategorien</div>
+      <h2 class="section-title" data-i18n="section.title">Jeden offiziellen Brief verstehen</h2>
+      <p class="section-sub" data-i18n="section.sub">Von AHV bis Gericht — BriefAI versteht alle wichtigen Schweizer Behördenbriefe.</p>
+    </div>
+
+    <div class="cat-grid" id="catGrid"></div>
+  </div>
+</section>
+
+<div class="modal-backdrop" id="modalBackdrop">
+  <div class="modal-box" id="modalBox" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button class="modal-close" id="modalClose" aria-label="Schliessen">✕</button>
+    <div class="modal-stage" id="modalStage"></div>
+    <h3 class="modal-title" id="modalTitle"></h3>
+    <p class="modal-desc" id="modalDesc"></p>
+    <div class="modal-example" id="modalExample" hidden>
+      <span class="tag" id="modalExampleTag"></span>
+      <p id="modalExampleText"></p>
+    </div>
+    <p class="modal-note" id="modalNote" hidden></p>
+    <div class="speak-row" id="speakRow" hidden></div>
+    <a class="modal-cta" id="modalCta" href="#waitlist"></a>
+  </div>
+</div>
+
+<script>
+/* ======================= i18n chrome strings (demo-level UI translation, NOT full site) ======================= */
+const LANGS = [
+  { code: 'de', native: 'Deutsch',  dir: 'ltr' },
+  { code: 'en', native: 'English',  dir: 'ltr' },
+  { code: 'fr', native: 'Français', dir: 'ltr' },
+  { code: 'it', native: 'Italiano', dir: 'ltr' },
+  { code: 'ar', native: 'العربية',  dir: 'rtl' },
+  { code: 'tr', native: 'Türkçe',   dir: 'ltr' },
+  { code: 'sq', native: 'Shqip',    dir: 'ltr' },
+];
+
+const I18N = {
+  de: { 'nav.how':'Wie es funktioniert','nav.features':'Features','nav.privacy':'Datenschutz','nav.pricing':'Preise','nav.guides':'Ratgeber','nav.waitlist':'Warteliste',
+        'section.label':'Briefkategorien','section.title':'Jeden offiziellen Brief verstehen','section.sub':'Von AHV bis Gericht — BriefAI versteht alle wichtigen Schweizer Behördenbriefe.',
+        'tag.example':'Beispiel — frei erfunden','cta.learnMore':'Mehr erfahren','cta.waitlist':'Zur Warteliste','badge.imagePending':'Bild folgt','voice.unavailable':'nicht verfügbar auf diesem Gerät',
+        'note.comingSoon':'Eine ausführliche Erklärung für diese Kategorie bereiten wir gerade vor.' },
+  en: { 'nav.how':'How it works','nav.features':'Features','nav.privacy':'Privacy','nav.pricing':'Pricing','nav.guides':'Guides','nav.waitlist':'Waitlist',
+        'section.label':'Letter categories','section.title':'Understand every official letter','section.sub':'From pension to court letters — BriefAI understands every important Swiss authority letter.',
+        'tag.example':'Example — fictional','cta.learnMore':'Learn more','cta.waitlist':'Join the waitlist','badge.imagePending':'Image coming soon','voice.unavailable':'not available on this device',
+        'note.comingSoon':"We're still preparing a detailed explanation for this category." },
+  fr: { 'nav.how':'Comment ça marche','nav.features':'Fonctionnalités','nav.privacy':'Confidentialité','nav.pricing':'Tarifs','nav.guides':'Guides','nav.waitlist':"Liste d'attente",
+        'section.label':'Catégories de courriers','section.title':'Comprendre chaque courrier officiel','section.sub':"De l'AVS aux courriers judiciaires — BriefAI comprend tous les courriers importants des autorités suisses.",
+        'tag.example':'Exemple — fictif','cta.learnMore':'En savoir plus','cta.waitlist':"Rejoindre la liste d'attente",'badge.imagePending':'Image à venir','voice.unavailable':'non disponible sur cet appareil',
+        'note.comingSoon':'Nous préparons actuellement une explication détaillée pour cette catégorie.' },
+  it: { 'nav.how':'Come funziona','nav.features':'Funzionalità','nav.privacy':'Privacy','nav.pricing':'Prezzi','nav.guides':'Guide','nav.waitlist':"Lista d'attesa",
+        'section.label':'Categorie di lettere','section.title':'Capire ogni lettera ufficiale','section.sub':"Dall'AVS alle lettere del tribunale — BriefAI comprende tutte le lettere importanti delle autorità svizzere.",
+        'tag.example':'Esempio — fittizio','cta.learnMore':'Scopri di più','cta.waitlist':"Iscriviti alla lista d'attesa",'badge.imagePending':'Immagine in arrivo','voice.unavailable':'non disponibile su questo dispositivo',
+        'note.comingSoon':'Stiamo preparando una spiegazione dettagliata per questa categoria.' },
+  ar: { 'nav.how':'كيف يعمل','nav.features':'المزايا','nav.privacy':'الخصوصية','nav.pricing':'الأسعار','nav.guides':'دليل الإرشاد','nav.waitlist':'قائمة الانتظار',
+        'section.label':'فئات الرسائل','section.title':'فهم كل رسالة رسمية','section.sub':'من التأمين الشيخوخي إلى رسائل المحكمة — BriefAI يفهم كل رسائل السلطات السويسرية المهمة.',
+        'tag.example':'مثال — خيالي','cta.learnMore':'اعرف المزيد','cta.waitlist':'انضم إلى قائمة الانتظار','badge.imagePending':'الصورة قادمة قريبًا','voice.unavailable':'غير متوفر على هذا الجهاز',
+        'note.comingSoon':'نحن نُعدّ حاليًا شرحًا مفصلاً لهذه الفئة.' },
+  tr: { 'nav.how':'Nasıl çalışır','nav.features':'Özellikler','nav.privacy':'Gizlilik','nav.pricing':'Fiyatlar','nav.guides':'Rehber','nav.waitlist':'Bekleme listesi',
+        'section.label':'Mektup kategorileri','section.title':'Her resmi mektubu anlayın','section.sub':'Emeklilikten mahkeme mektuplarına kadar — BriefAI tüm önemli İsviçre resmi mektuplarını anlar.',
+        'tag.example':'Örnek — kurgusal','cta.learnMore':'Daha fazla bilgi','cta.waitlist':'Bekleme listesine katıl','badge.imagePending':'Görsel yakında','voice.unavailable':'bu cihazda kullanılamıyor',
+        'note.comingSoon':'Bu kategori için ayrıntılı bir açıklama hazırlıyoruz.' },
+  sq: { 'nav.how':'Si funksionon','nav.features':'Veçoritë','nav.privacy':'Privatësia','nav.pricing':'Çmimet','nav.guides':'Udhëzues','nav.waitlist':'Lista e pritjes',
+        'section.label':'Kategoritë e letrave','section.title':'Kuptoni çdo letër zyrtare','section.sub':'Nga sigurimi i pensionit deri te letrat e gjykatës — BriefAI kupton çdo letër të rëndësishme nga autoritetet zvicerane.',
+        'tag.example':'Shembull — fiktiv','cta.learnMore':'Mëso më shumë','cta.waitlist':'Bashkohu me listën e pritjes','badge.imagePending':'Imazhi së shpejti','voice.unavailable':'nuk ofrohet në këtë pajisje',
+        'note.comingSoon':'Jemi duke përgatitur një shpjegim të detajuar për këtë kategori.' },
+};
+
+/* ======================= Category data =======================
+   Tier "full": real image + full description + fictional example (DE/EN only, by design
+   decision — see report) + read-aloud + real Ratgeber CTA.
+   Tier "contentOnly": placeholder image ("Bild folgt") but otherwise full content, since a
+   matching Ratgeber guide already exists (Vermieter -> Nebenkostenabrechnung, Andere -> Mahnung).
+   Tier "minimal": placeholder image AND no matching guide yet (Schule, Gericht) — short honest
+   "in preparation" note only, no fictional example, no read-aloud, CTA = waitlist only.
+
+   NOTE ON TRANSLATION QUALITY (see also the fork's report to the parent):
+   - de/en text below was authored directly against the matching /ratgeber/*.html guide and is
+     authoritative.
+   - fr/it/ar/tr/sq "desc" fields are machine-drafted by Claude, NOT reviewed by a native speaker.
+     Flagged again here in-code on purpose: MASCHINELL UEBERSETZT - braucht muttersprachliche
+     Pruefung vor Veroeffentlichung, besonders AR/TR/SQ.
+   - The fictional "example" letters are only authored in de/en (scope decision, see report) -
+     other languages show the translated description + read-aloud of that description only.
+*/
+const CATEGORIES = [
+  { id:'ahv', tier:'full', img:'../assets/images/categories/ahv-rente.webp',
+    title:{de:'AHV / Rente',en:'Pension (OASI)',fr:'AVS / Rente',it:'AVS / Rendita',ar:'التأمين الشيخوخي',tr:'Emeklilik Sigortası',sq:'Sigurimi i Pensionit'},
+    sub:{de:'Alters- & Hinterlassenenversicherung',en:'Old-age & survivors insurance',fr:'Assurance vieillesse et survivants',it:'Assicurazione vecchiaia e superstiti',ar:'تأمين الشيخوخة والورثة',tr:'Yaşlılık ve Dul-Yetim Sigortası',sq:'Sigurimi i Pleqërisë dhe Mbijetesës'},
+    desc:{
+      de:'Ein Brief der Ausgleichskasse ist entweder eine Information (z. B. ein IK-Auszug) oder eine Verfügung über Ihre Rente. Nur bei einer Verfügung läuft eine Frist von 30 Tagen, um Einsprache zu erheben.',
+      en:'A letter from your compensation fund is either general information (like an account statement) or a formal decision about your pension. Only a formal decision starts a 30-day window to file an objection.',
+      fr:"Un courrier de la caisse de compensation est soit une information (p. ex. un extrait de compte), soit une décision formelle concernant votre rente. Seule une décision formelle ouvre un délai de 30 jours pour faire opposition.",
+      it:"Una lettera della cassa di compensazione è un'informazione (ad es. un estratto conto) oppure una decisione formale sulla vostra rendita. Solo una decisione formale avvia un termine di 30 giorni per fare opposizione.",
+      ar:'رسالة من صندوق التعويضات هي إما معلومة عامة (مثل كشف حساب) أو قرار رسمي بشأن معاشك التقاعدي. فقط القرار الرسمي يبدأ مهلة 30 يومًا لتقديم اعتراض.',
+      tr:'Denkleştirme kasasından gelen bir mektup ya genel bir bilgidir (örneğin hesap özeti) ya da emekliliğinizle ilgili resmi bir karardır. Sadece resmi karar, itiraz için 30 günlük süreyi başlatır.',
+      sq:'Një letër nga fondi i kompensimit është ose informacion i përgjithshëm (p.sh. një ekstrakt llogarie) ose një vendim zyrtar për pensionin tuaj. Vetëm vendimi zyrtar fillon afatin prej 30 ditësh për ankesë.' },
+    example:{ de:"Ausgleichskasse Musterkanton: Ab 01.04.2027 monatliche Altersrente von CHF 1'980.–. Einsprache innert 30 Tagen möglich.",
+              en:'Compensation fund, sample canton: Starting 1 April 2027, monthly old-age pension of CHF 1,980. Objection possible within 30 days.' },
+    cta:'../ratgeber/ahv-brief-verstehen.html' },
+
+  { id:'iv', tier:'full', img:'../assets/images/categories/iv-behinderung.webp',
+    title:{de:'IV / Behinderung',en:'Disability insurance',fr:'AI / Invalidité',it:'AI / Invalidità',ar:'التأمين ضد العجز',tr:'Engellilik Sigortası',sq:'Sigurimi i Aftësisë së Kufizuar'},
+    sub:{de:'Invalidenversicherung',en:'Disability insurance',fr:'Assurance invalidité',it:'Assicurazione invalidità',ar:'تأمين العجز',tr:'Malullük Sigortası',sq:'Sigurimi i Invaliditetit'},
+    desc:{
+      de:'Die IV-Stelle schickt zuerst meist einen Vorbescheid — einen Entwurf, zu dem Sie Stellung nehmen können — und erst danach die endgültige Verfügung. Nur die Verfügung löst die 30-Tage-Frist für eine Einsprache aus.',
+      en:'The disability insurance office usually first sends a draft decision you can respond to, and only afterward the final ruling. Only the final ruling starts the 30-day objection period.',
+      fr:"L'office AI envoie généralement d'abord un préavis — un projet auquel vous pouvez réagir — puis seulement ensuite la décision définitive. Seule la décision définitive déclenche le délai d'opposition de 30 jours.",
+      it:"L'ufficio AI invia di solito prima un preavviso — una bozza a cui potete rispondere — e solo dopo la decisione definitiva. Solo la decisione definitiva avvia il termine di opposizione di 30 giorni.",
+      ar:'عادة ما يرسل مكتب التأمين ضد العجز أولاً إشعارًا مبدئيًا يمكنكم الرد عليه، ثم القرار النهائي لاحقًا. القرار النهائي فقط هو الذي يبدأ مهلة الاعتراض البالغة 30 يومًا.',
+      tr:'Engellilik sigortası dairesi genellikle önce yanıt verebileceğiniz bir ön bildirim, ardından kesin kararı gönderir. Sadece kesin karar, 30 günlük itiraz süresini başlatır.',
+      sq:"Zyra e sigurimit të aftësisë së kufizuar zakonisht dërgon fillimisht një njoftim paraprak, të cilit mund t'i përgjigjeni, dhe më pas vendimin përfundimtar. Vetëm vendimi përfundimtar fillon afatin prej 30 ditësh për ankesë." },
+    example:{ de:'IV-Stelle Musterkanton, Vorbescheid: Geplante IV-Rente 50%. Stellungnahme innert 30 Tagen möglich, bevor die definitive Verfügung ergeht.',
+              en:'Disability office, sample canton, draft decision: Planned disability pension 50%. Response possible within 30 days before the final ruling is issued.' },
+    cta:'../ratgeber/iv-verfuegung-verstehen.html' },
+
+  { id:'krankenkasse', tier:'full', img:'../assets/images/categories/krankenkasse.webp',
+    title:{de:'Krankenkasse',en:'Health insurance',fr:'Assurance-maladie',it:'Cassa malati',ar:'التأمين الصحي',tr:'Sağlık Sigortası',sq:'Sigurimi Shëndetësor'},
+    sub:{de:'Versicherung & Rechnungen',en:'Insurance & invoices',fr:'Assurance et factures',it:'Assicurazione e fatture',ar:'التأمين والفواتير',tr:'Sigorta ve Faturalar',sq:'Sigurimi dhe Faturat'},
+    desc:{
+      de:'Die Krankenkasse schickt zwei unterschiedliche Briefarten: die Prämienrechnung für Ihre Versicherung und die Leistungsabrechnung für eine konkrete Behandlung. Nur Letztere kann eine förmliche Verfügung mit 30-Tage-Frist sein.',
+      en:'Your health insurer sends two very different letters: the premium invoice and the benefits statement for a specific treatment. Only the latter can be a formal ruling with a 30-day deadline.',
+      fr:"Votre caisse-maladie envoie deux types de courriers très différents : la facture de prime et le décompte de prestations pour un traitement précis. Seul ce dernier peut être une décision formelle avec un délai de 30 jours.",
+      it:"La cassa malati invia due tipi di lettere molto diverse: la fattura del premio e il conteggio delle prestazioni per un trattamento specifico. Solo quest'ultimo può essere una decisione formale con un termine di 30 giorni.",
+      ar:'ترسل شركة التأمين الصحي نوعين مختلفين من الرسائل: فاتورة القسط وكشف حساب الخدمات لعلاج معين. فقط الأخير يمكن أن يكون قرارًا رسميًا بمهلة 30 يومًا.',
+      tr:'Sağlık sigortanız iki farklı mektup gönderir: prim faturası ve belirli bir tedavi için hizmet dökümü. Sadece ikincisi, 30 günlük süreli resmi bir karar olabilir.',
+      sq:'Sigurimi juaj shëndetësor dërgon dy lloje letrash krejt të ndryshme: faturën e primit dhe llogaritjen e shërbimeve për një trajtim specifik. Vetëm kjo e fundit mund të jetë një vendim zyrtar me afat 30-ditor.' },
+    example:{ de:'Leistungsabrechnung: Rechnung Dr. Muster CHF 240.– teilweise abgelehnt. Einsprache innert 30 Tagen möglich.',
+              en:'Benefits statement: Dr. Example invoice CHF 240 partially rejected. Objection possible within 30 days.' },
+    cta:'../ratgeber/krankenkasse-praemie-leistungsabrechnung.html' },
+
+  { id:'steueramt', tier:'full', img:'../assets/images/categories/steueramt.webp',
+    title:{de:'Steueramt',en:'Tax office',fr:'Office des impôts',it:'Ufficio imposte',ar:'مكتب الضرائب',tr:'Vergi Dairesi',sq:'Zyra Tatimore'},
+    sub:{de:'Steuererklärung & Bescheide',en:'Tax return & assessments',fr:'Déclaration et décisions fiscales',it:'Dichiarazione e decisioni fiscali',ar:'الإقرار الضريبي والقرارات',tr:'Vergi Beyannamesi ve Kararlar',sq:'Deklarata dhe Vendimet Tatimore'},
+    desc:{
+      de:'Eine Veranlagungsverfügung legt fest, wie viel Steuern Sie gemäss der Steuerverwaltung schulden. Sind Sie nicht einverstanden, können Sie innerhalb von 30 Tagen schriftlich Einsprache erheben.',
+      en:"A tax assessment states how much tax the tax office believes you owe. If you disagree, you can file a written objection within 30 days.",
+      fr:"Une décision de taxation indique le montant d'impôt que l'administration fiscale estime que vous devez. Si vous n'êtes pas d'accord, vous pouvez faire opposition par écrit dans un délai de 30 jours.",
+      it:"Una decisione di tassazione stabilisce quante tasse dovete secondo l'amministrazione fiscale. Se non siete d'accordo, potete fare opposizione per iscritto entro 30 giorni.",
+      ar:'يحدد قرار التقييم الضريبي المبلغ الذي تعتقد السلطة الضريبية أنكم مدينون به. إذا لم توافقوا، يمكنكم تقديم اعتراض كتابي خلال 30 يومًا.',
+      tr:'Vergi tarhiyatı kararı, vergi dairesine göre ne kadar vergi borcunuz olduğunu belirtir. Katılmıyorsanız, 30 gün içinde yazılı itiraz edebilirsiniz.',
+      sq:'Një vendim tatimor përcakton sa taksa, sipas administratës tatimore, i detyroheni. Nëse nuk jeni dakord, mund të bëni ankesë me shkrim brenda 30 ditësh.' },
+    example:{ de:"Veranlagungsverfügung 2026: Steuerbetrag CHF 3'450.–. Einsprache innert 30 Tagen schriftlich bei der Steuerverwaltung.",
+              en:'Tax assessment 2026: Tax amount CHF 3,450. Written objection possible within 30 days at the tax administration.' },
+    cta:'../ratgeber/steuerrechnung-veranlagung.html' },
+
+  { id:'gemeinde', tier:'full', img:'../assets/images/categories/gemeinde.webp',
+    title:{de:'Gemeinde',en:'Municipality',fr:'Commune',it:'Comune',ar:'البلدية',tr:'Belediye',sq:'Komuna'},
+    sub:{de:'Behörden & Verwaltung',en:'Authorities & administration',fr:'Autorités et administration',it:'Autorità e amministrazione',ar:'السلطات والإدارة',tr:'Yetkililer ve İdare',sq:'Autoritetet dhe Administrata'},
+    desc:{
+      de:'Briefe von der Gemeinde folgen dem Verwaltungsrecht Ihres Kantons, nicht einem einzelnen Bundesgesetz. Eine einheitliche Schweizer Frist gibt es hier nicht — die geltende Frist steht auf Ihrem eigenen Brief.',
+      en:"Letters from your municipality follow your canton's own administrative law, not a single federal statute. There's no uniform Swiss deadline — the deadline that applies is stated on your own letter.",
+      fr:"Les courriers de votre commune suivent le droit administratif de votre canton, pas une loi fédérale unique. Il n'existe pas de délai suisse uniforme — le délai applicable figure sur votre propre courrier.",
+      it:"Le lettere del vostro comune seguono il diritto amministrativo del vostro cantone, non un'unica legge federale. Non esiste un termine svizzero uniforme: il termine applicabile è indicato sulla vostra lettera.",
+      ar:'تتبع رسائل بلديتكم القانون الإداري لكانتونكم، وليس قانونًا فدراليًا واحدًا. لا توجد مهلة موحدة في سويسرا — المهلة المعمول بها مذكورة في رسالتكم نفسها.',
+      tr:'Belediyenizden gelen mektuplar, tek bir federal yasayı değil, kantonunuzun idare hukukunu takip eder. Tek tip bir İsviçre süresi yoktur — geçerli süre kendi mektubunuzda belirtilir.',
+      sq:'Letrat nga komuna juaj ndjekin të drejtën administrative të kantonit tuaj, jo një ligj të vetëm federal. Nuk ka afat të njëtrajtshëm zviceran — afati i zbatueshëm shënohet në letrën tuaj.' },
+    example:{ de:'Einwohnergemeinde Musterdorf, Gebührenverfügung: Abfallgrundgebühr 2026 CHF 180.–. Rechtsmittelfrist gemäss kantonalem Recht.',
+              en:'Sample municipality, fee ruling: 2026 basic waste fee CHF 180. Appeal deadline per cantonal law.' },
+    cta:'../ratgeber/gemeindebrief-verstehen.html' },
+
+  { id:'rav', tier:'full', img:'../assets/images/categories/rav-arbeit.webp',
+    title:{de:'RAV / Arbeit',en:'Unemployment office',fr:'ORP / Chômage',it:'URC / Disoccupazione',ar:'مكتب التشغيل',tr:'İş Kurumu',sq:'Zyra e Punësimit'},
+    sub:{de:'Arbeitsamt & Versicherung',en:'Employment office & insurance',fr:"Office de l'emploi et assurance",it:"Ufficio del lavoro e assicurazione",ar:'مكتب العمل والتأمين',tr:'İş Kurumu ve Sigorta',sq:'Zyra e Punës dhe Sigurimi'},
+    desc:{
+      de:'Das RAV schickt drei unterschiedliche Briefarten: eine Einladung zum Gespräch, eine Verfügung über Ihren Taggeld-Anspruch, oder eine Einstellungsverfügung wegen Einstelltagen. Nur die beiden Letzteren lösen eine 30-Tage-Frist aus.',
+      en:'Your regional employment office sends three different kinds of letters: a meeting invitation, a ruling on your daily allowance, or a penalty-days ruling. Only the latter two start a 30-day objection period.',
+      fr:"L'ORP envoie trois types de courriers différents : une convocation à un entretien, une décision sur votre droit aux indemnités, ou une décision de suspension. Seules les deux dernières déclenchent un délai d'opposition de 30 jours.",
+      it:"L'URC invia tre tipi di lettere diverse: una convocazione a un colloquio, una decisione sul vostro diritto all'indennità, o una decisione di sospensione. Solo le ultime due avviano un termine di opposizione di 30 giorni.",
+      ar:'يرسل مكتب التشغيل الإقليمي ثلاثة أنواع من الرسائل: دعوة لمقابلة، أو قرار بشأن حقكم في البدل اليومي، أو قرار بإيقاف مؤقت. فقط النوعان الأخيران يبدآن مهلة اعتراض مدتها 30 يومًا.',
+      tr:'Bölgesel iş bulma ofisi üç farklı mektup gönderir: bir görüşme daveti, günlük ödenek hakkınıza ilişkin bir karar veya bir kesinti kararı. Sadece son ikisi 30 günlük itiraz süresini başlatır.',
+      sq:'Zyra rajonale e punësimit dërgon tri lloje letrash: një ftesë për bisedë, një vendim për të drejtën tuaj për pagesë ditore, ose një vendim ndëshkimi. Vetëm dy të fundit fillojnë afatin prej 30 ditësh për ankesë.' },
+    example:{ de:'RAV Musterstadt, Einstellungsverfügung: 5 Einstelltage wegen verspäteter Anmeldung. Einsprache innert 30 Tagen möglich.',
+              en:'Sample employment office, penalty ruling: 5 penalty days for late registration. Objection possible within 30 days.' },
+    cta:'../ratgeber/rav-brief-einstelltage.html' },
+
+  { id:'schule', tier:'minimal', img:null,
+    title:{de:'Schule',en:'School',fr:'École',it:'Scuola',ar:'المدرسة',tr:'Okul',sq:'Shkolla'},
+    sub:{de:'Schule & Ausbildung',en:'School & education',fr:'École et formation',it:'Scuola e formazione',ar:'المدرسة والتعليم',tr:'Okul ve Eğitim',sq:'Shkolla dhe Arsimi'},
+    desc:{ de:'Briefe der Schule reichen von Elternabend-Einladungen über Zeugnisse bis zu schulrechtlichen Entscheiden — und das Schulwesen ist in der Schweiz kantonal geregelt.',
+           en:'School letters range from parent-evening invitations to report cards to formal school decisions — and schooling in Switzerland is regulated cantonally.' },
+    cta:null },
+
+  { id:'vermieter', tier:'contentOnly', img:null,
+    title:{de:'Vermieter',en:'Landlord',fr:'Bailleur',it:'Locatore',ar:'المالك',tr:'Ev Sahibi',sq:'Qiradhënësi'},
+    sub:{de:'Mietverträge & Konflikte',en:'Leases & disputes',fr:'Baux et litiges',it:'Contratti e controversie',ar:'عقود الإيجار والنزاعات',tr:'Kira Sözleşmeleri ve Anlaşmazlıklar',sq:'Kontratat e Qirasë dhe Mosmarrëveshjet'},
+    desc:{
+      de:'Als Mieterin oder Mieter haben Sie das Recht, die Belege hinter einer Nebenkostenabrechnung einzusehen. Eine feste gesetzliche Frist, um die Abrechnung zu bestreiten, schreibt das Bundesrecht allerdings nicht vor.',
+      en:"As a tenant, you have the right to inspect the receipts behind a utility-cost statement. Federal law doesn't set a fixed deadline for disputing the statement.",
+      fr:"En tant que locataire, vous avez le droit de consulter les justificatifs d'un décompte de charges. Le droit fédéral ne fixe toutefois pas de délai précis pour le contester.",
+      it:"In qualità di inquilino avete il diritto di consultare i giustificativi di un conteggio delle spese accessorie. Il diritto federale non prevede tuttavia un termine fisso per contestarlo.",
+      ar:'بصفتكم مستأجرين، لكم الحق في الاطلاع على المستندات الداعمة لتسوية التكاليف الإضافية. لكن القانون الفدرالي لا يحدد مهلة ثابتة للاعتراض عليها.',
+      tr:'Kiracı olarak, yan gider hesabının dayanağı olan belgeleri inceleme hakkınız vardır. Ancak federal hukuk, buna itiraz için kesin bir süre öngörmez.',
+      sq:'Si qiramarrës, keni të drejtë të shikoni dëshmitë pas një llogarie të kostove shtesë. Megjithatë, e drejta federale nuk parashikon një afat fiks për ta kundërshtuar.' },
+    example:{ de:'Nebenkostenabrechnung 2026: Nachzahlung CHF 320.–. Belegeinsicht beim Vermieter jederzeit möglich.',
+              en:'Utility-cost statement 2026: Additional payment CHF 320. Receipt inspection with the landlord possible at any time.' },
+    cta:'../ratgeber/nebenkostenabrechnung-pruefen.html' },
+
+  { id:'gericht', tier:'minimal', img:null,
+    title:{de:'Gericht',en:'Court',fr:'Tribunal',it:'Tribunale',ar:'المحكمة',tr:'Mahkeme',sq:'Gjykata'},
+    sub:{de:'Rechtliche Schreiben',en:'Legal letters',fr:'Courriers judiciaires',it:'Lettere legali',ar:'المراسلات القانونية',tr:'Hukuki Yazışmalar',sq:'Letrat Ligjore'},
+    desc:{ de:'Gerichtliche Schreiben reichen von einer Vorladung über einen Strafbefehl bis zur Zivilklage — Fristen und Folgen unterscheiden sich stark je nach Art des Schreibens.',
+           en:'Court letters range from a summons to a penalty order to a civil claim — deadlines and consequences vary greatly by letter type.' },
+    cta:null },
+
+  { id:'andere', tier:'contentOnly', img:null,
+    title:{de:'Andere',en:'Other',fr:'Autre',it:'Altro',ar:'أخرى',tr:'Diğer',sq:'Tjetër'},
+    sub:{de:'Sonstige Briefe',en:'Other letters',fr:'Autres courriers',it:'Altre lettere',ar:'رسائل أخرى',tr:'Diğer Mektuplar',sq:'Letra të Tjera'},
+    desc:{
+      de:'Eine Mahnung kommt von einem privaten Gläubiger, nicht von einer Behörde. Sie setzt Sie rechtlich in Verzug — mit der Folge, dass ab diesem Zeitpunkt Verzugszins anfällt. Ein festes Antwort-Datum schreibt das Gesetz dafür nicht vor.',
+      en:"A dunning letter comes from a private creditor, not a public authority. It legally puts you in default, meaning default interest starts accruing — but the law doesn't set a fixed date by which you must respond.",
+      fr:"Un rappel provient d'un créancier privé, pas d'une autorité. Il vous met juridiquement en demeure, ce qui déclenche des intérêts moratoires — mais la loi ne fixe pas de date de réponse précise.",
+      it:"Un sollecito proviene da un creditore privato, non da un'autorità. Vi mette legalmente in mora, con interessi di mora a partire da quel momento — ma la legge non fissa una data di risposta precisa.",
+      ar:'رسالة التذكير بالدفع تأتي من دائن خاص وليس من جهة حكومية. وهي تضعكم قانونيًا في حالة تأخير يترتب عليها فوائد تأخير — لكن القانون لا يحدد موعدًا ثابتًا للرد.',
+      tr:'Bir ödeme hatırlatması resmi bir kurumdan değil, özel bir alacaklıdan gelir. Sizi hukuken temerrüde düşürür ve gecikme faizi işlemeye başlar — ancak yasa kesin bir yanıt tarihi belirlemez.',
+      sq:'Një kujtesë pagese vjen nga një kreditor privat, jo nga një autoritet. Ju vendos ligjërisht në vonesë, duke filluar interesin e vonesës — por ligji nuk përcakton një datë fikse përgjigjeje.' },
+    example:{ de:'Mahnung Musterfirma AG: Offener Betrag CHF 95.–, zzgl. Verzugszins seit Mahndatum.',
+              en:'Dunning letter, sample company: Outstanding amount CHF 95, plus default interest since the dunning date.' },
+    cta:'../ratgeber/mahnung-erhalten-was-tun.html' },
+];
+
+/* ======================= State ======================= */
+let currentLang = localStorage.getItem('briefai_lang') || 'de';
+let lastFocusedCard = null;
+const voicesByLang = {}; // code -> SpeechSynthesisVoice | null
+
+/* ======================= Render: nav + chrome ======================= */
+function t(key) { return (I18N[currentLang] && I18N[currentLang][key]) || I18N.de[key] || key; }
+
+function applyChrome() {
+  document.documentElement.lang = currentLang;
+  const langDef = LANGS.find(l => l.code === currentLang);
+  document.documentElement.dir = langDef.dir;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    el.textContent = t(el.getAttribute('data-i18n'));
+  });
+  document.getElementById('langSwitchLabel').textContent = langDef.native;
+}
+
+function buildLangMenu() {
+  const menu = document.getElementById('langMenu');
+  menu.innerHTML = '';
+  LANGS.forEach(l => {
+    const btn = document.createElement('button');
+    btn.className = 'lang-option';
+    btn.setAttribute('role', 'menuitemradio');
+    btn.setAttribute('aria-current', String(l.code === currentLang));
+    btn.innerHTML = `<span class="native">${l.native}</span><span class="code">${l.code}</span>`;
+    btn.addEventListener('click', () => {
+      currentLang = l.code;
+      localStorage.setItem('briefai_lang', l.code);
+      applyChrome();
+      renderGrid();
+      buildLangMenu();
+      closeLangMenu();
+    });
+    menu.appendChild(btn);
+  });
+}
+
+function closeLangMenu() { document.getElementById('langSwitch').dataset.open = 'false'; document.getElementById('langSwitchBtn').setAttribute('aria-expanded','false'); }
+function toggleLangMenu() {
+  const el = document.getElementById('langSwitch');
+  const open = el.dataset.open === 'true';
+  el.dataset.open = String(!open);
+  document.getElementById('langSwitchBtn').setAttribute('aria-expanded', String(!open));
+}
+document.getElementById('langSwitchBtn').addEventListener('click', toggleLangMenu);
+document.addEventListener('click', (e) => {
+  const sw = document.getElementById('langSwitch');
+  if (!sw.contains(e.target)) closeLangMenu();
+});
+
+/* ======================= Render: category grid ======================= */
+function renderGrid() {
+  const grid = document.getElementById('catGrid');
+  grid.innerHTML = '';
+  CATEGORIES.forEach(cat => {
+    const isPlaceholderImg = !cat.img;
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'cat-card' + (isPlaceholderImg ? ' placeholder' : '');
+    btn.dataset.cat = cat.id;
+    btn.setAttribute('aria-haspopup', 'dialog');
+    if (isPlaceholderImg) {
+      btn.setAttribute('aria-label', `${cat.title[currentLang]||cat.title.de} — ${t('badge.imagePending')}`);
+    }
+    btn.innerHTML = `
+      ${isPlaceholderImg ? `<span class="pending-pill">${t('badge.imagePending')}</span>` : ''}
+      <div class="cat-stage">${cat.img ? `<img src="${cat.img}" alt="" loading="lazy">` : ''}</div>
+      <h4 class="cat-title">${cat.title[currentLang] || cat.title.de}</h4>
+      <p class="cat-sub">${cat.sub[currentLang] || cat.sub.de}</p>
+    `;
+    btn.addEventListener('click', () => openModal(cat, btn));
+    grid.appendChild(btn);
+  });
+}
+
+/* ======================= Modal ======================= */
+const backdrop = document.getElementById('modalBackdrop');
+const modalBox = document.getElementById('modalBox');
+
+function openModal(cat, triggerEl) {
+  lastFocusedCard = triggerEl;
+  const stage = document.getElementById('modalStage');
+  stage.className = 'modal-stage' + (cat.img ? '' : ' placeholder');
+  stage.innerHTML = cat.img ? `<img src="${cat.img}" alt="">` : '';
+
+  document.getElementById('modalTitle').textContent = cat.title[currentLang] || cat.title.de;
+  document.getElementById('modalDesc').textContent = cat.desc[currentLang] || cat.desc.de || cat.desc.en;
+
+  const exampleBox = document.getElementById('modalExample');
+  const exampleText = cat.example ? (cat.example[currentLang] || cat.example.de || cat.example.en) : null;
+  if (exampleText) {
+    exampleBox.hidden = false;
+    document.getElementById('modalExampleTag').textContent = t('tag.example');
+    document.getElementById('modalExampleText').textContent = exampleText;
+  } else {
+    exampleBox.hidden = true;
+  }
+
+  const note = document.getElementById('modalNote');
+  if (cat.tier === 'minimal') { note.hidden = false; note.textContent = t('note.comingSoon'); }
+  else { note.hidden = true; }
+
+  const speakRow = document.getElementById('speakRow');
+  speakRow.innerHTML = '';
+  speakRow.hidden = (cat.tier === 'minimal' || !cat.desc);
+  if (!speakRow.hidden) buildSpeakRow(speakRow, cat);
+
+  const cta = document.getElementById('modalCta');
+  if (cat.cta) { cta.href = cat.cta; cta.textContent = t('cta.learnMore'); }
+  else { cta.href = '../index.html#waitlist'; cta.textContent = t('cta.waitlist'); }
+
+  backdrop.dataset.open = 'true';
+  document.getElementById('modalClose').focus();
+  document.addEventListener('keydown', onModalKeydown);
+}
+
+function closeModal() {
+  speechSynthesis.cancel();
+  backdrop.dataset.open = 'false';
+  document.removeEventListener('keydown', onModalKeydown);
+  if (lastFocusedCard) lastFocusedCard.focus();
+}
+
+function onModalKeydown(e) {
+  if (e.key === 'Escape') { closeModal(); return; }
+  if (e.key === 'Tab') {
+    const focusables = modalBox.querySelectorAll('button, a[href]');
+    const list = Array.from(focusables).filter(el => el.offsetParent !== null);
+    if (!list.length) return;
+    const first = list[0], last = list[list.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  }
+}
+document.getElementById('modalClose').addEventListener('click', closeModal);
+backdrop.addEventListener('click', (e) => { if (e.target === backdrop) closeModal(); });
+
+/* ======================= SpeechSynthesis ======================= */
+function loadVoices() {
+  const voices = speechSynthesis.getVoices();
+  LANGS.forEach(l => {
+    const match = voices.find(v => v.lang.toLowerCase().startsWith(l.code));
+    voicesByLang[l.code] = match || null;
+  });
+}
+loadVoices();
+if (typeof speechSynthesis !== 'undefined') {
+  speechSynthesis.addEventListener('voiceschanged', loadVoices);
+}
+
+function buildSpeakRow(row, cat) {
+  let speakingCode = null;
+  const chips = {};
+  LANGS.forEach(l => {
+    const chip = document.createElement('button');
+    chip.type = 'button';
+    chip.className = 'lang-chip';
+    chip.textContent = l.native;
+    chip.dataset.lang = l.code;
+    const available = !!voicesByLang[l.code] && !!(cat.desc[l.code]);
+    chip.disabled = !available;
+    if (!available) chip.title = t('voice.unavailable');
+    chip.addEventListener('click', () => {
+      if (speakingCode === l.code) { speechSynthesis.cancel(); return; }
+      speechSynthesis.cancel();
+      const text = cat.desc[l.code] || cat.desc.de;
+      const utter = new SpeechSynthesisUtterance(text);
+      utter.voice = voicesByLang[l.code];
+      utter.lang = voicesByLang[l.code] ? voicesByLang[l.code].lang : l.code;
+      utter.onstart = () => { speakingCode = l.code; Object.values(chips).forEach(c=>c.setAttribute('aria-pressed','false')); chip.setAttribute('aria-pressed','true'); };
+      utter.onend = utter.onerror = () => { speakingCode = null; chip.setAttribute('aria-pressed','false'); };
+      speechSynthesis.speak(utter);
+    });
+    chips[l.code] = chip;
+    row.appendChild(chip);
+  });
+}
+
+/* ======================= Init ======================= */
+buildLangMenu();
+applyChrome();
+renderGrid();
+</script>
+</body>
+</html>
